@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'gatsby'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
   faGithub,
@@ -7,7 +6,7 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 
-import Layout from '../components/layout'
+import Layout from '../components/layouts/default'
 import SEO from '../components/seo'
 
 const IndexPage = () => (

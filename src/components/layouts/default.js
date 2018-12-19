@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Header from './header'
+import Header from '../header'
 
 import 'normalize.css'
 import './reset.css'
-import './layout.css'
+import './default.css'
 
 const Layout = ({children}) => (
   <main role="main">
