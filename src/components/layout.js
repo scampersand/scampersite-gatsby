@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Header from './header'
 
 import 'normalize.css'
+import './reset.css'
 import './layout.css'
 
 const Layout = ({children}) => (
