@@ -1,20 +1,55 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import {Link} from 'gatsby'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons'
 
 import Layout from '../components/layout'
-import Image from '../components/image'
 import SEO from '../components/seo'
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+
+    <section class="content">
+      <div class="container">
+        <div class="content-main">
+          <h1>
+            We work with startups and organizations to build the right thing at
+            the right time.
+          </h1>
+        </div>
+        <ul class="list-inline generous">
+          <li>
+            <a href="mailto:hello@scampersand.com" class="t-bold t-underline">
+              hello@scampersand.com
+            </a>
+          </li>
+          <li>
+            <ul class="list-inline">
+              <li>
+                <a href="https://twitter.com/scampersandco">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/scampersand">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/scampersand">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
   </Layout>
 )
 
