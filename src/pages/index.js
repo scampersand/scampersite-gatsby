@@ -1,6 +1,8 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
+import styled from '@emotion/styled'
+import {Box} from '@rebass/grid/emotion'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
 import {
@@ -11,7 +13,9 @@ import {
 
 import Landing from '../components/layouts/landing'
 
-const Container = ({children}) => <div>{children}</div>
+const Container = props => (
+  <Box {...props} px="1rem" />
+)
 
 const Header = () => (
   <header>
@@ -19,12 +23,15 @@ const Header = () => (
   </header>
 )
 
-const Intro = ({children}) => <section>{children}</section>
+const Section = styled.section({
+  marginTop: '2rem',
+  marginBottom: '2rem',
+})
 
-const Section = ({children}) => <section>{children}</section>
+const Intro = Section
 
 const Project = ({title, children, image}) => (
-  <div>
+  <div css={{marginTop: '1rem', marginBottom: '1rem'}}>
     <h2>{title}</h2>
     <div>{children}</div>
     <Img fluid={image.childImageSharp.fluid} />
@@ -68,7 +75,14 @@ const Footer = () => (
   </footer>
 )
 
-const IndexPage = ({data: {site: {siteMetadata}, appsembler, einstein, quickstart}}) => (
+const IndexPage = ({
+  data: {
+    site: {siteMetadata},
+    appsembler,
+    einstein,
+    quickstart,
+  },
+}) => (
   <Landing title={siteMetadata.title}>
     <Container>
       <Header />
