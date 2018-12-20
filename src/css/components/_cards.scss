@@ -1,29 +1,29 @@
 .cards {
-    display: block;
-    @media (min-width: $multi-column) {
-        display: flex;
-        flex-flow: row wrap;
-        align-items: stretch;  /* default */
-        justify-content: space-between;  /* equals gutter() */
-    }
+  display: block;
+  @media (min-width: $multi-column) {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;  /* default */
+    justify-content: space-between;  /* equals gutter() */
+  }
 }
 
 .card {
-    display: block;
-    margin-bottom: gutter();
-    /* gutter() is a percentage which doesn't work on Firefox for vertical
-     * margin on a flex item. This hack applies a different margin on Firefox
-     * and Microsoft Edge. https://bugzilla.mozilla.org/show_bug.cgi?id=958714
-     */
-    @include only-firefox {  // partials/_hacks.scss
-        margin-bottom: 29.531px;  // from Chrome's computed result
-    }
-    @include only-edge {  // partials/_hacks.scss
-        margin-bottom: 29.531px;  // from Chrome's computed result
-    }
-    @media (min-width: $multi-column) {
-        width: span(4);
-    }
+  display: block;
+  margin-bottom: gutter();
+  /* gutter() is a percentage which doesn't work on Firefox for vertical
+   * margin on a flex item. This hack applies a different margin on Firefox
+   * and Microsoft Edge. https://bugzilla.mozilla.org/show_bug.cgi?id=958714
+   */
+  @include only-firefox {  // partials/_hacks.scss
+    margin-bottom: 29.531px;  // from Chrome's computed result
+  }
+  @include only-edge {  // partials/_hacks.scss
+    margin-bottom: 29.531px;  // from Chrome's computed result
+  }
+  @media (min-width: $multi-column) {
+    width: span(4);
+  }
 }
 
 // Bio card
@@ -46,37 +46,37 @@
 /// A bio card is a combination card with both image
 /// and text.
 .bio-card {
-    @extend .card;
-    display: flex;  // so .bio-text can fill to bottom
-    flex-direction: column;
+  @extend .card;
+  display: flex;  // so .bio-text can fill to bottom
+  flex-direction: column;
 
-    @include grey-dotted-border;
-    background-color: color('white');
+  @include grey-dotted-border;
+  background-color: color('white');
 }
 
 .bio-photo {
-    position: relative;
+  position: relative;
 }
 
 .bio-overlay {
-    position: absolute;
-    width: 100%;
-    height: 22%;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    color: color('black');
+  position: absolute;
+  width: 100%;
+  height: 22%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: color('black');
 }
 
 .bio-overlay h3 {
-    margin-bottom: 0;
-    text-align: center;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .bio-overlay h4 {
-    text-align: center;
+  text-align: center;
 }
 
 /* bio images should always fill their container.
@@ -86,18 +86,18 @@
  * globally somehow.
  */
 .bio-photo img {
-    width: 100%;
+  width: 100%;
 }
 
 .bio-text {
-    background-color: color('white');
-    flex-grow: 1;  // fill gray to bottom
+  background-color: color('white');
+  flex-grow: 1;  // fill gray to bottom
 
-    padding: 1.75rem;
+  padding: 1.75rem;
 
-    @media (min-width: $tablet) {
-        padding: 2.5rem;
-    }
+  @media (min-width: $tablet) {
+    padding: 2.5rem;
+  }
 }
 
 // Service card
@@ -113,20 +113,20 @@
 //
 /// A service card is a simple text-only card.
 .services-card {
-    @extend .card;
+  @extend .card;
 
-    @include grey-dotted-border;
-    background-color: color('white');
+  @include grey-dotted-border;
+  background-color: color('white');
 
-    padding: 1.75rem;
+  padding: 1.75rem;
 
-    @media (min-width: $tablet) {
-        padding: 2.5rem;
-    }
+  @media (min-width: $tablet) {
+    padding: 2.5rem;
+  }
 }
 
 .services-card .highlight {
-    color: color('brand-blue');
+  color: color('brand-blue');
 }
 
 // Work card
@@ -146,22 +146,22 @@
 //
 /// A work card is an image card with a text overlay.
 .work-card {
-    @extend .card;
+  @extend .card;
 }
 
 .work-photo {
-    position: relative;
+  position: relative;
 }
 
 .work-overlay {
-    position: absolute;
-    left: 1.5rem;
-    bottom: 1.5rem;
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
 
-    &, a { color: color('white'); }
-    color: color('white');
+  &, a { color: color('white'); }
+  color: color('white');
 }
 
 .work-photo img {
-    width: 100%;
+  width: 100%;
 }

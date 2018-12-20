@@ -1,17 +1,17 @@
 img, video {
-    max-width: 100%;
+  max-width: 100%;
 
-    /* auto height preserves ratio when the image is scaled. */
-    height: auto;
+  /* auto height preserves ratio when the image is scaled. */
+  height: auto;
 }
 
 .media-container {
-    /* ensure the image or video fully occupies its container, even if we only
-     * have a lower resolution to offer.
-     */
-    img, video {
-        width: 100%;
-    }
+  /* ensure the image or video fully occupies its container, even if we only
+   * have a lower resolution to offer.
+   */
+  img, video {
+    width: 100%;
+  }
 }
 
 /* IE11 tries to play one of the videos and fails, so
@@ -20,13 +20,13 @@ img, video {
  * display the image.
  */
 .media-container .only-ie {
-    display: none;
+  display: none;
 }
 @include only-ie {
-    .media-container .not-ie {
-        display: none;
-    }
-    .media-container .only-ie {
-        display: block;
-    }
+  .media-container .not-ie {
+    display: none;
+  }
+  .media-container .only-ie {
+    display: block;
+  }
 }

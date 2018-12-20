@@ -1,118 +1,118 @@
 html {
-    font-size: 100%;
+  font-size: 100%;
 }
 
 @mixin heading($level) {
 
-    @if $level == standard {
-        font-size: 1.25rem;
-        line-height: 1.3;
-        margin-bottom: 0.65em;
+  @if $level == standard {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin-bottom: 0.65em;
 
-        @media (min-width: $tablet) {
-            font-size: 1.5rem;
-        }
+    @media (min-width: $tablet) {
+      font-size: 1.5rem;
+    }
+  }
+
+  @if $level == medium {
+    font-size: 1.5rem;
+    margin-bottom: 0.25em;
+
+    @media (min-width: $tablet) {
+      font-size: 1.875rem;
+    }
+  }
+
+  @if $level == large {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    margin-bottom: 0.25em;
+
+    @media (min-width: $tablet) {
+      font-size: 2rem;
     }
 
-    @if $level == medium {
-        font-size: 1.5rem;
-        margin-bottom: 0.25em;
+    @media (min-width: $multi-column) {
+      font-size: 3rem;
+    }
+  }
 
-        @media (min-width: $tablet) {
-            font-size: 1.875rem;
-        }
+  @if $level == display {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+
+    @media (min-width: $tablet) {
+      font-size: 3rem;
     }
 
-    @if $level == large {
-        font-size: 1.75rem;
-        line-height: 1.25;
-        margin-bottom: 0.25em;
+    @media (min-width: $multi-column) {
+      font-size: 4rem;
+    }
+  }
 
-        @media (min-width: $tablet) {
-            font-size: 2rem;
-        }
+  @if $level == display-alt {
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-bottom: 2rem;
 
-        @media (min-width: $multi-column) {
-            font-size: 3rem;
-        }
+    @media (min-width: $tablet) {
+      font-size: 1.5rem;
     }
 
-    @if $level == display {
-        font-size: 1.5rem;
-        line-height: 1.25;
-        margin-bottom: 1rem;
-
-        @media (min-width: $tablet) {
-            font-size: 3rem;
-        }
-
-        @media (min-width: $multi-column) {
-            font-size: 4rem;
-        }
+    @media (min-width: $multi-column) {
+      font-size: 2rem;
     }
-
-    @if $level == display-alt {
-        font-size: 1.25rem;
-        line-height: 1;
-        margin-bottom: 2rem;
-
-        @media (min-width: $tablet) {
-            font-size: 1.5rem;
-        }
-
-        @media (min-width: $multi-column) {
-            font-size: 2rem;
-        }
-    }
+  }
 
 }
 
 @mixin text($level) {
 
-    @if $level == small {
-        font-size: 0.875rem;
+  @if $level == small {
+    font-size: 0.875rem;
 
-        @media (min-width: $tablet) {
-            font-size: 1rem;
-        }
+    @media (min-width: $tablet) {
+      font-size: 1rem;
+    }
+  }
+
+  @if $level == standard {
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 0.65em;
+
+    @media (min-width: $tablet) {
+      font-size: 1.125rem;
     }
 
-    @if $level == standard {
-        font-size: 1rem;
-        line-height: 1.3;
-        margin-bottom: 0.65em;
+    @media (min-width: $multi-column) {
+      font-size: 1.25rem;
+    }
+  }
 
-        @media (min-width: $tablet) {
-            font-size: 1.125rem;
-        }
+  @if $level == large {
+    font-size: 1.125rem;
+    line-height: 1.3333;
 
-        @media (min-width: $multi-column) {
-            font-size: 1.25rem;
-        }
+    @media (min-width: $tablet) {
+      font-size: 1.5rem;
     }
 
-    @if $level == large {
-        font-size: 1.125rem;
-        line-height: 1.3333;
-
-        @media (min-width: $tablet) {
-            font-size: 1.5rem;
-        }
-
-        @media (min-width: $multi-column) {
-            font-size: 1.75rem;
-            line-height: 1.2142;
-        }
+    @media (min-width: $multi-column) {
+      font-size: 1.75rem;
+      line-height: 1.2142;
     }
+  }
 }
 
 @mixin icon($level) {
 
-    @if $level == standard {
-        font-size: 1rem;
-    }
+  @if $level == standard {
+    font-size: 1rem;
+  }
 
-    @if $level == large {
-        font-size: 2rem;
-    }
+  @if $level == large {
+    font-size: 2rem;
+  }
 }

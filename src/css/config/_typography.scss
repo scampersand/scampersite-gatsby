@@ -1,60 +1,60 @@
 html {
-    font-family: $sans-serif;
+  font-family: $sans-serif;
 
-    font-variant-numeric: lining-nums;
-    -moz-font-feature-settings: "lnum";
-    -webkit-font-feature-settings: "lnum";
-    font-feature-settings: "lnum";
+  font-variant-numeric: lining-nums;
+  -moz-font-feature-settings: "lnum";
+  -webkit-font-feature-settings: "lnum";
+  font-feature-settings: "lnum";
 }
 
 h1 {
-    @include heading(display);
-    font-weight: normal;
+  @include heading(display);
+  font-weight: normal;
 }
 
 /*
 h2 {
-    @include heading(large);
-    font-weight: normal;
+  @include heading(large);
+  font-weight: normal;
 }
 
 h3 {
-    @include heading(medium);
-    font-weight: normal;
+  @include heading(medium);
+  font-weight: normal;
 }
 
 h4 {
-    @include heading(standard);
-    font-weight: normal;
+  @include heading(standard);
+  font-weight: normal;
 }
 
 p, label,
 input[type="submit"] {
-    @include text(standard);
+  @include text(standard);
 }
 */
 
 li, a {
-    @include heading(display-alt);
+  @include heading(display-alt);
 }
 
 .t-bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .t-italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 .t-underline {
-    padding-bottom: 3px;
-    border-bottom: 4px solid color('brand-gold');
+  padding-bottom: 3px;
+  border-bottom: 4px solid color('brand-gold');
 }
 
 .t-upper {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .t-small {
-    @include text(small);
+  @include text(small);
 }
