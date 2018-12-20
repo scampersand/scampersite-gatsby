@@ -11,31 +11,45 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 
+import vars from '../variables.js'
 import Landing from '../components/layouts/landing'
 
-const Container = props => (
-  <Box {...props} px="1rem" />
-)
+const Container = props => <Box {...props} px="1rem" />
 
 const Header = () => (
   <header>
-    <a href="/">Scampersand</a>
+    <a
+      href="/"
+      css={{
+        color: 'inherit',
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        textDecoration: 'none',
+      }}
+    >
+      Scampersand
+    </a>
   </header>
 )
 
 const Section = styled.section({
-  marginTop: '2rem',
-  marginBottom: '2rem',
+  marginTop: vars.sectionMargin,
+  marginBottom: vars.sectionMargin,
 })
 
 const Intro = Section
 
+const SubSection = styled.section({
+  marginTop: vars.subSectionMargin,
+  marginBottom: vars.subSectionMargin,
+})
+
 const Project = ({title, children, image}) => (
-  <div css={{marginTop: '1rem', marginBottom: '1rem'}}>
+  <SubSection>
     <h2>{title}</h2>
     <div>{children}</div>
     <Img fluid={image.childImageSharp.fluid} />
-  </div>
+  </SubSection>
 )
 
 Project.Description = ({children}) => <p>{children}</p>
@@ -53,25 +67,35 @@ Project.Award = ({name}) => (
   </p>
 )
 
+const InlineList = ({children}) => (
+  <ul css={{listStyle: 'none', marginLeft: 0}}>
+    {children.map((child, i) => (
+      <li
+        key={i}
+        css={{
+          display: 'inline-block',
+          marginRight: i < children.length - 1 ? '1rem' : 0,
+        }}
+      >
+        {child}
+      </li>
+    ))}
+  </ul>
+)
+
 const Footer = () => (
   <footer>
-    <ul>
-      <li>
-        <a href="https://twitter.com/scampersandco">
-          <FontAwesomeIcon icon={faTwitter} />
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/scampersand">
-          <FontAwesomeIcon icon={faGithub} />
-        </a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/company/scampersand">
-          <FontAwesomeIcon icon={faLinkedin} />
-        </a>
-      </li>
-    </ul>
+    <InlineList>
+      <a href="https://twitter.com/scampersandco">
+        <FontAwesomeIcon icon={faTwitter} />
+      </a>
+      <a href="https://github.com/scampersand">
+        <FontAwesomeIcon icon={faGithub} />
+      </a>
+      <a href="https://www.linkedin.com/company/scampersand">
+        <FontAwesomeIcon icon={faLinkedin} />
+      </a>
+    </InlineList>
   </footer>
 )
 
