@@ -1,5 +1,6 @@
 import React from 'react'
 import {graphql} from 'gatsby'
+import Img from 'gatsby-image'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
 import {
@@ -12,7 +13,11 @@ import Landing from '../components/layouts/landing'
 
 const Container = ({children}) => <div>{children}</div>
 
-const Header = () => <header><a href="/">Scampersand</a></header>
+const Header = () => (
+  <header>
+    <a href="/">Scampersand</a>
+  </header>
+)
 
 const Intro = ({children}) => <section>{children}</section>
 
@@ -22,7 +27,7 @@ const Project = ({title, children, image}) => (
   <div>
     <h2>{title}</h2>
     <div>{children}</div>
-    <img src={image} alt="foo" />
+    <Img fluid={image.childImageSharp.fluid} />
   </div>
 )
 
@@ -63,17 +68,14 @@ const Footer = () => (
   </footer>
 )
 
-const IndexPage = ({data}) => (
-  <Landing title={data.site.siteMetadata.title}>
+const IndexPage = ({data: {site: {siteMetadata}, appsembler, einstein, quickstart}}) => (
+  <Landing title={siteMetadata.title}>
     <Container>
       <Header />
-      <Intro>{data.site.siteMetadata.description}</Intro>
+      <Intro>{siteMetadata.description}</Intro>
       <Section>
         <h1>Work</h1>
-        <Project
-          title="Tizra Quickstart"
-          image="https://placekitten.com/300/200"
-        >
+        <Project title="Tizra Quickstart" image={quickstart}>
           <Project.Description>
             Tizra brought in Scampersand to improve the configurability and
             mobile experience of their out-of-the-box theme. Our job was to make
@@ -83,10 +85,7 @@ const IndexPage = ({data}) => (
             them to pursue scaling their customer base.
           </Project.Description>
         </Project>
-        <Project
-          title="Appsembler Reporting"
-          image="https://placekitten.com/300/200"
-        >
+        <Project title="Appsembler Reporting" image={appsembler}>
           <Project.Description>
             Appsembler wanted to know how many learners were actively using
             their Open edX LMS. To give them insight into engagement and
@@ -102,10 +101,7 @@ const IndexPage = ({data}) => (
             in this timeframe is amazing.
           </Project.Testimonial>
         </Project>
-        <Project
-          title="Einstein Search"
-          image="https://placekitten.com/300/200"
-        >
+        <Project title="Einstein Search" image={einstein}>
           <Project.Description>
             We worked with the Einstein Papers Project to improve the
             searchability of their online archive. Based on extensive feedback
@@ -132,12 +128,28 @@ const IndexPage = ({data}) => (
 export default IndexPage
 
 export const query = graphql`
+  fragment fluidImage on File {
+    childImageSharp {
+      fluid(maxWidth: 1024) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
   query {
     site {
       siteMetadata {
         title
         description
       }
+    }
+    appsembler: file(relativePath: {eq: "projects/appsembler-reports.png"}) {
+      ...fluidImage
+    }
+    einstein: file(relativePath: {eq: "projects/einstein-search.png"}) {
+      ...fluidImage
+    }
+    quickstart: file(relativePath: {eq: "projects/tizra-quickstart.png"}) {
+      ...fluidImage
     }
   }
 `
