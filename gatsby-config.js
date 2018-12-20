@@ -28,5 +28,13 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        typekit: {
+          id: 'don3dwd',
+        }
+      },
+    },
   ],
 }
