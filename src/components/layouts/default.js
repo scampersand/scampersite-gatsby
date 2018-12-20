@@ -3,14 +3,16 @@ import PropTypes from 'prop-types'
 import Header from '../header'
 import SEO from '../seo'
 
+// normalize comes from npm
 import 'normalize.css'
-import './reset.css'
-import '../../css/screen.scss'
 
-const Layout = ({children, className, keywords, title}) => (
+// our own simple reset
+import './reset.css'
+
+const Layout = ({children, keywords, title}) => (
   <>
     <SEO title={title} keywords={keywords} />
-    <main role="main" className={className}>
+    <main role="main">
       <Header />
       {children}
     </main>
