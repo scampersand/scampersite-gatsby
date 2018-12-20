@@ -1,6 +1,9 @@
+const THINSP = '\u2009'
+const MDASH = '\u2014'
+
 module.exports = {
   siteMetadata: {
-    title: 'Scampersand&thinsp;&mdash;&thinsp;Web &amp; Mobile Applications, Providence',
+    title: `Scampersand${THINSP}${MDASH}${THINSP}Web & Mobile Applications, Providence`,
     description: 'We work with startups and organizations to build the right thing at the right time.',
     twitter: 'scampersandco',
   },
@@ -18,12 +21,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'scampersand-com',
-        short_name: 'scampersand',
+        name: 'Scampersand',
+        short_name: 'Scampersand',
         start_url: '/',
-        background_color: '#663399', // XXX
-        theme_color: '#663399', // XXX
-        display: 'minimal-ui',
       },
     },
     'gatsby-plugin-sass',
