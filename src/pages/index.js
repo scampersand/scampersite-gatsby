@@ -36,10 +36,9 @@ Project.Testimonial = ({from, children}) => (
 )
 
 Project.Award = ({name}) => (
-  <>
-    <FontAwesomeIcon icon={faAward} />
-    <p>{name}</p>
-  </>
+  <p>
+    <FontAwesomeIcon icon={faAward} /> <span>{name}</span>
+  </p>
 )
 
 const Footer = () => (
