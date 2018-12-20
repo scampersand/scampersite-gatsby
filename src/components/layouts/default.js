@@ -4,10 +4,10 @@ import Header from '../header'
 
 import 'normalize.css'
 import './reset.css'
-import './default.css'
+import '../../css/screen.scss'
 
-const Layout = ({children}) => (
-  <main role="main">
+const Layout = ({children, className}) => (
+  <main role="main" className={className}>
     <Header />
     {children}
   </main>
@@ -15,6 +15,7 @@ const Layout = ({children}) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 }
 
 export default Layout

@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Scampersand&thinsp;&mdash;&thinsp;Web &amp; Mobile Applications, Providence',
     description: 'We work with startups and organizations to build the right thing at the right time.',
+    twitter: 'scampersandco',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -26,5 +27,6 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // XXX This path is relative to the root of the site.
       },
     },
+    'gatsby-plugin-sass',
   ],
 }

@@ -6,11 +6,11 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 
-import Layout from '../components/layouts/default'
+import Landing from '../components/layouts/landing'
 import SEO from '../components/seo'
 
 const IndexPage = () => (
-  <Layout>
+  <Landing>
     <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
 
     <section class="content">
@@ -49,7 +49,7 @@ const IndexPage = () => (
         </ul>
       </div>
     </section>
-  </Layout>
+  </Landing>
 )
 
 export default IndexPage
