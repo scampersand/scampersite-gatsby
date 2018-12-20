@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Header from '../header'
 import SEO from '../seo'
 
 // normalize comes from npm
@@ -13,7 +12,6 @@ const Layout = ({children, keywords, title}) => (
   <>
     <SEO title={title} keywords={keywords} />
     <main role="main">
-      <Header />
       {children}
     </main>
   </>

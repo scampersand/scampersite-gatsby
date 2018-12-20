@@ -1,5 +1,5 @@
 import React from 'react'
-import {StaticQuery, graphql} from 'gatsby'
+import {graphql} from 'gatsby'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
 import {
@@ -12,6 +12,8 @@ import Landing from '../components/layouts/landing'
 
 const Container = ({children}) => <div>{children}</div>
 
+const Header = () => <header><a href="/">Scampersand</a></header>
+
 const Intro = ({children}) => <section>{children}</section>
 
 const Section = ({children}) => <section>{children}</section>
@@ -19,7 +21,7 @@ const Section = ({children}) => <section>{children}</section>
 const Project = ({title, children, image}) => (
   <div>
     <h2>{title}</h2>
-    <p>{children}</p>
+    <div>{children}</div>
     <img src={image} alt="foo" />
   </div>
 )
@@ -65,6 +67,7 @@ const Footer = () => (
 const IndexPage = ({data}) => (
   <Landing title={data.site.siteMetadata.title}>
     <Container>
+      <Header />
       <Intro>{data.site.siteMetadata.description}</Intro>
       <Section>
         <h1>Work</h1>
@@ -129,8 +132,8 @@ const IndexPage = ({data}) => (
 
 export default IndexPage
 
-export const pageQuery = graphql`
-  query SiteTitleQuery {
+export const query = graphql`
+  query {
     site {
       siteMetadata {
         title
