@@ -6,6 +6,7 @@ import Page from '../components/Page'
 import Section from '../components/Section'
 import Project from '../components/Project'
 import LogoGrid from '../components/LogoGrid'
+import ContactForm from '../components/ContactForm'
 
 const Intro = props => <Section {...props} />
 
@@ -87,7 +88,7 @@ const IndexPage = ({
       </Section>
       <Section>
         <h1>Contact</h1>
-        <a href="mailto:hello@scampersand.com">hello@scampersand.com</a>
+        <ContactForm />
       </Section>
     </Page>
   )
