@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import {ThemeProvider} from 'emotion-theming'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
   faGithub,
@@ -8,6 +8,7 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 
+import vars from '../variables'
 import Container from './Container'
 import InlineList from './InlineList'
 import SEO from './SEO'
@@ -49,15 +50,19 @@ const Footer = () => (
   </footer>
 )
 
+const theme = {
+  breakpoints: vars.breakpoints,
+}
+
 const Page = ({children, keywords, title}) => (
-  <>
+  <ThemeProvider theme={theme}>
     <SEO title={title} keywords={keywords} />
     <Container>
       <Header />
       <Main>{children}</Main>
       <Footer />
     </Container>
-  </>
+  </ThemeProvider>
 )
 
 Page.propTypes = {

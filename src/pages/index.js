@@ -83,7 +83,7 @@ const IndexPage = ({
           research &amp; scholarly publishing, healthcare, and social impact
           ventures.
         </p>
-        <LogoGrid logos={clientLogos} />
+        <LogoGrid images={clientLogos} />
       </Section>
       <Section>
         <h1>Contact</h1>

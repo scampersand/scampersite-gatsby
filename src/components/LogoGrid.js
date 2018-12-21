@@ -2,6 +2,7 @@ import _ from 'lodash'
 import React from 'react'
 import {Flex, Box} from '@rebass/grid/emotion'
 
+import vars from '../variables'
 import Image from './Image'
 
 const LogoGrid = ({images}) => (
@@ -9,12 +10,12 @@ const LogoGrid = ({images}) => (
     alignItems="center"
     flexWrap="wrap"
     justifyContent="space-between"
-    mx="-11px"
+    mx={'-' + vars.logoGutter}
   >
     {_(images)
       .values()
       .map(image => (
-        <Box width={1 / 2} px="11px">
+        <Box width={vars.logoColumns.map(n => 1 / n)} px={vars.logoGutter}>
           <Image image={image} key={image.name} />
         </Box>
       ))
