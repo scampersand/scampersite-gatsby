@@ -78,6 +78,11 @@ const IndexPage = ({
       </Section>
       <Section>
         <h1>Clients</h1>
+        <p>
+          We work with clients who are making a difference in education,
+          research &amp; scholarly publishing, healthcare, and social impact
+          ventures.
+        </p>
         <LogoGrid logos={clientLogos} />
       </Section>
       <Section>
