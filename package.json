@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "scampersite",
+  "description": "Scampersand website",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Aron Griffis <aron@scampersand.com>",
   "dependencies": {
     "@emotion/core": "^10.0.5",
     "@emotion/styled": "^10.0.5",
@@ -32,11 +32,9 @@
     "react-typography": "^0.16.18",
     "typography": "^0.16.18"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
+    "now-build": "npm run build",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
@@ -48,6 +46,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/scampersand/scampersite-gatsby"
   }
 }
