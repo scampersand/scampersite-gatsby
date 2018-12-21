@@ -30,18 +30,21 @@ const Header = () => (
 
 const Main = ({children}) => <main role="main">{children}</main>
 
+const SocialLink = ({href, icon}) => (
+  <a css={{color: 'inherit', textDecoration: 'none'}} href={href}>
+    <FontAwesomeIcon icon={icon} />
+  </a>
+)
+
 const Footer = () => (
   <footer>
     <InlineList>
-      <a href="https://twitter.com/scampersandco">
-        <FontAwesomeIcon icon={faTwitter} />
-      </a>
-      <a href="https://github.com/scampersand">
-        <FontAwesomeIcon icon={faGithub} />
-      </a>
-      <a href="https://www.linkedin.com/company/scampersand">
-        <FontAwesomeIcon icon={faLinkedin} />
-      </a>
+      <SocialLink href="https://twitter.com/scampersandco" icon={faTwitter} />
+      <SocialLink href="https://github.com/scampersand" icon={faGithub} />
+      <SocialLink
+        href="https://www.linkedin.com/company/scampersand"
+        icon={faLinkedin}
+      />
     </InlineList>
   </footer>
 )
