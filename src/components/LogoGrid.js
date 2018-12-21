@@ -15,8 +15,12 @@ const LogoGrid = ({images}) => (
     {_(images)
       .values()
       .map(image => (
-        <Box width={vars.logoColumns.map(n => 1 / n)} px={vars.logoGutter}>
-          <Image image={image} key={image.name} />
+        <Box
+          width={vars.logoColumns.map(n => 1 / n)}
+          px={vars.logoGutter}
+          key={image.name}
+        >
+          <Image image={image} />
         </Box>
       ))
       .value()}
