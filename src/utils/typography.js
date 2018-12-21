@@ -1,5 +1,4 @@
 import Typography from 'typography'
-import verticalRhythm from 'compass-vertical-rhythm'
 
 const typography = new Typography({
   baseFontSize: '18px',
