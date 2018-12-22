@@ -118,7 +118,7 @@ export const query = graphql`
   fragment logoImage on File {
     childImageSharp {
       fluid(maxWidth: 512, toFormat: PNG) {
-        ...GatsbyImageSharpFluid
+        ...GatsbyImageSharpFluid_noBase64
       }
     }
   }

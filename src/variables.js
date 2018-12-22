@@ -5,8 +5,9 @@ const {rhythm} = typography
 export default {
   breakpoints: ['1024px'], // ipad landscape
   logoColumns: [2, 4],
-  logoGutter: '11px', // XXX
-  logoAspect: 3 / 2,
+  logoGutter: 20,
+  logoAspect: 2.5 / 1,
+  logoRowGutter: rhythm(2),
   sectionMargin: rhythm(2),
   subSectionMargin: rhythm(1),
 }
