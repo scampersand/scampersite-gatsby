@@ -99,11 +99,12 @@ export default IndexPage
 export const query = graphql`
   fragment fluidImage on File {
     childImageSharp {
-      fluid(maxWidth: 1024) {
-        ...GatsbyImageSharpFluid_withWebp
+      fluid(maxWidth: 1024, toFormat: JPG) {
+        ...GatsbyImageSharpFluid
       }
     }
   }
+
   fragment fluidImages on FileConnection {
     edges {
       node {
@@ -113,6 +114,25 @@ export const query = graphql`
       }
     }
   }
+
+  fragment logoImage on File {
+    childImageSharp {
+      fluid(maxWidth: 512, toFormat: PNG) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+
+  fragment logoImages on FileConnection {
+    edges {
+      node {
+        name
+        publicURL
+        ...logoImage
+      }
+    }
+  }
+
   query {
     site {
       siteMetadata {
@@ -121,7 +141,7 @@ export const query = graphql`
       }
     }
     clientLogos: allFile(filter: {relativeDirectory: {eq: "clients"}}) {
-      ...fluidImages
+      ...logoImages
     }
     projectImages: allFile(filter: {relativeDirectory: {eq: "projects"}}) {
       ...fluidImages
