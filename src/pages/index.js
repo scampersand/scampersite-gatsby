@@ -84,7 +84,15 @@ const IndexPage = ({
           research &amp; scholarly publishing, healthcare, and social impact
           ventures.
         </p>
-        <LogoGrid images={clientLogos} />
+        <LogoGrid
+          images={clientLogos}
+          order={[
+            // mobile
+            {appsembler: -1, ripul: 1},
+            // desktop
+            {'princeton-university-press': -1, '18f': 1},
+          ]}
+        />
       </Section>
       <Section>
         <h1>Contact</h1>

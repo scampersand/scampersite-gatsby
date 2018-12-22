@@ -45,7 +45,7 @@ class Logo extends React.Component {
   }
 }
 
-const LogoGrid = ({images}) => {
+const LogoGrid = ({images, order}) => {
   images = Object.keys(images)
     .sort()
     .map(k => images[k])
@@ -63,6 +63,7 @@ const LogoGrid = ({images}) => {
           px={vars.logoGutter / 2}
           py={`calc(${vars.logoRowGutter} / 2)`}
           key={image.name}
+          order={order.map(o => o[image.name] || 0)}
         >
           <Logo image={image} />
         </Box>
