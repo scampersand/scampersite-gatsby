@@ -99,7 +99,7 @@ export default IndexPage
 export const query = graphql`
   fragment fluidImage on File {
     childImageSharp {
-      fluid(maxWidth: 1024, toFormat: JPG) {
+      fluid(maxWidth: 1024, toFormat: JPG, quality: 75) {
         ...GatsbyImageSharpFluid
       }
     }
