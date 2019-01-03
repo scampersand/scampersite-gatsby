@@ -1,7 +1,7 @@
-import _ from 'lodash'
 import React from 'react'
 import {graphql} from 'gatsby'
 
+import {namedImages} from '../utils/queries'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import Project from '../components/Project'
@@ -9,12 +9,6 @@ import LogoGrid from '../components/LogoGrid'
 import ContactForm from '../components/ContactForm'
 
 const Intro = props => <Section {...props} />
-
-const namedImages = images =>
-  _(images.edges)
-    .map(({node}) => [node.name, node])
-    .fromPairs()
-    .value()
 
 const IndexPage = ({
   data: {
@@ -24,7 +18,6 @@ const IndexPage = ({
   },
 }) => {
   projectImages = namedImages(projectImages)
-  clientLogos = namedImages(clientLogos)
   return (
     <Page title={siteMetadata.title}>
       <Intro>{siteMetadata.description}</Intro>
@@ -84,15 +77,7 @@ const IndexPage = ({
           research &amp; scholarly publishing, healthcare, and social impact
           ventures.
         </p>
-        <LogoGrid
-          images={clientLogos}
-          order={[
-            // mobile
-            {appsembler: -1, ripul: 1},
-            // desktop
-            {'princeton-university-press': -1, '18f': 1},
-          ]}
-        />
+        <LogoGrid />
       </Section>
       <Section>
         <h1>Contact</h1>
@@ -123,33 +108,12 @@ export const query = graphql`
     }
   }
 
-  fragment logoImage on File {
-    childImageSharp {
-      fluid(maxWidth: 512, toFormat: PNG) {
-        ...GatsbyImageSharpFluid_noBase64
-      }
-    }
-  }
-
-  fragment logoImages on FileConnection {
-    edges {
-      node {
-        name
-        publicURL
-        ...logoImage
-      }
-    }
-  }
-
   query {
     site {
       siteMetadata {
         title
         description
       }
-    }
-    clientLogos: allFile(filter: {relativeDirectory: {eq: "clients"}}) {
-      ...logoImages
     }
     projectImages: allFile(filter: {relativeDirectory: {eq: "projects"}}) {
       ...fluidImages

@@ -1,75 +1,56 @@
+import _ from 'lodash'
+import {StaticQuery, graphql} from 'gatsby'
 import React from 'react'
-import {Flex, Box} from '@rebass/grid/emotion'
 
 import vars from '../variables'
-import Image from './Image'
+import {imageNodes} from '../utils/queries'
+import ImageGrid from './ImageGrid'
 
-class Logo extends React.Component {
-  constructor(props) {
-    super(props)
-    this.ref = React.createRef()
-    this.state = {height: 100}
+const LogoGrid = () => (
+  <StaticQuery
+    query={LOGO_QUERY}
+    render={({images}) => (
+      <ImageGrid
+        images={_.sortBy(imageNodes(images), 'name')}
+        order={LOGO_ORDER}
+        columns={vars.logoColumns}
+        gutter={vars.logoGutter}
+        rowGutter={vars.logoRowGutter}
+        aspect={vars.logoAspect}
+      />
+    )}
+  />
+)
+
+const LOGO_ORDER = [
+  // mobile
+  {appsembler: -1, ripul: 1},
+  // desktop
+  {'princeton-university-press': -1, '18f': 1},
+]
+
+const LOGO_QUERY = graphql`
+  fragment logoImage on File {
+    childImageSharp {
+      fluid(maxWidth: 512, toFormat: PNG) {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
   }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.resize)
-    this.resize()
+  fragment logoImages on FileConnection {
+    edges {
+      node {
+        name
+        publicURL
+        ...logoImage
+      }
+    }
   }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.resize)
+  query LogoQuery {
+    images: allFile(filter: {relativeDirectory: {eq: "clients"}}) {
+      ...logoImages
+    }
   }
-
-  resize = () => {
-    const {width} = this.ref.current.getBoundingClientRect()
-    this.setState({height: width / vars.logoAspect})
-  }
-
-  render() {
-    const {props, state: {height}} = this
-    return (
-      <div css={{height}} ref={this.ref}>
-        <Image
-          style={{height: '100%'}}
-          imgStyle={{
-            height: '100%',
-            width: '100%',
-            objectFit: 'contain',
-            objectPosition: 'center center',
-            filter: 'grayscale(100%)',
-          }}
-          {...props}
-        />
-      </div>
-    )
-  }
-}
-
-const LogoGrid = ({images, order}) => {
-  images = Object.keys(images)
-    .sort()
-    .map(k => images[k])
-  return (
-    <Flex
-      alignItems="center"
-      flexWrap="wrap"
-      justifyContent="start"
-      mx={-(vars.logoGutter / 2)}
-      my={`calc(-${vars.logoRowGutter} / 2)`}
-    >
-      {images.map(image => (
-        <Box
-          width={vars.logoColumns.map(n => 1 / n)}
-          px={vars.logoGutter / 2}
-          py={`calc(${vars.logoRowGutter} / 2)`}
-          key={image.name}
-          order={order.map(o => o[image.name] || 0)}
-        >
-          <Logo image={image} />
-        </Box>
-      ))}
-    </Flex>
-  )
-}
+`
 
 export default LogoGrid
