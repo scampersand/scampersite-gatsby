@@ -39,6 +39,7 @@ const IndexPage = ({
         <Project
           title="Appsembler Reporting"
           image={projectImages['appsembler-reports']}
+          flip
         >
           <Project.Description>
             Appsembler wanted to know how many learners were actively using
