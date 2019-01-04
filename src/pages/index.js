@@ -25,7 +25,7 @@ const IndexPage = ({
         <h1>Recent Work</h1>
         <Project.Group alternating>
           <Project
-            title="Appsembler Reporting"
+            title="Appsembler"
             image={projectImages['appsembler-reports']}
           >
             <Project.Description>
@@ -44,12 +44,12 @@ const IndexPage = ({
             </Project.Testimonial>
           </Project>
           <Project
-            title="Tizra Quickstart"
+            title="Tizra"
             image={projectImages['tizra-quickstart']}
           >
             <Project.Description>
               Tizra brought in Scampersand to improve the configurability and
-              mobile experience of their out-of-the-box theme. Our job was to
+              mobile experience of their Quickstart theme. Our job was to
               make these improvements on a small budget within an existing
               codebase. We applied some creative thinking and technical
               expertise to provide Tizra with a solution that speeds up their
@@ -57,7 +57,7 @@ const IndexPage = ({
             </Project.Description>
           </Project>
           <Project
-            title="Einstein Search"
+            title="Digital Einstein Papers"
             image={projectImages['einstein-search']}
           >
             <Project.Description>
