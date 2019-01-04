@@ -31,13 +31,13 @@ src/images/%.svg: src/assets/%.svg
 
 src/images/clients/%.png: src/assets/clients/%.png
 	mkdir -p $(dir $@)
-	convert $^ -normalize -colorspace Gray -trim +repage $@
+	convert $^ -normalize -colorspace Gray -trim -transparent white +repage $@
 
 # I have no idea why -negate is needed here, but without it, the jpg is
 # inverted during converstion.
 src/images/clients/gw.png: src/assets/clients/gw.jpg
 	mkdir -p $(dir $@)
-	convert $^ -colorspace Gray -normalize -negate +repage $@
+	convert $^ -colorspace Gray -negate -normalize -transparent white +repage $@
 
 src/images/clients/%.png: src/assets/clients/%.svg
 	mkdir -p $(dir $@)
