@@ -22,7 +22,7 @@ const IndexPage = ({
     <Page title={siteMetadata.title}>
       <Intro>{siteMetadata.description}</Intro>
       <Section>
-        <h1>Work</h1>
+        <h1>Recent Work</h1>
         <Project.Group alternating>
           <Project
             title="Tizra Quickstart"
