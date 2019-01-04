@@ -40,7 +40,6 @@ class ImageGridImage extends React.Component {
             width: '100%',
             objectFit: 'contain',
             objectPosition: 'center center',
-            filter: 'grayscale(100%)',
           }}
           {...props}
         />
