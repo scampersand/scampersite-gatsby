@@ -8,12 +8,12 @@ import Image from './Image'
 
 const Project = ({title, children, image, flip}) => (
   <Section.SubSection>
-    <Row columns={12} gutter={2}>
-      <Col cols={[12, 4]} order={[0, flip ? 1 : 0]}>
+    <Row columns={5} gutter={2}>
+      <Col cols={[5, 2]} order={[0, flip ? 1 : 0]}>
         <h2>{title}</h2>
         <div>{children}</div>
       </Col>
-      <Col cols={[12, 8]} order={[0, flip ? 0 : 1]}>
+      <Col cols={[5, 3]} order={[0, flip ? 0 : 1]}>
         <Image image={image} />
       </Col>
     </Row>
