@@ -15,6 +15,6 @@ reimages:
 
 src/images/%.png: src/assets/%.png
 	mkdir -p $(dir $@)
-	convert $^ -flatten -fuzz 1% -trim +repage $@
+	convert $^ -trim +repage $@
 
 .PHONY: dev deploy images reimages
