@@ -25,19 +25,6 @@ const IndexPage = ({
         <h1>Recent Work</h1>
         <Project.Group alternating>
           <Project
-            title="Tizra Quickstart"
-            image={projectImages['tizra-quickstart']}
-          >
-            <Project.Description>
-              Tizra brought in Scampersand to improve the configurability and
-              mobile experience of their out-of-the-box theme. Our job was to
-              make these improvements on a small budget within an existing
-              codebase. We applied some creative thinking and technical
-              expertise to provide Tizra with a solution that speeds up their
-              onboarding and allows them to pursue scaling their customer base.
-            </Project.Description>
-          </Project>
-          <Project
             title="Appsembler Reporting"
             image={projectImages['appsembler-reports']}
           >
@@ -55,6 +42,19 @@ const IndexPage = ({
               I have to say, the amount you were able to get done with two
               people in this timeframe is amazing.
             </Project.Testimonial>
+          </Project>
+          <Project
+            title="Tizra Quickstart"
+            image={projectImages['tizra-quickstart']}
+          >
+            <Project.Description>
+              Tizra brought in Scampersand to improve the configurability and
+              mobile experience of their out-of-the-box theme. Our job was to
+              make these improvements on a small budget within an existing
+              codebase. We applied some creative thinking and technical
+              expertise to provide Tizra with a solution that speeds up their
+              onboarding and allows them to pursue scaling their customer base.
+            </Project.Description>
           </Project>
           <Project
             title="Einstein Search"
