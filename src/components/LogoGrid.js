@@ -2,7 +2,6 @@ import _ from 'lodash'
 import {StaticQuery, graphql} from 'gatsby'
 import React from 'react'
 
-import vars from '../variables'
 import {imageNodes} from '../utils/queries'
 import ImageGrid from './ImageGrid'
 
@@ -13,10 +12,10 @@ const LogoGrid = () => (
       <ImageGrid
         images={_.sortBy(imageNodes(images), 'name')}
         order={LOGO_ORDER}
-        columns={vars.logoColumns}
-        gutter={vars.logoGutter}
-        rowGutter={vars.logoRowGutter}
-        aspect={vars.logoAspect}
+        columns={[2, 4]}
+        gutter={4}
+        rowGutter={3}
+        aspect={2.5}
       />
     )}
   />

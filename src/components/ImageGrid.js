@@ -54,24 +54,28 @@ ImageGridImage.propTypes = {
   image: PropTypes.object.isRequired,
 }
 
+const asArray = x => (Array.isArray(x) ? x : [x])
+
+const negate = x =>
+  typeof x === 'string' ? (x.startsWith('-') ? x.substring(1) : '-' + x) : -x
+
 const ImageGrid = ({images, order, columns, gutter, rowGutter, aspect}) => {
-  if (!Array.isArray(columns)) {
-    columns = [columns]
-  }
-  const width = columns.map(n => 1 / n) // for styled-system
+  const width = asArray(columns).map(n => 1 / n)
+  const negGutter = asArray(gutter).map(negate)
+  const negRowGutter = asArray(rowGutter).map(negate)
   return (
     <Flex
       alignItems="center"
       flexWrap="wrap"
       justifyContent="start"
-      mx={-(gutter / 2)}
-      my={`calc(-${rowGutter} / 2)`}
+      ml={negGutter}
+      mt={negRowGutter}
     >
       {images.map(image => (
         <Box
           width={width}
-          px={gutter / 2}
-          py={`calc(${rowGutter} / 2)`}
+          pl={gutter}
+          pt={rowGutter}
           key={image.name}
           order={order.map(o => o[image.name] || 0)}
         >
@@ -86,7 +90,7 @@ ImageGrid.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
   order: PropTypes.arrayOf(PropTypes.object),
   gutter: PropTypes.number.isRequired,
-  rowGutter: PropTypes.string.isRequired,
+  rowGutter: PropTypes.number.isRequired,
   aspect: PropTypes.number.isRequired,
 }
 

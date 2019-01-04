@@ -8,7 +8,7 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 
-import vars from '../variables'
+import theme from '../theme'
 import Container from './Container'
 import InlineList from './InlineList'
 import SEO from './SEO'
@@ -49,10 +49,6 @@ const Footer = () => (
     </InlineList>
   </footer>
 )
-
-const theme = {
-  breakpoints: vars.breakpoints,
-}
 
 const Page = ({children, keywords, title}) => (
   <ThemeProvider theme={theme}>
