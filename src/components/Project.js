@@ -1,28 +1,21 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
-import {Flex, Box} from '@rebass/grid/emotion'
 
-import vars from '../variables'
+import {Row, Col} from './Grid'
 import Section from './Section'
 import Image from './Image'
 
-const GUTTER = 20
-
-const Row = props => <Flex {...props} flexWrap="wrap" mx={-GUTTER/2} />
-
-const Column = props => <Box {...props} px={GUTTER/2} />
-
 const Project = ({title, children, image, flip}) => (
   <Section.SubSection>
-    <Row>
-      <Column width={[1, 1 - vars.projectImageWidth]} order={[0, flip ? 1 : 0]}>
+    <Row columns={12} gutter={2}>
+      <Col cols={[12, 4]} order={[0, flip ? 1 : 0]}>
         <h2>{title}</h2>
         <div>{children}</div>
-      </Column>
-      <Column width={[1, vars.projectImageWidth]} order={[0, flip ? 0 : 1]}>
+      </Col>
+      <Col cols={[12, 8]} order={[0, flip ? 0 : 1]}>
         <Image image={image} />
-      </Column>
+      </Col>
     </Row>
   </Section.SubSection>
 )
