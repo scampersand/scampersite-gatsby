@@ -23,9 +23,27 @@ const LogoGrid = () => (
 
 const LOGO_ORDER = [
   // mobile
-  {appsembler: -1, ripul: 1},
+  [
+    'appsembler',
+    '18f',
+    'ada',
+    'abc-clio',
+    'ripul',
+    'princeton-university-press',
+    'gw',
+    'tizra',
+  ].reduce((o, s, i) => Object.assign(o, {[s]: i - 42}), {}),
   // desktop
-  {'princeton-university-press': -1, '18f': 1},
+  [
+    'appsembler',
+    '18f',
+    'ada',
+    'abc-clio',
+    'ripul',
+    'princeton-university-press',
+    'gw',
+    'tizra',
+  ].reduce((o, s, i) => Object.assign(o, {[s]: i - 42}), {}),
 ]
 
 const LOGO_QUERY = graphql`
