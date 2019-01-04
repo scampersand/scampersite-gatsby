@@ -34,9 +34,9 @@ const IndexPage = ({
               customer ROI, we built a secure usage tracker and then backfilled
               it with historical data. Previously inaccessible information
               became charts revealing trends and entirely new conversations for
-              the customer success team to pursue. Our work on this ultimately
-              became the foundation for Appsembler's customer-facing reporting
-              tool, Figures.
+              the customer success team to pursue. Our work ultimately
+              became the foundation for Appsembler's customer-facing
+              reporting tool, Figures.
             </Project.Description>
             <Project.Testimonial from="Aaron Beals, Appsembler VP Eng">
               I have to say, the amount you were able to get done with two
@@ -66,7 +66,7 @@ const IndexPage = ({
               from researchers, we created a new UI that matches their
               terminology and workflow. The new interface is also
               mobile-friendly and includes explanations of commonly used
-              abbreviations to make the archive more approachable to new users.
+              abbreviations to make the archive approachable to new users.
             </Project.Description>
             <Project.Award name="SIIA CODiE Award finalist" />
           </Project>
