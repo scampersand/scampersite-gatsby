@@ -1,11 +1,20 @@
+import _ from 'lodash'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Flex, Box} from '@rebass/grid/emotion'
 
 const asArray = x => (Array.isArray(x) ? x : [x])
 
+const is = x => x !== undefined && x !== null
+
 const negate = x =>
   typeof x === 'string' ? (x.startsWith('-') ? x.substring(1) : '-' + x) : -x
+
+const colWidths = (cols, columns) => {
+  cols = asArray(cols)
+  columns = asArray(columns)
+  return _.zipWith(cols, columns, (n, N) => (n || cols[0]) / (N || columns[0]))
+}
 
 export const Row = ({
   columns,
@@ -15,16 +24,15 @@ export const Row = ({
   children,
   ...props
 }) => {
-  colGutter = colGutter || gutter
-  rowGutter = rowGutter || gutter
-  const negColGutter = asArray(colGutter).map(negate)
-  const negRowGutter = asArray(rowGutter).map(negate)
+  columns = asArray(columns)
+  colGutter = asArray(is(colGutter) ? colGutter : is(gutter) ? gutter : 0)
+  rowGutter = asArray(is(rowGutter) ? rowGutter : is(gutter) ? gutter : 0)
   return (
     <Flex
       justifyContent="start"
       flexWrap="wrap"
-      ml={negColGutter}
-      mt={negRowGutter}
+      ml={colGutter.map(negate)}
+      mt={rowGutter.map(negate)}
       {...props}
     >
       {React.Children.map(children, child => {
@@ -32,7 +40,7 @@ export const Row = ({
         const cols = isCol ? child.props.cols : 1
         const colProps = {
           cols,
-          width: asArray(cols).map(n => n / columns),
+          width: colWidths(cols, columns),
           pl: colGutter,
           pt: rowGutter,
         }
@@ -56,7 +64,10 @@ export const Col = ({cols, ...props}) => <Box {...props} />
 Col.displayName = 'Col'
 
 Col.propTypes = {
-  cols: PropTypes.number,
+  cols: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.number),
+  ]),
 }
 
 Col.defaultProps = {

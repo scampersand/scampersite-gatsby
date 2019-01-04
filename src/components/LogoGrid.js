@@ -13,7 +13,7 @@ const LogoGrid = () => (
         images={_.sortBy(imageNodes(images), 'name')}
         order={LOGO_ORDER}
         columns={[2, 4]}
-        gutter={4}
+        gutter={2}
         rowGutter={3}
         aspect={2.5}
       />

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Flex, Box} from '@rebass/grid/emotion'
 
+import {Row, Col} from './Grid'
 import Image from './Image'
 
 class ImageGridImage extends React.Component {
@@ -53,43 +53,28 @@ ImageGridImage.propTypes = {
   image: PropTypes.object.isRequired,
 }
 
-const asArray = x => (Array.isArray(x) ? x : [x])
-
-const negate = x =>
-  typeof x === 'string' ? (x.startsWith('-') ? x.substring(1) : '-' + x) : -x
-
-const ImageGrid = ({images, order, columns, gutter, rowGutter, aspect}) => {
-  const width = asArray(columns).map(n => 1 / n)
-  const negGutter = asArray(gutter).map(negate)
-  const negRowGutter = asArray(rowGutter).map(negate)
+const ImageGrid = ({images, order, aspect, ...props}) => {
   return (
-    <Flex
+    <Row
       alignItems="center"
-      flexWrap="wrap"
       justifyContent="start"
-      ml={negGutter}
-      mt={negRowGutter}
+      {...props}
     >
       {images.map(image => (
-        <Box
-          width={width}
-          pl={gutter}
-          pt={rowGutter}
+        <Col
           key={image.name}
           order={order.map(o => o[image.name] || 0)}
         >
           <ImageGridImage aspect={aspect} image={image} />
-        </Box>
+        </Col>
       ))}
-    </Flex>
+    </Row>
   )
 }
 
 ImageGrid.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
   order: PropTypes.arrayOf(PropTypes.object),
-  gutter: PropTypes.number.isRequired,
-  rowGutter: PropTypes.number.isRequired,
   aspect: PropTypes.number.isRequired,
 }
 
