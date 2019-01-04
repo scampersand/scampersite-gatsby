@@ -43,7 +43,7 @@ src/images/clients/%.png: src/assets/clients/%.svg
 	mkdir -p $(dir $@)
 	t=$$(mktemp -t tmp.XXXXXXXX.png) && \
 	  inkscape -z --export-background-opacity=1 --export-width=1024 $^ --export-png="$$t" && \
-	  convert "$$t" -colorspace Gray -level 50x100% -trim -transparent white +repage $@ && \
+	  convert "$$t" -colorspace Gray -normalize -level 50x100% -trim -transparent white +repage $@ && \
 	  rm -f "$$t"
 
 .PHONY: dev deploy images reimages
