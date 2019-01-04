@@ -27,6 +27,11 @@ const Project = ({title, children, image, flip}) => (
   </Section.SubSection>
 )
 
+Project.Group = ({alternating, children}) =>
+  React.Children.map(children, (child, i) =>
+    alternating && i % 2 ? React.cloneElement(child, {flip: true}) : child,
+  )
+
 Project.Description = ({children}) => <p>{children}</p>
 
 Project.Testimonial = ({from, children}) => (
