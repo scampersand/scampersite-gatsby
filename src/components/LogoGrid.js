@@ -24,25 +24,25 @@ const LogoGrid = () => (
 const LOGO_ORDER = [
   // mobile
   [
-    'appsembler',
     '18f',
-    'ada',
     'abc-clio',
-    'ripul',
+    'appsembler',
     'princeton-university-press',
-    'gw',
+    'ada',
+    'ripul',
     'tizra',
+    'gw',
   ].reduce((o, s, i) => Object.assign(o, {[s]: i - 42}), {}),
   // desktop
   [
-    'appsembler',
-    '18f',
+    'tizra',
+    'gw',
     'ada',
     'abc-clio',
     'ripul',
     'princeton-university-press',
-    'gw',
-    'tizra',
+    '18f',
+    'appsembler',
   ].reduce((o, s, i) => Object.assign(o, {[s]: i - 42}), {}),
 ]
 
