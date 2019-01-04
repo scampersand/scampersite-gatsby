@@ -38,9 +38,9 @@ const IndexPage = ({
               became the foundation for Appsembler's customer-facing
               reporting tool, Figures.
             </Project.Description>
-            <Project.Testimonial from="Aaron Beals, Appsembler VP Eng">
-              I have to say, the amount you were able to get done with two
-              people in this timeframe is amazing.
+            <Project.Testimonial from="&mdash;&thinsp;Aaron Beals, VP Eng at Appsembler">
+              &ldquo;I have to say, the amount you were able to get done with two
+              people in this timeframe is amazing.&rdquo;
             </Project.Testimonial>
           </Project>
           <Project
