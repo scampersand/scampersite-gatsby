@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import {Row, Col} from './Grid'
 import Image from './Image'
+import Link from './Link'
 
 class ImageGridImage extends React.Component {
   constructor(props) {
@@ -27,28 +28,29 @@ class ImageGridImage extends React.Component {
 
   render() {
     const {
-      props: {aspect, href, ...props},
+      props: {aspect, link, ...props},
       state: {measuredWidth},
     } = this
     const aspectHeight = measuredWidth / aspect
-    const X = href ? 'a' : 'div'
+    let image = (
+      <Image
+        style={{height: '100%'}}
+        imgStyle={{
+          height: '100%',
+          width: '100%',
+          objectFit: 'contain',
+          objectPosition: 'center center',
+        }}
+        {...props}
+      />
+    )
+    if (link) {
+      image = <Link name={link}>{image}</Link>
+    }
     return (
-      <X
-        css={{display: 'block', height: aspectHeight}}
-        href={href}
-        ref={this.ref}
-      >
-        <Image
-          style={{height: '100%'}}
-          imgStyle={{
-            height: '100%',
-            width: '100%',
-            objectFit: 'contain',
-            objectPosition: 'center center',
-          }}
-          {...props}
-        />
-      </X>
+      <div css={{height: aspectHeight}} ref={this.ref}>
+        {image}
+      </div>
     )
   }
 }
@@ -56,16 +58,17 @@ class ImageGridImage extends React.Component {
 ImageGridImage.propTypes = {
   aspect: PropTypes.number.isRequired,
   image: PropTypes.object.isRequired,
+  link: PropTypes.string,
 }
 
-const ImageGrid = ({images, hrefs, order, aspect, ...props}) => (
+const ImageGrid = ({aspect, hrefs, images, linked, order, ...props}) => (
   <Row alignItems="center" justifyContent="start" {...props}>
     {images.map(image => (
       <Col key={image.name} order={order.map(o => o[image.name] || 0)}>
         <ImageGridImage
           aspect={aspect}
           image={image}
-          href={hrefs[image.name]}
+          link={linked && image.name}
         />
       </Col>
     ))}

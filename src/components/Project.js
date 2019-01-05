@@ -5,27 +5,37 @@ import {faAward} from '@fortawesome/free-solid-svg-icons'
 import {Row, Col} from './Grid'
 import Section from './Section'
 import Image from './Image'
+import Link from './Link'
 
-const Project = ({title, href, children, image, flip}) => (
-  <Section.SubSection>
-    <Row columns={5} gutter={2}>
-      <Col cols={[5, 2]} order={[0, flip ? 1 : 0]}>
-        <h2>{href ? <a href={href}>{title}</a> : title}</h2>
-        <div>{children}</div>
-      </Col>
-      <Col cols={[5, 3]} order={[0, flip ? 0 : 1]}>
-        <Image image={image} />
-      </Col>
-    </Row>
-  </Section.SubSection>
-)
+const Project = ({title, link, children, image, flip}) => {
+  if (link) {
+    title = <Link name={link}>{title}</Link>
+  }
+  return (
+    <Section.SubSection>
+      <Row columns={5} gutter={2}>
+        <Col cols={[5, 2]} order={[0, flip ? 1 : 0]}>
+          <h2>{title}</h2>
+          <div>{children}</div>
+        </Col>
+        <Col cols={[5, 3]} order={[0, flip ? 0 : 1]}>
+          <Image image={image} />
+        </Col>
+      </Row>
+    </Section.SubSection>
+  )
+}
 
 Project.Group = ({alternating, children}) =>
   React.Children.map(children, (child, i) =>
     alternating && i % 2 ? React.cloneElement(child, {flip: true}) : child,
   )
 
+Project.Group.displayName = 'Project.Group'
+
 Project.Description = ({children}) => <p>{children}</p>
+
+Project.Description.displayName = 'Project.Description'
 
 Project.Testimonial = ({from, children}) => (
   <>
@@ -34,10 +44,20 @@ Project.Testimonial = ({from, children}) => (
   </>
 )
 
-Project.Award = ({name}) => (
-  <p>
-    <FontAwesomeIcon icon={faAward} /> <span>{name}</span>
-  </p>
-)
+Project.Testimonial.displayName = 'Project.Testimonial'
+
+Project.Award = ({name, link}) => {
+  let content = (
+    <>
+      <FontAwesomeIcon icon={faAward} /> <span>{name}</span>
+    </>
+  )
+  if (link) {
+    content = <Link name={link}>{content}</Link>
+  }
+  return <p>{content}</p>
+}
+
+Project.Award.displayName = 'Project.Award'
 
 export default Project

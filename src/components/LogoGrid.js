@@ -2,18 +2,17 @@ import _ from 'lodash'
 import {StaticQuery, graphql} from 'gatsby'
 import React from 'react'
 
-import {imageNodes, namedLinks} from '../utils/queries'
+import {imageNodes} from '../utils/queries'
 import ImageGrid from './ImageGrid'
 
 const LogoGrid = () => (
   <StaticQuery
     query={LOGO_QUERY}
-    render={({images, site: {siteMetadata: {links}}}) => {
-      const hrefs = namedLinks(links)
+    render={({images}) => {
       return (
         <ImageGrid
           images={_.sortBy(imageNodes(images), 'name')}
-          hrefs={hrefs}
+          linked
           order={LOGO_ORDER}
           columns={[2, 4]}
           gutter={2}
@@ -68,14 +67,6 @@ const LOGO_QUERY = graphql`
     }
   }
   query LogoQuery {
-    site {
-      siteMetadata {
-        links {
-          name
-          href
-        }
-      }
-    }
     images: allFile(filter: {relativeDirectory: {eq: "clients"}}) {
       ...logoImages
     }

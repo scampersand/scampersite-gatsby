@@ -1,25 +1,25 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 
-import {namedImages, namedLinks} from '../utils/queries'
+import {namedImages} from '../utils/queries'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import Project from '../components/Project'
 import LogoGrid from '../components/LogoGrid'
 import ContactForm from '../components/ContactForm'
+import Link from '../components/Link'
 
 const Intro = props => <Section {...props} />
 
 const IndexPage = ({
   data: {
     site: {
-      siteMetadata: {title, description, links},
+      siteMetadata: {title, description},
     },
     projectImages,
     clientLogos,
   },
 }) => {
-  const hrefs = namedLinks(links)
   projectImages = namedImages(projectImages)
   return (
     <Page title={title}>
@@ -30,24 +30,29 @@ const IndexPage = ({
           <Project
             title="Appsembler"
             image={projectImages['appsembler-reports']}
-            href={hrefs['appsembler']}
+            link="appsembler"
           >
             <Project.Description>
               Appsembler wanted to know how many learners were actively using
-              their Open edX LMS. To give them insight into engagement and
-              customer ROI, we built a secure usage tracker and then backfilled
-              it with historical data. Previously inaccessible information
-              became charts revealing trends and entirely new conversations for
-              the customer success team to pursue. Our work ultimately became
-              the foundation for Appsembler's customer-facing reporting tool,
-              Figures.
+              their <Link name="open-edx">Open edX</Link> LMS. To give them
+              insight into engagement and customer ROI, we built a secure usage
+              tracker and then backfilled it with historical data. Previously
+              inaccessible information became charts revealing trends and
+              entirely new conversations for the customer success team to
+              pursue. Our work ultimately became the foundation for Appsembler's
+              customer-facing reporting tool,
+              {' '}<Link name="figures">Figures</Link>.
             </Project.Description>
             <Project.Testimonial from="&mdash;&thinsp;Aaron Beals, VP Eng at Appsembler">
               &ldquo;I have to say, the amount you were able to get done with
               two people in this timeframe is amazing.&rdquo;
             </Project.Testimonial>
           </Project>
-          <Project title="Tizra" image={projectImages['tizra-quickstart']} href={hrefs['tizra']}>
+          <Project
+            title="Tizra"
+            image={projectImages['tizra-quickstart']}
+            link="tizra"
+          >
             <Project.Description>
               Tizra brought in Scampersand to improve the configurability and
               mobile experience of their Quickstart theme. Our job was to make
@@ -60,7 +65,7 @@ const IndexPage = ({
           <Project
             title="Digital Einstein Papers"
             image={projectImages['einstein-search']}
-            href={hrefs['einstein']}
+            link="einstein"
           >
             <Project.Description>
               We worked with the Einstein Papers Project to improve the
@@ -70,7 +75,7 @@ const IndexPage = ({
               mobile-friendly and includes explanations of commonly used
               abbreviations to make the archive approachable to new users.
             </Project.Description>
-            <Project.Award name="SIIA CODiE Award finalist" />
+            <Project.Award name="SIIA CODiE Award finalist" link="codie" />
           </Project>
         </Project.Group>
       </Section>
@@ -117,10 +122,6 @@ export const query = graphql`
       siteMetadata {
         title
         description
-        links {
-          name
-          href
-        }
       }
     }
     projectImages: allFile(filter: {relativeDirectory: {eq: "projects"}}) {
