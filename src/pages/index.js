@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 
-import {namedImages} from '../utils/queries'
+import {namedImages, namedLinks} from '../utils/queries'
 import Page from '../components/Page'
 import Section from '../components/Section'
 import Project from '../components/Project'
@@ -12,21 +12,25 @@ const Intro = props => <Section {...props} />
 
 const IndexPage = ({
   data: {
-    site: {siteMetadata},
+    site: {
+      siteMetadata: {title, description, links},
+    },
     projectImages,
     clientLogos,
   },
 }) => {
+  const hrefs = namedLinks(links)
   projectImages = namedImages(projectImages)
   return (
-    <Page title={siteMetadata.title}>
-      <Intro>{siteMetadata.description}</Intro>
+    <Page title={title}>
+      <Intro>{description}</Intro>
       <Section>
         <h1>Recent Work</h1>
         <Project.Group alternating>
           <Project
             title="Appsembler"
             image={projectImages['appsembler-reports']}
+            href={hrefs['appsembler']}
           >
             <Project.Description>
               Appsembler wanted to know how many learners were actively using
@@ -34,31 +38,29 @@ const IndexPage = ({
               customer ROI, we built a secure usage tracker and then backfilled
               it with historical data. Previously inaccessible information
               became charts revealing trends and entirely new conversations for
-              the customer success team to pursue. Our work ultimately
-              became the foundation for Appsembler's customer-facing
-              reporting tool, Figures.
+              the customer success team to pursue. Our work ultimately became
+              the foundation for Appsembler's customer-facing reporting tool,
+              Figures.
             </Project.Description>
             <Project.Testimonial from="&mdash;&thinsp;Aaron Beals, VP Eng at Appsembler">
-              &ldquo;I have to say, the amount you were able to get done with two
-              people in this timeframe is amazing.&rdquo;
+              &ldquo;I have to say, the amount you were able to get done with
+              two people in this timeframe is amazing.&rdquo;
             </Project.Testimonial>
           </Project>
-          <Project
-            title="Tizra"
-            image={projectImages['tizra-quickstart']}
-          >
+          <Project title="Tizra" image={projectImages['tizra-quickstart']} href={hrefs['tizra']}>
             <Project.Description>
               Tizra brought in Scampersand to improve the configurability and
-              mobile experience of their Quickstart theme. Our job was to
-              make these improvements on a small budget within an existing
-              codebase. We applied some creative thinking and technical
-              expertise to provide Tizra with a solution that speeds up their
-              onboarding and allows them to pursue scaling their customer base.
+              mobile experience of their Quickstart theme. Our job was to make
+              these improvements on a small budget within an existing codebase.
+              We applied some creative thinking and technical expertise to
+              provide Tizra with a solution that speeds up their onboarding and
+              allows them to pursue scaling their customer base.
             </Project.Description>
           </Project>
           <Project
             title="Digital Einstein Papers"
             image={projectImages['einstein-search']}
+            href={hrefs['einstein']}
           >
             <Project.Description>
               We worked with the Einstein Papers Project to improve the
@@ -115,6 +117,10 @@ export const query = graphql`
       siteMetadata {
         title
         description
+        links {
+          name
+          href
+        }
       }
     }
     projectImages: allFile(filter: {relativeDirectory: {eq: "projects"}}) {

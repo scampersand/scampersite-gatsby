@@ -6,6 +6,17 @@ module.exports = {
     title: `Scampersand${THINSP}${MDASH}${THINSP}Web & Mobile Applications, Providence`,
     description: `We work with startups and organizations to build software that makes a difference.`,
     twitter: `scampersandco`,
+    links: [
+      {name: '18f', href: 'https://18f.gsa.gov'},
+      {name: 'abc-clio', href: 'https://www.abc-clio.com'},
+      {name: 'ada', href: 'https://www.ada.org/'},
+      {name: 'appsembler', href: 'https://appsembler.com'},
+      {name: 'gw', href: 'https://www.g-w.com'},
+      {name: 'princeton-university-press', href: 'https://press.princeton.edu'},
+      {name: 'einstein', href: 'https://einsteinpapers.press.princeton.edu'},
+      {name: 'ripul', href: 'http://ripul.org'},
+      {name: 'tizra', href: 'https://www.tizra.com'},
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

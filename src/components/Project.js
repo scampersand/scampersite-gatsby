@@ -6,11 +6,11 @@ import {Row, Col} from './Grid'
 import Section from './Section'
 import Image from './Image'
 
-const Project = ({title, children, image, flip}) => (
+const Project = ({title, href, children, image, flip}) => (
   <Section.SubSection>
     <Row columns={5} gutter={2}>
       <Col cols={[5, 2]} order={[0, flip ? 1 : 0]}>
-        <h2>{title}</h2>
+        <h2>{href ? <a href={href}>{title}</a> : title}</h2>
         <div>{children}</div>
       </Col>
       <Col cols={[5, 3]} order={[0, flip ? 0 : 1]}>

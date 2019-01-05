@@ -2,36 +2,28 @@ import _ from 'lodash'
 import {StaticQuery, graphql} from 'gatsby'
 import React from 'react'
 
-import {imageNodes} from '../utils/queries'
+import {imageNodes, namedLinks} from '../utils/queries'
 import ImageGrid from './ImageGrid'
 
 const LogoGrid = () => (
   <StaticQuery
     query={LOGO_QUERY}
-    render={({images}) => (
-      <ImageGrid
-        images={_.sortBy(imageNodes(images), 'name')}
-        hrefs={LOGO_HREFS}
-        order={LOGO_ORDER}
-        columns={[2, 4]}
-        gutter={2}
-        rowGutter={3}
-        aspect={2.5}
-      />
-    )}
+    render={({images, site: {siteMetadata: {links}}}) => {
+      const hrefs = namedLinks(links)
+      return (
+        <ImageGrid
+          images={_.sortBy(imageNodes(images), 'name')}
+          hrefs={hrefs}
+          order={LOGO_ORDER}
+          columns={[2, 4]}
+          gutter={2}
+          rowGutter={3}
+          aspect={2.5}
+        />
+      )
+    }}
   />
 )
-
-const LOGO_HREFS = {
-  '18f': 'https://18f.gsa.gov',
-  'abc-clio': 'https://www.abc-clio.com',
-  ada: 'https://www.ada.org/',
-  appsembler: 'https://appsembler.com',
-  gw: 'https://www.g-w.com',
-  'princeton-university-press': 'https://press.princeton.edu',
-  ripul: 'http://ripul.org',
-  tizra: 'https://www.tizra.com',
-}
 
 const LOGO_ORDER = [
   // mobile
@@ -76,6 +68,14 @@ const LOGO_QUERY = graphql`
     }
   }
   query LogoQuery {
+    site {
+      siteMetadata {
+        links {
+          name
+          href
+        }
+      }
+    }
     images: allFile(filter: {relativeDirectory: {eq: "clients"}}) {
       ...logoImages
     }

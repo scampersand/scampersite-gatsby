@@ -1,12 +1,22 @@
-import _ from 'lodash'
+import fp from 'lodash/fp'
 
-export const imageNodes = images =>
-  _(images.edges)
-    .map(({node}) => node)
-    .value()
+export const imageNodes = fp.pipe(
+  fp.get('edges'),
+  fp.map(fp.get('node')),
+)
 
-export const namedImages = images =>
-  _(imageNodes(images))
-    .map(node => [node.name, node])
-    .fromPairs()
-    .value()
+export const namedImages = fp.pipe(
+  imageNodes,
+  fp.map(node => [node.name, node]),
+  fp.fromPairs,
+)
+
+export const objFromNamedArray = fp.pipe(
+  fp.map(x => [x.name, x]),
+  fp.fromPairs,
+)
+
+export const namedLinks = fp.pipe(
+  objFromNamedArray,
+  fp.mapValues(fp.get('href')),
+)
