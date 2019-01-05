@@ -11,6 +11,7 @@ const LogoGrid = () => (
     render={({images}) => (
       <ImageGrid
         images={_.sortBy(imageNodes(images), 'name')}
+        hrefs={LOGO_HREFS}
         order={LOGO_ORDER}
         columns={[2, 4]}
         gutter={2}
@@ -20,6 +21,17 @@ const LogoGrid = () => (
     )}
   />
 )
+
+const LOGO_HREFS = {
+  '18f': 'https://18f.gsa.gov',
+  'abc-clio': 'https://www.abc-clio.com',
+  ada: 'https://www.ada.org/',
+  appsembler: 'https://appsembler.com',
+  gw: 'https://www.g-w.com',
+  'princeton-university-press': 'https://press.princeton.edu',
+  ripul: 'http://ripul.org',
+  tizra: 'https://www.tizra.com',
+}
 
 const LOGO_ORDER = [
   // mobile

@@ -27,12 +27,17 @@ class ImageGridImage extends React.Component {
 
   render() {
     const {
-      props: {aspect, ...props},
+      props: {aspect, href, ...props},
       state: {measuredWidth},
     } = this
     const aspectHeight = measuredWidth / aspect
+    const X = href ? 'a' : 'div'
     return (
-      <div css={{height: aspectHeight}} ref={this.ref}>
+      <X
+        css={{display: 'block', height: aspectHeight}}
+        href={href}
+        ref={this.ref}
+      >
         <Image
           style={{height: '100%'}}
           imgStyle={{
@@ -43,7 +48,7 @@ class ImageGridImage extends React.Component {
           }}
           {...props}
         />
-      </div>
+      </X>
     )
   }
 }
@@ -53,32 +58,29 @@ ImageGridImage.propTypes = {
   image: PropTypes.object.isRequired,
 }
 
-const ImageGrid = ({images, order, aspect, ...props}) => {
-  return (
-    <Row
-      alignItems="center"
-      justifyContent="start"
-      {...props}
-    >
-      {images.map(image => (
-        <Col
-          key={image.name}
-          order={order.map(o => o[image.name] || 0)}
-        >
-          <ImageGridImage aspect={aspect} image={image} />
-        </Col>
-      ))}
-    </Row>
-  )
-}
+const ImageGrid = ({images, hrefs, order, aspect, ...props}) => (
+  <Row alignItems="center" justifyContent="start" {...props}>
+    {images.map(image => (
+      <Col key={image.name} order={order.map(o => o[image.name] || 0)}>
+        <ImageGridImage
+          aspect={aspect}
+          image={image}
+          href={hrefs[image.name]}
+        />
+      </Col>
+    ))}
+  </Row>
+)
 
 ImageGrid.propTypes = {
+  aspect: PropTypes.number.isRequired,
+  hrefs: PropTypes.object,
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
   order: PropTypes.arrayOf(PropTypes.object),
-  aspect: PropTypes.number.isRequired,
 }
 
 ImageGrid.defaultProps = {
+  hrefs: {},
   order: [],
 }
 
