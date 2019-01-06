@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import vars from '../variables.js'
+import vars from '~/variables.js'
 
 const Section = styled.section({
   marginTop: vars.sectionMargin,

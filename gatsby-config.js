@@ -1,3 +1,5 @@
+const path = require('path')
+
 const THINSP = '\u2009'
 const MDASH = '\u2014'
 
@@ -23,6 +25,12 @@ module.exports = {
     ]
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-root-import`,
+      options: {
+        '~': path.join(__dirname, `src`),
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

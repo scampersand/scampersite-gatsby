@@ -1,13 +1,13 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 
-import {namedImages} from '../utils/queries'
-import Page from '../components/Page'
-import Section from '../components/Section'
-import Project from '../components/Project'
-import LogoGrid from '../components/LogoGrid'
-import ContactForm from '../components/ContactForm'
-import Link from '../components/Link'
+import {namedImages} from '~/utils/queries'
+import Page from '~/components/Page'
+import Section from '~/components/Section'
+import Project from '~/components/Project'
+import LogoGrid from '~/components/LogoGrid'
+import ContactForm from '~/components/ContactForm'
+import Link from '~/components/Link'
 
 const Intro = props => <Section {...props} />
 

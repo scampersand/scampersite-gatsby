@@ -2,7 +2,7 @@ import _ from 'lodash'
 import {StaticQuery, graphql} from 'gatsby'
 import React from 'react'
 
-import {imageNodes} from '../utils/queries'
+import {imageNodes} from '~/utils/queries'
 import ImageGrid from './ImageGrid'
 
 const LogoGrid = () => (

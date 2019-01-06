@@ -1,7 +1,7 @@
 import React from 'react'
 import {StaticQuery, graphql} from 'gatsby'
 
-import {namedLinks} from '../utils/queries'
+import {namedLinks} from '~/utils/queries'
 
 const Link = ({name, href, children}) => (
   <StaticQuery

@@ -8,7 +8,7 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 
-import theme from '../theme'
+import theme from '~/theme'
 import Container from './Container'
 import InlineList from './InlineList'
 import SEO from './SEO'
