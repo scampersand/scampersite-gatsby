@@ -7,11 +7,8 @@ import {
   faLinkedin,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
-
 import theme from '~/theme'
-import Container from './Container'
-import InlineList from './InlineList'
-import SEO from './SEO'
+import {Container, InlineList, SEO} from '.'
 
 const Header = () => (
   <header>
@@ -50,7 +47,7 @@ const Footer = () => (
   </footer>
 )
 
-const Page = ({children, keywords, title}) => (
+export const Page = ({children, keywords, title}) => (
   <ThemeProvider theme={theme}>
     <SEO title={title} keywords={keywords} />
     <Container>

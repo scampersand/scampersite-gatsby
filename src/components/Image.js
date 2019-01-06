@@ -36,7 +36,7 @@ NonImg.propTypes = {
   className: PropTypes.string,
 }
 
-const Image = ({image, ...props}) => {
+export const Image = ({image, ...props}) => {
   if (image.childImageSharp && image.childImageSharp.fluid) {
     return <Img fluid={image.childImageSharp.fluid} {...props} />
   } else if (image.childImageSharp && image.childImageSharp.fixed) {

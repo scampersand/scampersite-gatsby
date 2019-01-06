@@ -22,7 +22,7 @@ const Submit = props => (
   <input type="submit" {...props} />
 )
 
-const ContactForm = () => (
+export const ContactForm = () => (
   <form action="https://formspree.io/hello@scampersand.com" method="POST">
     <Input label="Name" type="text" name="name" required />
     <Input label="Email" type="email" name="_replyto" required />

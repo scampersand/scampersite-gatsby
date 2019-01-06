@@ -1,7 +1,5 @@
 import React from 'react'
-
-import Page from '~/components/Page'
-import Section from '~/components/Section'
+import {Page, Section} from '~/components'
 
 const ThanksPage = () => (
   <Page title="Thanks">

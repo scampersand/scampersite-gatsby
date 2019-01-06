@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InlineList = ({children}) => (
+export const InlineList = ({children}) => (
   <ul css={{listStyle: 'none', marginLeft: 0}}>
     {children.map((child, i) => (
       <li

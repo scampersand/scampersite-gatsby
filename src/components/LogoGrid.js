@@ -1,11 +1,10 @@
 import _ from 'lodash'
 import {StaticQuery, graphql} from 'gatsby'
 import React from 'react'
-
 import {imageNodes} from '~/utils/queries'
-import ImageGrid from './ImageGrid'
+import {ImageGrid} from '.'
 
-const LogoGrid = () => (
+export const LogoGrid = () => (
   <StaticQuery
     query={LOGO_QUERY}
     render={({images}) => {

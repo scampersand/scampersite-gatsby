@@ -3,7 +3,7 @@ import {StaticQuery, graphql} from 'gatsby'
 
 import {namedLinks} from '~/utils/queries'
 
-const Link = ({name, href, children}) => (
+export const Link = ({name, href, children}) => (
   <StaticQuery
     query={LINKS_QUERY}
     render={({site: {siteMetadata: {links}}}) => {

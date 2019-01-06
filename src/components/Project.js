@@ -1,13 +1,9 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
+import {Row, Col, Section, Image, Link} from '.'
 
-import {Row, Col} from './Grid'
-import Section from './Section'
-import Image from './Image'
-import Link from './Link'
-
-const Project = ({title, link, children, image, flip}) => {
+export const Project = ({title, link, children, image, flip}) => {
   if (link) {
     title = <Link name={link}>{title}</Link>
   }

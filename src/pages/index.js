@@ -1,13 +1,7 @@
 import React from 'react'
 import {graphql} from 'gatsby'
-
 import {namedImages} from '~/utils/queries'
-import Page from '~/components/Page'
-import Section from '~/components/Section'
-import Project from '~/components/Project'
-import LogoGrid from '~/components/LogoGrid'
-import ContactForm from '~/components/ContactForm'
-import Link from '~/components/Link'
+import {Page, Section, Project, LogoGrid, ContactForm, Link} from '~/components'
 
 const Intro = props => <Section {...props} />
 
@@ -40,8 +34,8 @@ const IndexPage = ({
               inaccessible information became charts revealing trends and
               entirely new conversations for the customer success team to
               pursue. Our work ultimately became the foundation for Appsembler's
-              customer-facing reporting tool,
-              {' '}<Link name="figures">Figures</Link>.
+              customer-facing reporting tool,{' '}
+              <Link name="figures">Figures</Link>.
             </Project.Description>
             <Project.Testimonial from="&mdash;&thinsp;Aaron Beals, VP Eng at Appsembler">
               &ldquo;I have to say, the amount you were able to get done with
