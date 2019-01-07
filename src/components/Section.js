@@ -1,19 +1,10 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import {Box} from '.'
 
-import vars from '~/variables.js'
+export const Section = props => <Box my={3} {...props} />
 
-export const Section = styled.section({
-  marginTop: vars.sectionMargin,
-  marginBottom: vars.sectionMargin,
-})
+Section.displayName = 'Section'
 
-Section.SubSection = props => (
-  <Section
-    css={{
-      marginTop: vars.subSectionMargin,
-      marginBottom: vars.subSectionMargin,
-    }}
-    {...props}
-  />
-)
+Section.SubSection = props => <Box my={2} {...props} />
+
+Section.SubSection.displayName = 'Section.SubSection'
