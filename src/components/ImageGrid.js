@@ -83,5 +83,3 @@ ImageGrid.defaultProps = {
   hrefs: {},
   order: [],
 }
-
-export default ImageGrid

@@ -71,5 +71,3 @@ const LOGO_QUERY = graphql`
     }
   }
 `
-
-export default LogoGrid

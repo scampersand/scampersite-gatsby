@@ -55,5 +55,3 @@ Project.Award = ({name, link}) => {
 }
 
 Project.Award.displayName = 'Project.Award'
-
-export default Project

@@ -64,5 +64,3 @@ Page.propTypes = {
   keywords: PropTypes.array,
   title: PropTypes.string.isRequired,
 }
-
-export default Page

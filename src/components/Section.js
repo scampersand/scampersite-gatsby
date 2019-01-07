@@ -17,5 +17,3 @@ Section.SubSection = props => (
     {...props}
   />
 )
-
-export default Section

@@ -15,5 +15,3 @@ export const InlineList = ({children}) => (
     ))}
   </ul>
 )
-
-export default InlineList
