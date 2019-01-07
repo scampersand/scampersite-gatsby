@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Flex, Box} from '@rebass/grid/emotion'
+import {Flex, Box} from '.'
 
 const asArray = x => (Array.isArray(x) ? x : [x])
 
