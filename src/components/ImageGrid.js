@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Row, Col, Image, Link} from '.'
+import {Row, Col, Image, NamedLink} from '.'
 
 class ImageGridImage extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class ImageGridImage extends React.Component {
       />
     )
     if (link) {
-      image = <Link name={link}>{image}</Link>
+      image = <NamedLink name={link}>{image}</NamedLink>
     }
     return (
       <div css={{height: aspectHeight}} ref={this.ref}>

@@ -1,7 +1,14 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import {namedImages} from '~/utils/queries'
-import {Page, Section, Project, LogoGrid, ContactForm, Link} from '~/components'
+import {
+  Page,
+  Section,
+  Project,
+  LogoGrid,
+  ContactForm,
+  NamedLink,
+} from '~/components'
 
 const Intro = props => <Section {...props} />
 
@@ -28,14 +35,14 @@ const IndexPage = ({
           >
             <Project.Description>
               Appsembler wanted to know how many learners were actively using
-              their <Link name="open-edx">Open edX</Link> LMS. To give them
-              insight into engagement and customer ROI, we built a secure usage
-              tracker and then backfilled it with historical data. Previously
-              inaccessible information became charts revealing trends and
-              entirely new conversations for the customer success team to
+              their <NamedLink name="open-edx">Open edX</NamedLink> LMS. To give
+              them insight into engagement and customer ROI, we built a secure
+              usage tracker and then backfilled it with historical data.
+              Previously inaccessible information became charts revealing trends
+              and entirely new conversations for the customer success team to
               pursue. Our work ultimately became the foundation for Appsembler's
               customer-facing reporting tool,{' '}
-              <Link name="figures">Figures</Link>.
+              <NamedLink name="figures">Figures</NamedLink>.
             </Project.Description>
             <Project.Testimonial from="&mdash;&thinsp;Aaron Beals, VP Eng at Appsembler">
               &ldquo;I have to say, the amount you were able to get done with

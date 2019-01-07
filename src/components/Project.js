@@ -1,11 +1,11 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
-import {Row, Col, Section, Image, Link} from '.'
+import {Row, Col, Section, Image, NamedLink} from '.'
 
 export const Project = ({title, link, children, image, flip}) => {
   if (link) {
-    title = <Link name={link}>{title}</Link>
+    title = <NamedLink name={link}>{title}</NamedLink>
   }
   return (
     <Section.SubSection>
@@ -49,7 +49,7 @@ Project.Award = ({name, link}) => {
     </>
   )
   if (link) {
-    content = <Link name={link}>{content}</Link>
+    content = <NamedLink name={link}>{content}</NamedLink>
   }
   return <p>{content}</p>
 }
