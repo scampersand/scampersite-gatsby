@@ -1,7 +1,7 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
-import {Row, Col, Section, Image, NamedLink} from '.'
+import {FlexGrid, Section, Image, NamedLink} from '.'
 
 export const Project = ({title, link, children, image, flip}) => {
   if (link) {
@@ -9,15 +9,15 @@ export const Project = ({title, link, children, image, flip}) => {
   }
   return (
     <Section.SubSection>
-      <Row columns={5} gutter={2}>
-        <Col cols={[5, 2]} order={[0, flip ? 1 : 0]}>
+      <FlexGrid columns={5} gutter={2}>
+        <FlexGrid.Col span={[5, 2]} order={[0, flip ? 1 : 0]}>
           <h2>{title}</h2>
           <div>{children}</div>
-        </Col>
-        <Col cols={[5, 3]} order={[0, flip ? 0 : 1]}>
+        </FlexGrid.Col>
+        <FlexGrid.Col span={[5, 3]} order={[0, flip ? 0 : 1]}>
           <Image image={image} />
-        </Col>
-      </Row>
+        </FlexGrid.Col>
+      </FlexGrid>
     </Section.SubSection>
   )
 }

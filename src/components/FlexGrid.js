@@ -10,13 +10,13 @@ const is = x => x !== undefined && x !== null
 const negate = x =>
   typeof x === 'string' ? (x.startsWith('-') ? x.substring(1) : '-' + x) : -x
 
-const colWidths = (cols, columns) => {
-  cols = asArray(cols)
+const colWidths = (span, columns) => {
+  span = asArray(span)
   columns = asArray(columns)
-  return _.zipWith(cols, columns, (n, N) => (n || cols[0]) / (N || columns[0]))
+  return _.zipWith(span, columns, (n, N) => (n || span[0]) / (N || columns[0]))
 }
 
-export const Row = ({
+export const FlexGrid = ({
   columns,
   gutter,
   colGutter,
@@ -36,11 +36,11 @@ export const Row = ({
       {...props}
     >
       {React.Children.map(children, child => {
-        const isCol = !!(child.props && child.props.cols)
-        const cols = isCol ? child.props.cols : 1
+        const isCol = !!(child.props && child.props.span)
+        const span = isCol ? child.props.span : 1
         const colProps = {
-          cols,
-          width: colWidths(cols, columns),
+          span,
+          width: colWidths(span, columns),
           pl: colGutter,
           pt: rowGutter,
         }
@@ -50,26 +50,26 @@ export const Row = ({
             ...child.props,
           })
         ) : (
-          <Col {...colProps}>{child}</Col>
+          <FlexGrid.Col {...colProps}>{child}</FlexGrid.Col>
         )
       })}
     </Flex>
   )
 }
 
-Row.displayName = 'Row'
+FlexGrid.displayName = 'FlexGrid'
 
-export const Col = ({cols, ...props}) => <Box {...props} />
+FlexGrid.Col = ({span, ...props}) => <Box {...props} />
 
-Col.displayName = 'Col'
+FlexGrid.Col.displayName = 'FlexGrid.Col'
 
-Col.propTypes = {
-  cols: PropTypes.oneOfType([
+FlexGrid.Col.propTypes = {
+  span: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.arrayOf(PropTypes.number),
   ]),
 }
 
-Col.defaultProps = {
-  cols: 1,
+FlexGrid.Col.defaultProps = {
+  span: 1,
 }

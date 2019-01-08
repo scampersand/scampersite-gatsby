@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Row, Col, Image, NamedLink} from '.'
+import {FlexGrid, Image, NamedLink} from '.'
 
 class ImageGridImage extends React.Component {
   constructor(props) {
@@ -59,17 +59,17 @@ ImageGridImage.propTypes = {
 }
 
 export const ImageGrid = ({aspect, hrefs, images, linked, order, ...props}) => (
-  <Row alignItems="center" justifyContent="start" {...props}>
+  <FlexGrid alignItems="center" justifyContent="start" {...props}>
     {images.map(image => (
-      <Col key={image.name} order={order.map(o => o[image.name] || 0)}>
+      <FlexGrid.Col key={image.name} order={order.map(o => o[image.name] || 0)}>
         <ImageGridImage
           aspect={aspect}
           image={image}
           link={linked && image.name}
         />
-      </Col>
+      </FlexGrid.Col>
     ))}
-  </Row>
+  </FlexGrid>
 )
 
 ImageGrid.propTypes = {
