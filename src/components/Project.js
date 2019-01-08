@@ -34,10 +34,10 @@ Project.Description = ({children}) => <p>{children}</p>
 Project.Description.displayName = 'Project.Description'
 
 Project.Testimonial = ({from, children}) => (
-  <>
+  <blockquote>
     <p>{children}</p>
-    <p>{from}</p>
-  </>
+    <cite>{from}</cite>
+  </blockquote>
 )
 
 Project.Testimonial.displayName = 'Project.Testimonial'
