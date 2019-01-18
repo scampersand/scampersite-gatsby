@@ -35,5 +35,6 @@ H3.displayName = 'H3'
 
 // rebass.Link is based on Box instead of Text, whoops
 // https://github.com/rebassjs/rebass/blob/master/src/index.js
-export const Link = styled(rebass.Text)
+export const Link = styled(rebass.Text)(themed('Link'))
 Link.defaultProps = {as: 'a'}
+Link.displayName = 'Link'
