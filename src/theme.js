@@ -1,6 +1,4 @@
-import typography from './utils/typography'
-
-const {rhythm} = typography
+import {rhythm} from './utils/typography'
 
 const theme = {
   breakpoints: ['1024px'], // ipad landscape
