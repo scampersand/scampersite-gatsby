@@ -19,7 +19,11 @@ export {Section} from './Section'
 export {SimpleImg} from './SimpleImg'
 export {Box, Flex, Text, Heading, Card} from '@rebass/emotion'
 
-const themed = key => props => props.theme[key]
+export const themed = key => props => props.theme[key]
+
+export const P = styled(rebass.Text)(themed('P'))
+P.defaultProps = {as: 'p'}
+P.displayName = 'P'
 
 export const H1 = styled(rebass.Heading)(themed('H1'))
 H1.defaultProps = {as: 'h1'}

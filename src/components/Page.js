@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Global} from '@emotion/core'
 import {ThemeProvider} from 'emotion-theming'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
@@ -49,6 +50,7 @@ const Footer = () => (
 
 export const Page = ({children, keywords, title}) => (
   <ThemeProvider theme={theme}>
+    <Global styles={theme['global']} />
     <SEO title={title} keywords={keywords} />
     <Container>
       <Header />

@@ -8,9 +8,11 @@ import {
   LogoGrid,
   ContactForm,
   NamedLink,
+  H1,
+  P,
 } from '~/components'
 
-const Intro = props => <Section {...props} />
+const Intro = props => <P as={Section} {...props} />
 
 const IndexPage = ({
   data: {
@@ -26,7 +28,7 @@ const IndexPage = ({
     <Page title={title}>
       <Intro>{description}</Intro>
       <Section>
-        <h1>Recent Work</h1>
+        <H1>Recent Work</H1>
         <Project.Group alternating>
           <Project
             title="Appsembler"
@@ -84,7 +86,7 @@ const IndexPage = ({
         </Project.Group>
       </Section>
       <Section>
-        <h1>Clients</h1>
+        <H1>Clients</H1>
         <p>
           We work with clients who are making a difference in education,
           research &amp; scholarly publishing, healthcare, and social impact
@@ -93,7 +95,7 @@ const IndexPage = ({
         <LogoGrid />
       </Section>
       <Section>
-        <h1>Contact</h1>
+        <H1>Contact</H1>
         <ContactForm />
       </Section>
     </Page>
