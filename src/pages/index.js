@@ -30,6 +30,7 @@ const IndexPage = ({
         <Project.Group alternating>
           <Project
             title="Appsembler"
+            category="Education"
             image={projectImages['appsembler-reports']}
             link="appsembler"
           >
@@ -51,6 +52,7 @@ const IndexPage = ({
           </Project>
           <Project
             title="Tizra"
+            category="Scholarly Publishing"
             image={projectImages['tizra-quickstart']}
             link="tizra"
           >
@@ -65,6 +67,7 @@ const IndexPage = ({
           </Project>
           <Project
             title="Digital Einstein Papers"
+            category="Research"
             image={projectImages['einstein-search']}
             link="einstein"
           >

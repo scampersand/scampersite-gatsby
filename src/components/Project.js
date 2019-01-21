@@ -3,7 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
 import {FlexGrid, Section, Image, NamedLink} from '.'
 
-export const Project = ({title, link, children, image, flip}) => {
+export const Project = ({title, category, link, children, image, flip}) => {
   if (link) {
     title = <NamedLink name={link}>{title}</NamedLink>
   }
@@ -11,6 +11,7 @@ export const Project = ({title, link, children, image, flip}) => {
     <Section.SubSection>
       <FlexGrid columns={5} gutter={2}>
         <FlexGrid.Col span={[5, 2]} order={[0, flip ? 1 : 0]}>
+          <h3>{category}</h3>
           <h2>{title}</h2>
           <div>{children}</div>
         </FlexGrid.Col>
