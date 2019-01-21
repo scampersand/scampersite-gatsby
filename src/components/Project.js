@@ -37,7 +37,7 @@ Project.Description.displayName = 'Project.Description'
 Project.Testimonial = ({from, children}) => (
   <blockquote>
     <p>{children}</p>
-    <cite>{from}</cite>
+    <cite>&mdash;{from}</cite>
   </blockquote>
 )
 

@@ -45,7 +45,7 @@ const IndexPage = ({
               customer-facing reporting tool,{' '}
               <NamedLink name="figures">Figures</NamedLink>.
             </Project.Description>
-            <Project.Testimonial from="&mdash;Aaron Beals, VP Eng at Appsembler">
+            <Project.Testimonial from="Aaron Beals, VP Eng at Appsembler">
               &ldquo;I have to say, the amount you were able to get done with
               two people in this timeframe is amazing.&rdquo;
             </Project.Testimonial>
