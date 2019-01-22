@@ -9,11 +9,11 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import theme from '~/theme'
-import {Container, InlineList, NamedLink, SEO} from '.'
+import {Box, Container, InlineList, Link, NamedLink, SEO} from '.'
 
-const Header = () => (
-  <header>
-    <a
+const Header = props => (
+  <Box as="header" {...props}>
+    <Link
       href="/"
       css={{
         color: 'inherit',
@@ -23,11 +23,11 @@ const Header = () => (
       }}
     >
       Scampersand
-    </a>
-  </header>
+    </Link>
+  </Box>
 )
 
-const Main = ({children}) => <main role="main">{children}</main>
+const Main = props => <main role="main" {...props} />
 
 const SocialLink = ({icon, ...props}) => (
   <NamedLink css={{color: 'inherit', textDecoration: 'none'}} {...props}>
@@ -35,23 +35,23 @@ const SocialLink = ({icon, ...props}) => (
   </NamedLink>
 )
 
-const Footer = () => (
-  <footer>
+const Footer = props => (
+  <Box as="footer" {...props}>
     <InlineList>
       <SocialLink name="twitter" icon={faTwitter} />
       <SocialLink name="github" icon={faGithub} />
       <SocialLink name="linkedin" icon={faLinkedin} />
     </InlineList>
-  </footer>
+  </Box>
 )
 
-export const Page = ({children, keywords, title}) => (
+export const Page = ({keywords, title, ...props}) => (
   <ThemeProvider theme={theme}>
     <Global styles={theme['global']} />
     <SEO title={title} keywords={keywords} />
     <Container>
       <Header />
-      <Main>{children}</Main>
+      <Main {...props} />
       <Footer />
     </Container>
   </ThemeProvider>
