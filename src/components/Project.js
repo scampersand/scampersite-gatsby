@@ -1,7 +1,7 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
-import {FlexGrid, Box, Section, Image, NamedLink, H2, H3, P} from '.'
+import {Card, FlexGrid, H2, H3, Image, NamedLink, P, Section} from '.'
 
 export const Project = ({title, category, link, children, image, flip}) => {
   if (link) {
@@ -35,7 +35,7 @@ Project.Description = ({children}) => <P>{children}</P>
 Project.Description.displayName = 'Project.Description'
 
 Project.Testimonial = ({from, children}) => (
-  <Box pl={2} border={1} css={{borderLeft: '2px solid blue'}}>
+  <Card pl={2} borderLeft="accent">
     <P
       fontSize={2}
       fontWeight="bold"
@@ -48,7 +48,7 @@ Project.Testimonial = ({from, children}) => (
       {children}
     </P>
     <P as="cite">&mdash;{from}</P>
-  </Box>
+  </Card>
 )
 
 Project.Testimonial.displayName = 'Project.Testimonial'

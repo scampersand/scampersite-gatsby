@@ -81,7 +81,9 @@ const colors = {
   text: 'hsla(0, 0%, 0%, 0.8)',
   accent: 'blue',
 }
-const borders = ['none', `2px solid ${colors.accent}`]
+const borders = {
+  accent: `2px solid ${colors.accent}`,
+}
 
 const theme = {
   borders,
