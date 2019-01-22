@@ -9,7 +9,7 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import theme from '~/theme'
-import {Container, InlineList, SEO} from '.'
+import {Container, InlineList, NamedLink, SEO} from '.'
 
 const Header = () => (
   <header>
@@ -29,21 +29,18 @@ const Header = () => (
 
 const Main = ({children}) => <main role="main">{children}</main>
 
-const SocialLink = ({href, icon}) => (
-  <a css={{color: 'inherit', textDecoration: 'none'}} href={href}>
+const SocialLink = ({icon, ...props}) => (
+  <NamedLink css={{color: 'inherit', textDecoration: 'none'}} {...props}>
     <FontAwesomeIcon icon={icon} />
-  </a>
+  </NamedLink>
 )
 
 const Footer = () => (
   <footer>
     <InlineList>
-      <SocialLink href="https://twitter.com/scampersandco" icon={faTwitter} />
-      <SocialLink href="https://github.com/scampersand" icon={faGithub} />
-      <SocialLink
-        href="https://www.linkedin.com/company/scampersand"
-        icon={faLinkedin}
-      />
+      <SocialLink name="twitter" icon={faTwitter} />
+      <SocialLink name="github" icon={faGithub} />
+      <SocialLink name="linkedin" icon={faLinkedin} />
     </InlineList>
   </footer>
 )

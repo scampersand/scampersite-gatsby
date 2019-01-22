@@ -22,6 +22,9 @@ module.exports = {
       {name: 'princeton-university-press', href: 'https://press.princeton.edu'},
       {name: 'ripul', href: 'http://ripul.org'},
       {name: 'tizra', href: 'https://www.tizra.com'},
+      {name: 'twitter', href: 'https://twitter.com/scampersandco'},
+      {name: 'github', href: 'https://github.com/scampersand'},
+      {name: 'linkedin', href: 'https://www.linkedin.com/company/scampersand'},
     ]
   },
   plugins: [
