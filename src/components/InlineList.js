@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const InlineList = ({children}) => (
+export const InlineList = ({children, ...props}) => (
   <ul css={{listStyle: 'none', marginLeft: 0}}>
-    {children.map((child, i) => (
+    {React.Children.map(children, (child, i) =>
       <li
         key={i}
         css={{
@@ -12,6 +12,6 @@ export const InlineList = ({children}) => (
       >
         {child}
       </li>
-    ))}
+    )}
   </ul>
 )
