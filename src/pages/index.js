@@ -28,6 +28,9 @@ const IndexPage = ({
       <Landing />
       <Container as={Section} id="work">
         <H1>Recent Work</H1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et consequat nunc.
+        </p>
         <Project.Group alternating>
           <Project
             title="Appsembler"
@@ -85,7 +88,7 @@ const IndexPage = ({
         </Project.Group>
       </Container>
       <Container as={Section} id="clients">
-        <H1>Clients</H1>
+        <H1>Our Clients</H1>
         <p>
           We work with clients who are making a difference in education,
           research &amp; scholarly publishing, healthcare, and social impact
@@ -94,7 +97,10 @@ const IndexPage = ({
         <LogoGrid />
       </Container>
       <Container as={Section} id="contact">
-        <H1>Contact</H1>
+        <H1>Contact Us</H1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et consequat nunc.
+        </p>
         <ContactForm />
       </Container>
     </Page>
