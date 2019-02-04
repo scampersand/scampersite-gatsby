@@ -112,6 +112,7 @@ const theme = {
         fontFamily: fonts.text,
         fontSize: baseFontSize,
         boxSizing: 'border-box',
+        scrollBehavior: 'smooth',
       },
       '*,*:before,*:after': {
         boxSizing: 'inherit',
