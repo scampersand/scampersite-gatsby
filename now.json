@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "scampersite",
+  "alias": "scampersite",
   "builds": [
     {
       "src": "package.json",

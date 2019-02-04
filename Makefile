@@ -4,6 +4,7 @@ dev:
 
 deploy: images
 	now --team=scampersand
+	now --team=scampersand alias
 
 # pngs are converted directly
 IMAGES = $(patsubst src/assets/%,src/images/%,$(shell find src/assets -name '*.png'))
