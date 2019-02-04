@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import Typography from 'typography'
 import {css} from '@emotion/core'
 
@@ -65,13 +66,22 @@ const {rhythm} = typography
 //
 // https://github.com/jxnblk/styled-system/blob/master/docs/table.md
 //
-const breakpoints = ['1024px'] // ipad landscape
+const breakpoints = ['1024px', '1880px'] // ipad landscape, max desktop
 const space = [0, 1 / 2, 1, 2, 4, 8, 16].map(i => rhythm(i))
 const fonts = {
   text: 'mrs-eaves, serif',
   title: 'brother-1816, sans-serif',
 }
-const fontSizes = [1, 5 / 6, 7 / 6, 8 / 6].map(i => baseFontSize * i)
+const fontSizes = _.mapValues(
+  {
+    small: 5 / 6,
+    text: 1,
+    large: 7 / 6,
+    larger: 8 / 6,
+  },
+  i => baseFontSize * i + 'px',
+)
+
 const fontWeights = {
   normal: 400,
   bold: 700,
@@ -79,15 +89,17 @@ const fontWeights = {
 const colors = {
   background: 'white',
   text: 'hsla(0, 0%, 0%, 0.8)',
-  accent: 'blue',
+  accent: '#0fa7b1',
 }
 const borders = {
   accent: `2px solid ${colors.accent}`,
+  nav: `2px solid ${colors.text}`,
 }
 
 const theme = {
   borders,
   breakpoints,
+  colors,
   fonts,
   fontSizes,
   fontWeights,
@@ -111,27 +123,6 @@ const theme = {
       },
     }}
   `,
-
-  Heading: {
-    fontFamily: fonts.title,
-    lineHeight: 1,
-    fontWeight: fontWeights.normal,
-    marginBottom: rhythm(1 / 2), // alternatively space[1] or mb={1}
-    textTransform: 'uppercase',
-  },
-
-  H1: {
-    fontSize: fontSizes[1],
-  },
-
-  H2: {
-    fontSize: fontSizes[3],
-    textTransform: 'none',
-  },
-
-  H3: {
-    fontSize: fontSizes[1],
-  },
 
   Link: {
     fontWeight: fontWeights.bold,

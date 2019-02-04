@@ -37,7 +37,7 @@ Project.Description.displayName = 'Project.Description'
 Project.Testimonial = ({from, children}) => (
   <Card pl={2} borderLeft="accent">
     <P
-      fontSize={2}
+      fontSize="larger"
       fontWeight="bold"
       fontStyle="italic"
       css={

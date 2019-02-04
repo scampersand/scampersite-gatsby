@@ -2,17 +2,16 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import {namedImages} from '~/utils/queries'
 import {
-  Page,
-  Section,
-  Project,
-  LogoGrid,
   ContactForm,
-  NamedLink,
+  Container,
   H1,
-  P,
+  Landing,
+  LogoGrid,
+  NamedLink,
+  Page,
+  Project,
+  Section,
 } from '~/components'
-
-const Intro = props => <P as={Section} {...props} />
 
 const IndexPage = ({
   data: {
@@ -26,8 +25,8 @@ const IndexPage = ({
   projectImages = namedImages(projectImages)
   return (
     <Page title={title}>
-      <Intro>{description}</Intro>
-      <Section>
+      <Landing />
+      <Container as={Section} id="work">
         <H1>Recent Work</H1>
         <Project.Group alternating>
           <Project
@@ -84,8 +83,8 @@ const IndexPage = ({
             <Project.Award name="SIIA CODiE Award finalist" link="codie" />
           </Project>
         </Project.Group>
-      </Section>
-      <Section>
+      </Container>
+      <Container as={Section} id="clients">
         <H1>Clients</H1>
         <p>
           We work with clients who are making a difference in education,
@@ -93,11 +92,11 @@ const IndexPage = ({
           ventures.
         </p>
         <LogoGrid />
-      </Section>
-      <Section>
+      </Container>
+      <Container as={Section} id="contact">
         <H1>Contact</H1>
         <ContactForm />
-      </Section>
+      </Container>
     </Page>
   )
 }
