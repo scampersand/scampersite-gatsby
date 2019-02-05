@@ -1,11 +1,7 @@
 import React from 'react'
-import {Box, Card, Container, Flex, InlineList, Link, Panel, Text} from '.'
+import {Box, Card, Flex, InlineList, Link, Panel, Text} from '.'
 
-const Header = props => (
-  <Text as="header" fontWeight="bold" {...props}>
-    Scampersand
-  </Text>
-)
+const Header = props => <Text as="header" variant="titleSans" {...props} />
 
 const Highlight = props => <Text css={{fontStyle: 'italic'}} {...props} />
 Highlight.defaultProps = {as: 'span', color: 'accent'}
@@ -14,7 +10,7 @@ Highlight.displayName = 'Highlight'
 const Mission = props => (
   <Text
     textAlign="center"
-    fontSize={['9vw', '92.2px']}
+    fontSize={['7.5vw', '76.8333px'] /* 7.5 * 1024 */}
     lineHeight={1}
     {...props}
   >
@@ -30,12 +26,12 @@ const Mission = props => (
 
 const NavLink = props => (
   <Card borderBottom="nav">
-    <Link color="text" {...props} />
+    <Link color="text" variant="titleSans" {...props} />
   </Card>
 )
 
 const Nav = props => (
-  <InlineList {...props}>
+  <InlineList gutter={3} {...props}>
     <NavLink href="#work">Work</NavLink>
     <NavLink href="#clients">Clients</NavLink>
     <NavLink href="#contact">Let's Talk</NavLink>
@@ -51,11 +47,23 @@ export const Landing = () => (
       alignItems="center"
       css={{minHeight: '85vh'}}
     >
-      <Flex flex="1" flexDirection="column" justifyContent="flex-end" p="7vh">
-        <Header />
+      <Flex
+        flex="1"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="flex-end"
+        py="7vh"
+      >
+        <Header>Scampersand</Header>
       </Flex>
       <Mission />
-      <Flex flex="1" flexDirection="column" justifyContent="flex-end" p="7vh">
+      <Flex
+        flex="1"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="flex-end"
+        py="7vh"
+      >
         <Nav />
       </Flex>
     </Panel>

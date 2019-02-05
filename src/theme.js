@@ -66,7 +66,7 @@ const {rhythm} = typography
 //
 // https://github.com/jxnblk/styled-system/blob/master/docs/table.md
 //
-const breakpoints = ['1024px', '1880px'] // ipad landscape, max desktop
+const breakpoints = ['1024px', '1920px'] // ipad landscape, max desktop
 const space = [0, 1 / 2, 1, 2, 4, 8, 16].map(i => rhythm(i))
 const fonts = {
   sans: 'brother-1816, sans-serif',
@@ -93,17 +93,11 @@ const colors = {
   background: 'white',
   text: 'hsla(0, 0%, 0%, 0.8)',
   accent: '#0fa7b1',
-  thread: 'grey',
+  thread: '#e6e6e6',
 }
 const borders = {
   accent: `2px solid ${colors.accent}`,
   nav: `2px solid ${colors.text}`,
-}
-const cards = {
-  landing: {
-    borderRadius: '2px',
-    backgroundColor: '#e6e6e6',
-  },
 }
 
 const theme = {

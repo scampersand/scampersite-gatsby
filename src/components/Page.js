@@ -6,7 +6,7 @@ import theme from '~/theme'
 import {Card, Footer, SEO} from '.'
 
 const Thread = props => {
-  const threadWidth = 4
+  const threadWidth = 2
   return (
     <Card
       bg="thread"
@@ -15,6 +15,7 @@ const Thread = props => {
         position: 'fixed',
         left: `calc(50% - ${threadWidth / 2}px)`,
         width: `${threadWidth}px`,
+        zIndex: -1,
       }}
       {...props}
     />
