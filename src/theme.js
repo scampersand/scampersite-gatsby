@@ -50,6 +50,10 @@ const reset = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  /* avoid blue outline on focused input */
+  *:focus {
+    outline: none;
+  }
 `
 
 // Use typography.js to make the rhythm function
@@ -98,6 +102,10 @@ const colors = {
 const borders = {
   accent: `2px solid ${colors.accent}`,
   nav: `2px solid ${colors.text}`,
+  input: `1px solid ${colors.thread}`,
+}
+const radii = {
+  rounded: '6px',
 }
 
 const theme = {
@@ -107,6 +115,7 @@ const theme = {
   fonts,
   fontSizes,
   fontWeights,
+  radii,
   space,
 
   global: css`
