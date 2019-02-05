@@ -85,8 +85,6 @@ const fontSizes = _.mapValues(
   },
   i => baseFontSize * i + 'px',
 )
-
-
 const fontWeights = {
   normal: 400,
   bold: 700,
@@ -95,10 +93,17 @@ const colors = {
   background: 'white',
   text: 'hsla(0, 0%, 0%, 0.8)',
   accent: '#0fa7b1',
+  thread: 'grey',
 }
 const borders = {
   accent: `2px solid ${colors.accent}`,
   nav: `2px solid ${colors.text}`,
+}
+const cards = {
+  landing: {
+    borderRadius: '2px',
+    backgroundColor: '#e6e6e6',
+  },
 }
 
 const theme = {

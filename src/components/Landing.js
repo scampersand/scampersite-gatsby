@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Container, Flex, InlineList, Link, Text} from '.'
+import {Box, Card, Container, Flex, InlineList, Link, Panel, Text} from '.'
 
 const Header = props => (
   <Text as="header" fontWeight="bold" {...props}>
@@ -42,16 +42,23 @@ const Nav = props => (
   </InlineList>
 )
 
-export const Landing = props => (
-  <Container {...props}>
-    <Flex flexDirection="column" alignItems="center" css={{minHeight: '100vh'}}>
-      <Flex flex="1" flexDirection="column" justifyContent="flex-end" pb="7vh">
+export const Landing = () => (
+  <Box>
+    <Box css={{height: '10vh'}} />
+    <Panel
+      as={Flex}
+      flexDirection="column"
+      alignItems="center"
+      css={{minHeight: '85vh'}}
+    >
+      <Flex flex="1" flexDirection="column" justifyContent="flex-end" p="7vh">
         <Header />
       </Flex>
       <Mission />
-      <Flex flex="1" flexDirection="column" justifyContent="flex-end" pb="7vh">
+      <Flex flex="1" flexDirection="column" justifyContent="flex-end" p="7vh">
         <Nav />
       </Flex>
-    </Flex>
-  </Container>
+    </Panel>
+    <Box css={{height: '5vh'}} />
+  </Box>
 )

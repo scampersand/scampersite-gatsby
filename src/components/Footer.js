@@ -25,7 +25,7 @@ export const Footer = props => (
         Scampersand
       </Text>
       <Text fontSize="serifMedium" {...props}>
-        //
+        {'//'}
       </Text>
       <Text fontSize="serifMedium" {...props}>
         Providence, Rhode Island

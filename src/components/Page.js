@@ -3,15 +3,34 @@ import PropTypes from 'prop-types'
 import {Global} from '@emotion/core'
 import {ThemeProvider} from 'emotion-theming'
 import theme from '~/theme'
-import {Footer, SEO} from '.'
+import {Card, Footer, SEO} from '.'
+
+const Thread = props => {
+  const threadWidth = 4
+  return (
+    <Card
+      bg="thread"
+      css={{
+        height: '100vh',
+        position: 'fixed',
+        left: `calc(50% - ${threadWidth / 2}px)`,
+        width: `${threadWidth}px`,
+      }}
+      {...props}
+    />
+  )
+}
 
 export const Page = ({keywords, title, ...props}) => (
-  <ThemeProvider theme={theme}>
-    <Global styles={theme['global']} />
+  <>
     <SEO title={title} keywords={keywords} />
-    <main role="main" {...props} />
-    <Footer />
-  </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <Global styles={theme['global']} />
+      <Thread />
+      <main role="main" {...props} />
+      <Footer />
+    </ThemeProvider>
+  </>
 )
 
 Page.propTypes = {
