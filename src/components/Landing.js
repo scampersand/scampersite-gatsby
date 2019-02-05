@@ -1,10 +1,10 @@
 import React from 'react'
-import {Card, Container, Flex, Heading, InlineList, Link, Text} from '.'
+import {Card, Container, Flex, InlineList, Link, Text} from '.'
 
 const Header = props => (
-  <Heading as="header" fontWeight="bold" {...props}>
+  <Text as="header" fontWeight="bold" {...props}>
     Scampersand
-  </Heading>
+  </Text>
 )
 
 const Highlight = props => <Text css={{fontStyle: 'italic'}} {...props} />
@@ -30,7 +30,7 @@ const Mission = props => (
 
 const NavLink = props => (
   <Card borderBottom="nav">
-    <Heading as={Link} color="text" {...props} />
+    <Link color="text" {...props} />
   </Card>
 )
 

@@ -6,6 +6,7 @@ import {
   Container,
   H1,
   Landing,
+  Lede,
   LogoGrid,
   NamedLink,
   Page,
@@ -28,9 +29,9 @@ const IndexPage = ({
       <Landing />
       <Container as={Section} id="work">
         <H1>Recent Work</H1>
-        <p>
+        <Lede>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et consequat nunc.
-        </p>
+        </Lede>
         <Project.Group alternating>
           <Project
             title="Appsembler"
@@ -89,18 +90,18 @@ const IndexPage = ({
       </Container>
       <Container as={Section} id="clients">
         <H1>Our Clients</H1>
-        <p>
+        <Lede>
           We work with clients who are making a difference in education,
           research &amp; scholarly publishing, healthcare, and social impact
           ventures.
-        </p>
+        </Lede>
         <LogoGrid />
       </Container>
       <Container as={Section} id="contact">
         <H1>Contact Us</H1>
-        <p>
+        <Lede>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et consequat nunc.
-        </p>
+        </Lede>
         <ContactForm />
       </Container>
     </Page>

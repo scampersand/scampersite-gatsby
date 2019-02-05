@@ -69,18 +69,23 @@ const {rhythm} = typography
 const breakpoints = ['1024px', '1880px'] // ipad landscape, max desktop
 const space = [0, 1 / 2, 1, 2, 4, 8, 16].map(i => rhythm(i))
 const fonts = {
-  text: 'mrs-eaves, serif',
-  title: 'brother-1816, sans-serif',
+  sans: 'brother-1816, sans-serif',
+  serif: 'mrs-eaves, serif',
 }
 const fontSizes = _.mapValues(
   {
-    small: 5 / 6,
-    text: 1,
-    large: 7 / 6,
-    larger: 8 / 6,
+    sansXsmall: 4 / 6,
+    sansSmall: 5 / 6,
+    sansMedium: 1,
+    serifSmall: 5 / 6,
+    serifMedium: 1,
+    serifLarge: 7 / 6,
+    serifXlarge: 8 / 6,
+    serifDisplay: 2,
   },
   i => baseFontSize * i + 'px',
 )
+
 
 const fontWeights = {
   normal: 400,
@@ -109,7 +114,7 @@ const theme = {
     ${reset}
     ${{
       html: {
-        fontFamily: fonts.text,
+        fontFamily: fonts.serif,
         fontSize: baseFontSize,
         boxSizing: 'border-box',
         scrollBehavior: 'smooth',
@@ -121,9 +126,25 @@ const theme = {
         lineHeight: baseLineHeight,
         color: colors.text,
         backgroundColor: colors.background,
+        fontWeight: fontWeights.normal,
       },
     }}
   `,
+
+  textStyles: {
+    titleSans: {
+      fontFamily: fonts.sans,
+      textTransform: 'uppercase',
+      lineHeight: 1,
+      fontWeight: fontWeights.bold,
+    },
+    titleSerif: {
+      fontFamily: fonts.serif,
+      textTransform: 'none',
+      lineHeight: 1,
+      fontWeight: fontWeights.bold,
+    },
+  },
 
   Link: {
     fontWeight: fontWeights.bold,

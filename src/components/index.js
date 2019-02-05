@@ -1,5 +1,14 @@
+import React from 'react'
 import styled from '@emotion/styled'
-import * as rebass from '@rebass/emotion'
+import * as Rebass from '@rebass/emotion'
+import {
+  fontFamily,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
+  textAlign,
+  variant,
+} from 'styled-system'
 
 export {Button} from './Button'
 export {ContactForm} from './ContactForm'
@@ -19,50 +28,44 @@ export {Project} from './Project'
 export {SEO} from './SEO'
 export {Section} from './Section'
 export {SimpleImg} from './SimpleImg'
-export {Box, Flex, Text, Card} from '@rebass/emotion'
+export {Box, Flex, Card} from '@rebass/emotion'
 
 export const themed = key => props => props.theme[key]
 
-export const P = styled(rebass.Text)()
+const textStyles = variant({key: 'textStyles'})
+
+export const Text = styled(Rebass.Box)(
+  textStyles,
+  fontFamily,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
+  textAlign,
+)
+
+Text.propTypes = {
+  ...fontFamily.propTypes,
+  ...fontWeight.propTypes,
+  ...letterSpacing.propTypes,
+  ...lineHeight.propTypes,
+  ...textAlign.propTypes,
+  ...textStyles.propTypes,
+}
+
+export const P = styled(Text)()
 P.defaultProps = {as: 'p'}
 P.displayName = 'P'
 
-export const Heading = styled(rebass.Text)({
-  textTransform: 'uppercase',
-  lineHeight: 1,
-})
-Heading.defaultProps = {
-  fontFamily: 'title',
-}
-Heading.displayName = 'Heading'
+export const Lede = props => <Text as="p" fontSize="serifDisplay" {...props} />
 
-export const H1 = styled(Heading)(themed('H1'))
-H1.defaultProps = {
-  as: 'h1',
-  fontSize: 'small',
-  mb: 1,
-}
-H1.displayName = 'H1'
+export const H1 = props => <Text as="h1" variant="titleSans" fontSize="sansSmall" {...props} />
 
-export const H2 = styled(Heading)(themed('H2'))
-H2.defaultProps = {
-  as: 'h2',
-  fontSize: 'large',
-  textTransform: 'none',
-  mb: 1,
-}
-H2.displayName = 'H2'
+export const H2 = props => <Text as="h2" variant="titleSerif" fontSize="serifXlarge" {...props} />
 
-export const H3 = styled(Heading)(themed('H3'))
-H3.defaultProps = {
-  as: 'h3',
-  fontSize: 'small',
-  mb: 1,
-}
-H3.displayName = 'H3'
+export const H3 = props => <Text as="h3" variant="titleSans" fontSize="sansXsmall" {...props} />
 
-// rebass.Link is based on Box instead of Text, whoops
+// Rebass.Link is based on Box instead of Text, whoops
 // https://github.com/rebassjs/rebass/blob/master/src/index.js
-export const Link = styled(rebass.Text)(themed('Link'))
+export const Link = styled(Text)(themed('Link'))
 Link.defaultProps = {as: 'a'}
 Link.displayName = 'Link'
