@@ -24,7 +24,7 @@ const Mission = props => (
     <br />
     to build software
     <br />
-    that makes a <Highlight>difference</Highlight>.
+    that makes a <Highlight>difference.</Highlight>
   </Text>
 )
 
