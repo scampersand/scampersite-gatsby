@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Card, Flex, InlineList, Link, Panel, Text} from '.'
+import {Box, Card, Container, Flex, InlineList, Link, Text} from '.'
 
 const Header = props => <Text as="header" variant="titleSans" {...props} />
 
@@ -40,12 +40,11 @@ const Nav = props => (
 
 export const Landing = () => (
   <Box>
-    <Box css={{height: '10vh'}} />
-    <Panel
+    <Container
       as={Flex}
       flexDirection="column"
       alignItems="center"
-      css={{minHeight: '85vh'}}
+      css={{minHeight: '100vh'}}
     >
       <Flex
         flex="1"
@@ -66,7 +65,6 @@ export const Landing = () => (
       >
         <Nav />
       </Flex>
-    </Panel>
-    <Box css={{height: '5vh'}} />
+    </Container>
   </Box>
 )
