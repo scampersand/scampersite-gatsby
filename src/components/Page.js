@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import {Global} from '@emotion/core'
 import {ThemeProvider} from 'emotion-theming'
 import theme from '~/theme'
-import {Footer, SEO, Thread} from '.'
+import {Footer, SEO} from '.'
 
 export const Page = ({keywords, title, ...props}) => (
   <>
     <SEO title={title} keywords={keywords} />
     <ThemeProvider theme={theme}>
       <Global styles={theme['global']} />
-      <Thread />
       <main role="main" {...props} />
       <Footer />
     </ThemeProvider>
