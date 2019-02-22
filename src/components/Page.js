@@ -3,24 +3,7 @@ import PropTypes from 'prop-types'
 import {Global} from '@emotion/core'
 import {ThemeProvider} from 'emotion-theming'
 import theme from '~/theme'
-import {Card, Footer, SEO} from '.'
-
-const Thread = props => {
-  const threadWidth = 2
-  return (
-    <Card
-      bg="thread"
-      css={{
-        height: '100vh',
-        position: 'fixed',
-        left: `calc(50% - ${threadWidth / 2}px)`,
-        width: `${threadWidth}px`,
-        zIndex: -1,
-      }}
-      {...props}
-    />
-  )
-}
+import {Footer, SEO, Thread} from '.'
 
 export const Page = ({keywords, title, ...props}) => (
   <>

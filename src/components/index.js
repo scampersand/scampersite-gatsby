@@ -29,6 +29,7 @@ export {Project} from './Project'
 export {SEO} from './SEO'
 export {Section} from './Section'
 export {SimpleImg} from './SimpleImg'
+export {Thread} from './Thread'
 export {Box, Flex, Card} from '@rebass/emotion'
 
 export const themed = key => props => props.theme[key]
