@@ -2,6 +2,7 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import {namedImages} from '~/utils/queries'
 import {
+  Box,
   ContactForm,
   Container,
   H1,
@@ -14,6 +15,13 @@ import {
   Section,
   Slab,
 } from '~/components'
+
+const SectionHeader = ({title, children, ...props}) => (
+  <Box {...props}>
+    <H1>{title}</H1>
+    <Lede>{children}</Lede>
+  </Box>
+)
 
 const IndexPage = ({
   data: {
@@ -31,11 +39,10 @@ const IndexPage = ({
 
       <Section id="work">
         <Container>
-          <H1>Recent Work</H1>
-          <Lede>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            et consequat nunc.
-          </Lede>
+          <SectionHeader title="Recent Work">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum et consequat nunc.
+          </SectionHeader>
           <Project.Group alternating>
             <Project
               title="Appsembler"
@@ -103,24 +110,22 @@ const IndexPage = ({
       <Slab>
         <Section id="clients">
           <Container>
-            <H1>Our Clients</H1>
-            <Lede>
-              We work with clients who are making a difference in education,
-              research &amp; scholarly publishing, healthcare, and social impact
-              ventures.
-            </Lede>
-            <LogoGrid my={2} />
+            <SectionHeader title="Our Clients">
+              We work with clients who are making a difference in
+              education, research &amp; scholarly publishing, healthcare,
+              and social impact ventures.
+            </SectionHeader>
+            <LogoGrid />
           </Container>
         </Section>
       </Slab>
 
       <Section id="contact">
         <Container>
-          <H1>Contact Us</H1>
-          <Lede>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            et consequat nunc.
-          </Lede>
+          <SectionHeader title="Contact Us">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum et consequat nunc.
+          </SectionHeader>
           <ContactForm />
         </Container>
       </Section>

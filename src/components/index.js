@@ -58,13 +58,21 @@ export const P = styled(Text)()
 P.defaultProps = {as: 'p'}
 P.displayName = 'P'
 
-export const Lede = props => <Text as="p" fontSize="serifDisplay" {...props} />
+export const Lede = props => (
+  <Text as="p" fontSize="serifDisplay" lineHeight="1.125" mb="1em" {...props} />
+)
 
-export const H1 = props => <Text as="h1" variant="titleSans" fontSize="sansSmall" {...props} />
+export const H1 = props => (
+  <Text as="h1" variant="titleSans" fontSize="sansSmall" mb="0.5em" {...props} />
+)
 
-export const H2 = props => <Text as="h2" variant="titleSerif" fontSize="serifXlarge" {...props} />
+export const H2 = props => (
+  <Text as="h2" variant="titleSerif" fontSize="serifXlarge" mb="0.5em" {...props} />
+)
 
-export const H3 = props => <Text as="h3" variant="titleSans" fontSize="sansXsmall" {...props} />
+export const H3 = props => (
+  <Text as="h3" variant="titleSans" fontSize="sansXsmall" mb="0.5em" {...props} />
+)
 
 // Rebass.Link is based on Box instead of Text, whoops
 // https://github.com/rebassjs/rebass/blob/master/src/index.js

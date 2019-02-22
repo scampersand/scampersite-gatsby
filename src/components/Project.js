@@ -1,7 +1,7 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
-import {Box, Card, FlexGrid, H2, H3, Image, NamedLink, P} from '.'
+import {Box, Card, FlexGrid, H2, H3, Image, NamedLink, Text} from '.'
 
 export const Project = ({
   title,
@@ -29,6 +29,10 @@ export const Project = ({
   )
 }
 
+Project.defaultProps = {
+  mb: '3em',
+}
+
 Project.Group = ({alternating, children}) =>
   React.Children.map(children, (child, i) =>
     alternating && i % 2 ? React.cloneElement(child, {flip: true}) : child,
@@ -36,13 +40,13 @@ Project.Group = ({alternating, children}) =>
 
 Project.Group.displayName = 'Project.Group'
 
-Project.Description = props => <P {...props} />
+Project.Description = props => <Text mb="1em" {...props} />
 
 Project.Description.displayName = 'Project.Description'
 
 Project.Testimonial = ({from, children}) => (
   <Card pl={2} borderLeft="accent">
-    <P
+    <Text
       fontSize="serifLarge"
       fontWeight="bold"
       fontStyle="italic"
@@ -50,10 +54,11 @@ Project.Testimonial = ({from, children}) => (
         // until https://github.com/rebassjs/rebass/pull/558
         {fontStyle: 'italic'}
       }
+      mb="0.5em"
     >
       {children}
-    </P>
-    <P as="cite">&mdash;{from}</P>
+    </Text>
+    <Text as="cite">&mdash;{from}</Text>
   </Card>
 )
 
@@ -62,7 +67,15 @@ Project.Testimonial.displayName = 'Project.Testimonial'
 Project.Award = ({name, link, ...props}) => {
   let content = (
     <>
-      <FontAwesomeIcon icon={faAward} /> <span>{name}</span>
+      <FontAwesomeIcon icon={faAward} />{' '}
+      <Text
+        as="span"
+        fontFamily="sans"
+        fontWeight="normal"
+        fontSize="sansSmall"
+      >
+        {name}
+      </Text>
     </>
   )
   if (link) {

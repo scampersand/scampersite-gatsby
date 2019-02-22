@@ -58,7 +58,7 @@ const reset = css`
 
 // Use typography.js to make the rhythm function
 const baseFontSize = 24
-const baseLineHeight = 1.5
+const baseLineHeight = 1.25
 const typography = new Typography({
   baseFontSize: baseFontSize + 'px',
   baseLineHeight,
@@ -102,8 +102,8 @@ const colors = {
   thread: '#e6e6e6',
 }
 const borders = {
-  accent: `2px solid ${colors.accent}`,
-  nav: `2px solid ${colors.text}`,
+  accent: `3px solid ${colors.accent}`,
+  nav: `3px solid ${colors.text}`,
   input: `1px solid ${colors.thread}`,
 }
 const radii = {
