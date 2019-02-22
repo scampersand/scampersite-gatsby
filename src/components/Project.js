@@ -1,25 +1,31 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
-import {Box, Card, FlexGrid, H2, H3, Image, NamedLink, P, Section} from '.'
+import {Box, Card, FlexGrid, H2, H3, Image, NamedLink, P} from '.'
 
-export const Project = ({title, category, link, image, flip, ...props}) => {
+export const Project = ({
+  title,
+  category,
+  link,
+  image,
+  flip,
+  children,
+  ...props
+}) => {
   if (link) {
     title = <NamedLink name={link}>{title}</NamedLink>
   }
   return (
-    <Section.SubSection>
-      <FlexGrid columns={5} gutter={2}>
-        <FlexGrid.Col span={[5, 2]} order={[0, flip ? 1 : 0]}>
-          <H3>{category}</H3>
-          <H2>{title}</H2>
-          <Box {...props} />
-        </FlexGrid.Col>
-        <FlexGrid.Col span={[5, 3]} order={[0, flip ? 0 : 1]}>
-          <Image image={image} />
-        </FlexGrid.Col>
-      </FlexGrid>
-    </Section.SubSection>
+    <FlexGrid columns={5} gutter={2} {...props}>
+      <FlexGrid.Col span={[5, 2]} order={[0, flip ? 1 : 0]}>
+        <H3>{category}</H3>
+        <H2>{title}</H2>
+        <Box children={children} />
+      </FlexGrid.Col>
+      <FlexGrid.Col span={[5, 3]} order={[0, flip ? 0 : 1]}>
+        <Image image={image} />
+      </FlexGrid.Col>
+    </FlexGrid>
   )
 }
 
