@@ -97,6 +97,8 @@ const colors = {
   background: 'white',
   text: 'hsla(0, 0%, 0%, 0.8)',
   accent: '#0fa7b1',
+  slab: '#e6e6e6',
+  logoBg: '#c4c4c4',
   thread: '#e6e6e6',
 }
 const borders = {

@@ -109,7 +109,7 @@ const IndexPage = ({
               research &amp; scholarly publishing, healthcare, and social impact
               ventures.
             </Lede>
-            <LogoGrid />
+            <LogoGrid my={2} />
           </Container>
         </Section>
       </Slab>

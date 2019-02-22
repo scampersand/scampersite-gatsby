@@ -3,8 +3,9 @@ import {StaticQuery, graphql} from 'gatsby'
 import React from 'react'
 import {imageNodes} from '~/utils/queries'
 import {ImageGrid} from '.'
+import theme from '~/theme'
 
-export const LogoGrid = () => (
+export const LogoGrid = props => (
   <StaticQuery
     query={LOGO_QUERY}
     render={({images}) => {
@@ -14,9 +15,11 @@ export const LogoGrid = () => (
           linked
           order={LOGO_ORDER}
           columns={[2, 4]}
-          gutter={2}
-          rowGutter={3}
-          aspect={2.5}
+          gutter={1}
+          rowGutter={1}
+          aspect={2}
+          colProps={{px: 2, py: 2, css: {backgroundColor: theme.colors.logoBg}}}
+          {...props}
         />
       )
     }}

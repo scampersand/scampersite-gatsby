@@ -45,7 +45,7 @@ class ImageGridImage extends React.Component {
       image = <NamedLink name={link}>{image}</NamedLink>
     }
     return (
-      <div css={{height: aspectHeight}} ref={this.ref}>
+      <div css={{height: `${aspectHeight}px`}} ref={this.ref}>
         {image}
       </div>
     )
@@ -58,10 +58,21 @@ ImageGridImage.propTypes = {
   link: PropTypes.string,
 }
 
-export const ImageGrid = ({aspect, hrefs, images, linked, order, ...props}) => (
+export const ImageGrid = ({
+  aspect,
+  colProps,
+  images,
+  linked,
+  order,
+  ...props
+}) => (
   <FlexGrid alignItems="center" justifyContent="start" {...props}>
     {images.map(image => (
-      <FlexGrid.Col key={image.name} order={order.map(o => o[image.name] || 0)}>
+      <FlexGrid.Col
+        {...colProps}
+        key={image.name}
+        order={order.map(o => o[image.name] || 0)}
+      >
         <ImageGridImage
           aspect={aspect}
           image={image}
@@ -74,12 +85,11 @@ export const ImageGrid = ({aspect, hrefs, images, linked, order, ...props}) => (
 
 ImageGrid.propTypes = {
   aspect: PropTypes.number.isRequired,
-  hrefs: PropTypes.object,
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  colProps: PropTypes.object,
   order: PropTypes.arrayOf(PropTypes.object),
 }
 
 ImageGrid.defaultProps = {
-  hrefs: {},
   order: [],
 }
