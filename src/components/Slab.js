@@ -1,7 +1,7 @@
 import React from 'react'
 import {Box, Card, Container} from '.'
 
-export const Panel = ({mx = '1rem', ...props}) => (
+export const Slab = ({mx = '1rem', ...props}) => (
   <Card
     borderRadius="8px"
     bg="#e6e6e6"
