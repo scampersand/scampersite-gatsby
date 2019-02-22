@@ -5,7 +5,7 @@ import {
   faLinkedin,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
-import {Container, InlineList, NamedLink, Text} from '.'
+import {Container, Flex, InlineList, NamedLink, Slab, Text} from '.'
 
 const SocialLink = ({icon, ...props}) => (
   <NamedLink css={{color: 'inherit', textDecoration: 'none'}} {...props}>
@@ -14,23 +14,24 @@ const SocialLink = ({icon, ...props}) => (
 )
 
 export const Footer = props => (
-  <Container as="footer" {...props}>
-    <InlineList>
-      <SocialLink name="twitter" icon={faTwitter} />
-      <SocialLink name="github" icon={faGithub} />
-      <SocialLink name="linkedin" icon={faLinkedin} />
-    </InlineList>
-    <InlineList>
-      <Text variant="titleSans" fontSize="sansSmall" fontWeight="bold" {...props}>
-        Scampersand
-      </Text>
-      <Text fontSize="serifMedium" {...props}>
-        {'//'}
-      </Text>
-      <Text fontSize="serifMedium" {...props}>
-        Providence, Rhode Island
-      </Text>
-    </InlineList>
-  </Container>
+  <Slab as="footer" pt={2} pb={1} {...props}>
+    <Container as={Flex} flexDirection="column" alignItems="center">
+      <InlineList gutter={3}>
+        <SocialLink name="twitter" icon={faTwitter} />
+        <SocialLink name="github" icon={faGithub} />
+        <SocialLink name="linkedin" icon={faLinkedin} />
+      </InlineList>
+      <InlineList gutter={1} mt={1}>
+        <Text variant="titleSans" fontSize="sansSmall" fontWeight="bold" {...props}>
+          Scampersand
+        </Text>
+        <Text fontSize="serifMedium" {...props}>
+          {'//'}
+        </Text>
+        <Text fontSize="serifMedium" {...props}>
+          Providence, Rhode Island
+        </Text>
+      </InlineList>
+    </Container>
+  </Slab>
 )
-
