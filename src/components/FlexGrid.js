@@ -13,7 +13,15 @@ const negate = x =>
 const colWidths = (span, columns) => {
   span = asArray(span)
   columns = asArray(columns)
-  return _.zipWith(span, columns, (n, N) => (n || span[0]) / (N || columns[0]))
+  const fractionalWidths = _.zipWith(
+    span,
+    columns,
+    (n, N) => (n || span[0]) / (N || columns[0]),
+  )
+  return _(fractionalWidths)
+    .map(x => Math.min(x, 1))
+    .map(x => `${100 * x}%`)
+    .value()
 }
 
 export const FlexGrid = ({
