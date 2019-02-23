@@ -76,6 +76,10 @@ export const H3 = props => (
 
 // Rebass.Link is based on Box instead of Text, whoops
 // https://github.com/rebassjs/rebass/blob/master/src/index.js
-export const Link = styled(Text)(themed('Link'))
-Link.defaultProps = {as: 'a'}
+export const Link = styled(Text)({textDecoration: 'none'})
+Link.defaultProps = {
+  as: 'a',
+  color: 'link',
+  fontWeight: 'bold',
+}
 Link.displayName = 'Link'

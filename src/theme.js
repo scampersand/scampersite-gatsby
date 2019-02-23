@@ -97,13 +97,17 @@ const colors = {
   background: 'white',
   text: 'hsla(0, 0%, 0%, 0.8)',
   accent: '#0fa7b1',
+  button: '#0fa7b1',
+  link: '#0fa7b1',
+  emphasis: '#0fa7b1',
   slab: '#e6e6e6',
   logoBg: '#c4c4c4',
   thread: '#e6e6e6',
+  footer: '#e6e6e6',
 }
 const borders = {
-  accent: `3px solid ${colors.accent}`,
-  nav: `3px solid ${colors.text}`,
+  accent: `4px solid ${colors.accent}`,
+  nav: `3px solid ${colors.link}`,
   input: `1px solid ${colors.thread}`,
 }
 const radii = {
@@ -154,11 +158,6 @@ const theme = {
       lineHeight: 1,
       fontWeight: fontWeights.bold,
     },
-  },
-
-  Link: {
-    fontWeight: fontWeights.bold,
-    textDecoration: 'none',
   },
 }
 

@@ -3,7 +3,7 @@ import {Button as BaseButton} from '@rebass/emotion'
 import {Text} from '.'
 
 export const Button = ({children, ...props}) => (
-  <BaseButton px={0} py={0} {...props}>
+  <BaseButton px={0} py={0} bg="button" {...props}>
     <Text
       variant="titleSans"
       fontSize="sansSmall"

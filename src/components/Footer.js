@@ -14,7 +14,7 @@ const SocialLink = ({icon, ...props}) => (
 )
 
 export const Footer = props => (
-  <Slab as="footer" pt={2} pb={1} {...props}>
+  <Slab as="footer" pt={2} pb={1} bg="footer" {...props}>
     <Container as={Flex} flexDirection="column" alignItems="center">
       <InlineList gutter={3}>
         <SocialLink name="twitter" icon={faTwitter} />

@@ -73,6 +73,7 @@ Project.Award = ({name, link, ...props}) => {
         fontFamily="sans"
         fontWeight="normal"
         fontSize="sansSmall"
+        color="text"
       >
         {name}
       </Text>

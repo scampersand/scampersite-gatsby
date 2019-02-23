@@ -4,7 +4,7 @@ import {Box, Card, Container, Flex, InlineList, Link, Text} from '.'
 const Header = props => <Text as="header" variant="titleSans" {...props} />
 
 const Highlight = props => <Text css={{fontStyle: 'italic'}} {...props} />
-Highlight.defaultProps = {as: 'span', color: 'accent'}
+Highlight.defaultProps = {as: 'span', color: 'emphasis'}
 Highlight.displayName = 'Highlight'
 
 const Mission = props => (
