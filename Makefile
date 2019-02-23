@@ -30,27 +30,27 @@ src/images/%.png: src/assets/%.png
 src/images/%.svg: src/assets/%.svg
 	cp $^ $@
 
-src/images/clients/%.png: src/assets/clients/%.png
-	convert $^ -normalize -colorspace Gray -trim -transparent white +repage $@
+BLACK_ON_WHITE = -negate
+BORDER =
+LEVEL = 40,90
 
-# I have no idea why -negate is needed here, but without it, the jpg is
-# inverted during converstion.
+src/images/clients/ada.png: LEVEL = 60,90
+src/images/clients/appsembler.png: LEVEL = 60,90
+src/images/clients/gw.png: LEVEL = 50,90
+src/images/clients/princeton-university-press.png: LEVEL = 60,90
+src/images/clients/tizra.png: BORDER = -bordercolor none -border 15%x
+src/images/clients/tizra.png: LEVEL = 50,90
+
 src/images/clients/gw.png: src/assets/clients/gw.jpg
-	convert $^ -colorspace Gray -negate -normalize -transparent white +repage $@
+	convert $^ -colorspace Gray -background white -negate -level $(LEVEL)% -trim -negate -alpha Shape $(BLACK_ON_WHITE) $(BORDER) +repage $@
 
-# convert will call out to inkscape automatically if we don't do it ahead
-# of time, but we get more control over the result this way. Also,
-# sometimes when convert calls inkscape, it blows up.
+src/images/clients/%.png: src/assets/clients/%.png
+	convert $^ -colorspace Gray -background white -level $(LEVEL)% -trim -negate -alpha Shape $(BLACK_ON_WHITE) $(BORDER) +repage $@
+
 src/images/clients/%.png: src/assets/clients/%.svg
 	t=$$(mktemp -t tmp.XXXXXXXX.png) && \
-	  inkscape -z --export-background-opacity=1 --export-width=1024 $^ --export-png="$$t" && \
-	  convert "$$t" -colorspace Gray -normalize -level 50x100% -trim -transparent white +repage $@ && \
-	  rm -f "$$t"
-
-src/images/clients/tizra.png: src/assets/clients/tizra.svg
-	t=$$(mktemp -t tmp.XXXXXXXX.png) && \
-	  inkscape -z --export-background-opacity=1 --export-width=1024 $^ --export-png="$$t" && \
-	  convert "$$t" -colorspace Gray -normalize -level 50x100% -trim -transparent white -bordercolor none -border 15%x +repage $@ && \
+	  inkscape -z --export-background='#ffffff' --export-width=1024 --export-png="$$t" $^ && \
+	  convert "$$t" -colorspace Gray -background white -level $(LEVEL)% -trim -negate -alpha Shape $(BLACK_ON_WHITE) $(BORDER) +repage $@ && \
 	  rm -f "$$t"
 
 .PHONY: dev deploy images reimages
