@@ -131,7 +131,7 @@ const theme = {
         fontFamily: fonts.serif,
         fontSize: baseFontSize,
         boxSizing: 'border-box',
-        scrollBehavior: 'smooth',
+        // scrollBehavior is set in gatsby-browser.js
       },
       '*,*:before,*:after': {
         boxSizing: 'inherit',

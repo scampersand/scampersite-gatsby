@@ -4,4 +4,10 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+exports.onInitialClientRender = () => {
+  // Set this here instead of theme.global so that initial jump to last
+  // scroll position is instant.
+  window.setTimeout(() => {
+    document.documentElement.style.scrollBehavior = 'smooth'
+  }, 1)
+}
