@@ -32,9 +32,9 @@ const NavLink = props => (
 
 const Nav = props => (
   <InlineList gutter={3} {...props}>
-    <NavLink href="#work">Work</NavLink>
-    <NavLink href="#clients">Clients</NavLink>
-    <NavLink href="#contact">Let's Talk</NavLink>
+    <NavLink href="#work" fontSize="sansNav">Work</NavLink>
+    <NavLink href="#clients" fontSize="sansNav">Clients</NavLink>
+    <NavLink href="#contact" fontSize="sansNav">Let's Talk</NavLink>
   </InlineList>
 )
 
@@ -53,7 +53,7 @@ export const Landing = () => (
         justifyContent="flex-end"
         py="7vh"
       >
-        <Header>Scampersand</Header>
+        <Header fontSize="sansLogo">Scampersand</Header>
       </Flex>
       <Mission />
       <Flex

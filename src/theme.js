@@ -83,10 +83,11 @@ const fonts = {
 }
 const fontSizes = _.mapValues(
   {
-    sansXsmall: 4 / 6,
-    sansSmall: 5 / 6,
-    sansMedium: 1,
-    serifSmall: 5 / 6,
+    sansLogo: 3 / 4,
+    sansNav: 2 / 3,
+    sansSmall: 2 / 3,
+    sansFooter: 7 / 12,
+    serifFooter: 6 / 8,
     serifMedium: 1,
     serifLarge: 7 / 6,
     serifXlarge: 8 / 6,

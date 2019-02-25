@@ -219,7 +219,7 @@ export const H3 = props => (
   <Text
     as="h3"
     variant="titleSans"
-    fontSize="sansXsmall"
+    fontSize="sansSmall"
     mb="0.5em"
     {...props}
   />

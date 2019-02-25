@@ -22,13 +22,13 @@ export const Footer = props => (
         <SocialLink name="linkedin" icon={faLinkedin} />
       </InlineList>
       <InlineList gutter={1} mt={1}>
-        <Text variant="titleSans" fontSize="sansSmall" fontWeight="bold" {...props}>
+        <Text variant="titleSans" fontSize="sansFooter" fontWeight="bold" {...props}>
           Scampersand
         </Text>
-        <Text fontSize="serifMedium" {...props}>
+        <Text fontSize="serifFooter" {...props}>
           {'//'}
         </Text>
-        <Text fontSize="serifMedium" {...props}>
+        <Text fontSize="serifFooter" {...props}>
           Providence, Rhode Island
         </Text>
       </InlineList>
