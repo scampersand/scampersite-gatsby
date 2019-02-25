@@ -76,7 +76,7 @@ const breakpoints = {
   ipadl: '1024px',
   fhd: '1920px',
 }
-const space = [0, 1 / 2, 1, 2, 4, 8, 16].map(i => rhythm(i))
+const space = {}
 const fonts = {
   sans: 'brother-1816, sans-serif',
   serif: 'mrs-eaves, serif',

@@ -33,7 +33,7 @@ const NavLink = props => (
 )
 
 const Nav = props => (
-  <InlineList gutter={3} {...props}>
+  <InlineList gutter="2rem" {...props}>
     <NavLink href="#work">Work</NavLink>
     <NavLink href="#clients">Clients</NavLink>
     <NavLink href="#contact">Let's Talk</NavLink>

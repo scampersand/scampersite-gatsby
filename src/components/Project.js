@@ -16,7 +16,7 @@ export const Project = ({
     title = <NamedLink name={link}>{title}</NamedLink>
   }
   return (
-    <FlexGrid columns={{phone: 1, ipadl: 5}} gutter={2} {...props}>
+    <FlexGrid columns={{phone: 1, ipadl: 5}} gutter="1rem" {...props}>
       <FlexGrid.Col
         span={{phone: 1, ipadl: 2}}
         order={{phone: 0, ipadl: flip ? 1 : 0}}
@@ -51,7 +51,7 @@ Project.Description = props => <Text mb="1em" {...props} />
 Project.Description.displayName = 'Project.Description'
 
 Project.Testimonial = ({from, children}) => (
-  <Card pl={2} borderLeft="accent">
+  <Card pl="1rem" borderLeft="accent">
     <Text
       fontSize="serifLarge"
       fontWeight="bold"

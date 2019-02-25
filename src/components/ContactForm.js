@@ -3,7 +3,7 @@ import {Box, Button, ButtonText, FlexGrid, Input, Label} from '.'
 
 const InputContact = ({label, ...props}) => {
   return (
-    <Box mt={1}>
+    <Box mt="0.5rem">
       <Label htmlFor={props.name} mb="0.5em">
         {label}
       </Label>
