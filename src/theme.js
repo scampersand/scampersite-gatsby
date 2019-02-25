@@ -1,5 +1,4 @@
 import _ from 'lodash'
-import Typography from 'typography'
 import {css} from '@emotion/core'
 
 // Reset based on http://meyerweb.com/eric/tools/css/reset/ v2.0
@@ -56,15 +55,6 @@ const reset = css`
   }
 `
 
-// Use typography.js to make the rhythm function
-const baseFontSize = 24
-const baseLineHeight = 1.25
-const typography = new Typography({
-  baseFontSize: baseFontSize + 'px',
-  baseLineHeight,
-})
-const {rhythm} = typography
-
 // Define styled-system lookup tables in advance, so we can also reference
 // them directly while defining the theme below.
 //
@@ -74,27 +64,37 @@ const breakpoints = {
   phone: 0,
   ipadp: '768px',
   ipadl: '1024px',
+  laptop: '1200px',
   fhd: '1920px',
 }
+const mq = _.mapValues(breakpoints, v => `@media(min-width: ${v})`)
 const space = {}
 const fonts = {
   sans: 'brother-1816, sans-serif',
   serif: 'mrs-eaves, serif',
 }
-const fontSizes = _.mapValues(
-  {
-    sansLogo: 3 / 4,
-    sansNav: 2 / 3,
-    sansSmall: 2 / 3,
-    sansFooter: 7 / 12,
-    serifFooter: 6 / 8,
-    serifMedium: 1,
-    serifLarge: 7 / 6,
-    serifXlarge: 8 / 6,
-    serifDisplay: 2,
-  },
-  i => baseFontSize * i + 'px',
-)
+const baseFontSizes = {
+  phone: 20,
+  ipadp: 22,
+  ipadl: 24,
+}
+const baseLineHeights = {
+  phone: 1.25,
+}
+export const fs = _.mapValues({
+  landingLogo: [14, 16, 18],
+  landingNav: [12, 14, 16],
+  sansTitle: [14, 16, 16],
+  footerLogo: [12, 14, 14],
+  footerText: [16, 18, 18],
+  quote: [24, 26, 28],
+  serifTitle: [26, 32, 32],
+  lede: [26, 40, 48],
+}, vs => ({
+  phone: vs[0] + 'px',
+  ipadp: vs[1] + 'px',
+  ipadl: vs[2] + 'px',
+}))
 const fontWeights = {
   normal: 400,
   bold: 700,
@@ -140,7 +140,6 @@ const theme = {
   breakpoints,
   colors,
   fonts,
-  fontSizes,
   fontWeights,
   radii,
   space,
@@ -150,15 +149,25 @@ const theme = {
     ${{
       html: {
         fontFamily: fonts.serif,
-        fontSize: baseFontSize,
+        fontSize: baseFontSizes.phone,
         boxSizing: 'border-box',
         // scrollBehavior is set in gatsby-browser.js
+      },
+      [mq.ipadp]: {
+        html: {
+          fontSize: baseFontSizes.ipadp,
+        },
+      },
+      [mq.laptop]: {
+        html: {
+          fontSize: baseFontSizes.laptop,
+        },
       },
       '*,*:before,*:after': {
         boxSizing: 'inherit',
       },
       body: {
-        lineHeight: baseLineHeight,
+        lineHeight: baseLineHeights.phone,
         color: colors.text,
         backgroundColor: colors.background,
         fontWeight: fontWeights.normal,

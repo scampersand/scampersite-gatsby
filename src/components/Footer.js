@@ -6,6 +6,7 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import {Container, Flex, InlineList, NamedLink, Slab, Text} from '.'
+import {fs} from '../theme'
 
 const SocialLink = ({icon, ...props}) => (
   <NamedLink css={{color: 'inherit', textDecoration: 'none'}} {...props}>
@@ -22,13 +23,13 @@ export const Footer = props => (
         <SocialLink name="linkedin" icon={faLinkedin} />
       </InlineList>
       <InlineList gutter="0.5rem" mt="0.5rem">
-        <Text variant="titleSans" fontSize="sansFooter" fontWeight="bold" {...props}>
+        <Text variant="titleSans" fontSize={fs.footerLogo} fontWeight="bold" {...props}>
           Scampersand
         </Text>
-        <Text fontSize="serifFooter" {...props}>
+        <Text fontSize={fs.footerText} {...props}>
           {'//'}
         </Text>
-        <Text fontSize="serifFooter" {...props}>
+        <Text fontSize={fs.footerText} {...props}>
           Providence, Rhode Island
         </Text>
       </InlineList>

@@ -35,6 +35,7 @@ import {
   opacity,
   variant,
 } from 'styled-system'
+import {fs} from '../theme'
 
 const themed = key => props => props.theme[key]
 
@@ -155,7 +156,7 @@ Button.defaultProps = {
 export const ButtonText = styled(Text)()
 ButtonText.defaultProps = {
   variant: 'titleSans',
-  fontSize: 'sansSmall',
+  fontSize: fs.sansTitle,
   px: '2.5em',
   py: '1.25em',
 }
@@ -192,14 +193,14 @@ P.defaultProps = {as: 'p'}
 P.displayName = 'P'
 
 export const Lede = props => (
-  <Text as="p" fontSize="serifDisplay" lineHeight="1.125" mb="1em" {...props} />
+  <Text as="p" fontSize={fs.lede} lineHeight="1.125" mb="1em" {...props} />
 )
 
 export const H1 = props => (
   <Text
     as="h1"
     variant="titleSans"
-    fontSize="sansSmall"
+    fontSize={fs.sansTitle}
     mb="0.5em"
     {...props}
   />
@@ -209,7 +210,7 @@ export const H2 = props => (
   <Text
     as="h2"
     variant="titleSerif"
-    fontSize="serifXlarge"
+    fontSize={fs.serifTitle}
     mb="0.5em"
     {...props}
   />
@@ -219,7 +220,7 @@ export const H3 = props => (
   <Text
     as="h3"
     variant="titleSans"
-    fontSize="sansSmall"
+    fontSize={fs.sansTitle}
     mb="0.5em"
     {...props}
   />

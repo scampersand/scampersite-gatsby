@@ -2,6 +2,7 @@ import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
 import {Box, Card, FlexGrid, H2, H3, Image, NamedLink, Text} from '.'
+import {fs} from '../theme'
 
 export const Project = ({
   title,
@@ -53,7 +54,7 @@ Project.Description.displayName = 'Project.Description'
 Project.Testimonial = ({from, children}) => (
   <Card pl="1rem" borderLeft="accent">
     <Text
-      fontSize="serifLarge"
+      fontSize={fs.quote}
       fontWeight="bold"
       fontStyle="italic"
       css={
@@ -78,7 +79,7 @@ Project.Award = ({name, link, ...props}) => {
         as="span"
         fontFamily="sans"
         fontWeight="normal"
-        fontSize="sansSmall"
+        fontSize={fs.sansTitle}
         color="text"
       >
         {name}

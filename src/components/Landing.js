@@ -1,8 +1,9 @@
 import React from 'react'
-import {Box, Card, Container, Flex, InlineList, Link, Text} from '.'
+import {Card, Container, Flex, InlineList, Link, Text} from '.'
+import {fs} from '../theme'
 
 const Header = props => (
-  <Text as="header" variant="titleSans" fontSize="sansLogo" {...props} />
+  <Text as="header" variant="titleSans" fontSize={fs.landingLogo} {...props} />
 )
 
 const Highlight = props => <Text css={{fontStyle: 'italic'}} {...props} />
@@ -28,7 +29,7 @@ const Mission = props => (
 
 const NavLink = props => (
   <Card borderBottom="nav">
-    <Link color="text" variant="titleSans" fontSize="sansNav" {...props} />
+    <Link color="text" variant="titleSans" fontSize={fs.landingNav} {...props} />
   </Card>
 )
 
