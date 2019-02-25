@@ -36,26 +36,6 @@ import {
 
 const themed = key => props => props.theme[key]
 
-export {ContactForm} from './ContactForm'
-export {Container} from './Container'
-export {Fieldset, Input, Label} from './forms'
-export {FlexGrid} from './FlexGrid'
-export {Footer} from './Footer'
-export {GatsbyImg} from './GatsbyImg'
-export {Image} from './Image'
-export {ImageGrid} from './ImageGrid'
-export {InlineList} from './InlineList'
-export {Landing} from './Landing'
-export {LogoGrid} from './LogoGrid'
-export {NamedLink} from './NamedLink'
-export {Page} from './Page'
-export {Project} from './Project'
-export {SEO} from './SEO'
-export {Section} from './Section'
-export {SimpleImg} from './SimpleImg'
-export {Slab} from './Slab'
-export {Thread} from './Thread'
-
 export const Box = styled('div')(
   {
     boxSizing: 'border-box',
@@ -238,3 +218,23 @@ export const H3 = props => (
     {...props}
   />
 )
+
+export {ContactForm} from './ContactForm'
+export {Container} from './Container'
+export {Fieldset, Input, Label} from './forms'
+export {FlexGrid} from './FlexGrid'
+export {Footer} from './Footer'
+export {GatsbyImg} from './GatsbyImg'
+export {Image} from './Image'
+export {ImageGrid} from './ImageGrid'
+export {InlineList} from './InlineList'
+export {Landing} from './Landing'
+export {LogoGrid} from './LogoGrid'
+export {NamedLink} from './NamedLink'
+export {Page} from './Page'
+export {Project} from './Project'
+export {SEO} from './SEO'
+export {Section} from './Section'
+export {SimpleImg} from './SimpleImg'
+export {Slab} from './Slab'
+export {Thread} from './Thread'
