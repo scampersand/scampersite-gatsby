@@ -96,18 +96,25 @@ const fontWeights = {
 const colors = {
   background: 'white',
   text: 'hsla(0, 0%, 0%, 0.8)',
-  accent: '#0fa7b1',
-  button: '#0fa7b1',
-  link: '#0fa7b1',
-  emphasis: '#0fa7b1',
-  slab: '#e6e6e6',
-  logoBg: '#c4c4c4',
+  blue1: '#0060ad',  // clients 50%, footer 25%
+  blue2: '#80b0d6',  // #0060ad tint 50%
+  blue3: '#bfd7eb',  // #0060ad tint 75%
+  blue4: '#8db8da',  // #80b0d6 tint 10%
+
+  button: '#a9047a',    // brand dk-magenta
+  link: '#a9047a',      // brand dk-magenta
+  emphasis: '#b87812',  // brand gold
+
+  accent: '#80b0d6',    // brand blue
+  slab: '#80b0d6',      // brand blue
+  logoBg: '#8db8da',    // brand blue, lightened
+  footer: '#bfd7eb',    // brand lt-blue
+
   thread: '#e6e6e6',
-  footer: '#e6e6e6',
 }
 const borders = {
   accent: `4px solid ${colors.accent}`,
-  nav: `3px solid ${colors.link}`,
+  nav: `3px solid ${colors.text}`,
   input: `1px solid ${colors.thread}`,
 }
 const radii = {
