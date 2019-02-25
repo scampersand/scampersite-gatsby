@@ -5,7 +5,7 @@ export const Container = props => (
   <Box
     mx="auto"
     px="2rem"
+    maxWidth={['auto', 'calc(1152px + 2rem)', 'calc(1664px + 2rem)']}
     {...props}
-    css={[{maxWidth: 'calc(1920px - 2rem)'}, props.css]}
   />
 )
