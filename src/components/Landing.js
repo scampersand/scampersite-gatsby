@@ -13,7 +13,10 @@ Highlight.displayName = 'Highlight'
 const Mission = props => (
   <Text
     textAlign="center"
-    fontSize={['7.5vw', '76.8333px'] /* 7.5 * 1024 */}
+    fontSize={{
+      phone: '7.5vw',
+      ipadl: '76.8333px', // 7.5 * 1024
+    }}
     lineHeight={1}
     {...props}
   >
