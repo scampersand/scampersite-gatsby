@@ -1,7 +1,9 @@
 import React from 'react'
 import {Box, Card, Container, Flex, InlineList, Link, Text} from '.'
 
-const Header = props => <Text as="header" variant="titleSans" {...props} />
+const Header = props => (
+  <Text as="header" variant="titleSans" fontSize="sansLogo" {...props} />
+)
 
 const Highlight = props => <Text css={{fontStyle: 'italic'}} {...props} />
 Highlight.defaultProps = {as: 'span', color: 'emphasis'}
@@ -26,45 +28,57 @@ const Mission = props => (
 
 const NavLink = props => (
   <Card borderBottom="nav">
-    <Link color="text" variant="titleSans" {...props} />
+    <Link color="text" variant="titleSans" fontSize="sansNav" {...props} />
   </Card>
 )
 
 const Nav = props => (
   <InlineList gutter={3} {...props}>
-    <NavLink href="#work" fontSize="sansNav">Work</NavLink>
-    <NavLink href="#clients" fontSize="sansNav">Clients</NavLink>
-    <NavLink href="#contact" fontSize="sansNav">Let's Talk</NavLink>
+    <NavLink href="#work">Work</NavLink>
+    <NavLink href="#clients">Clients</NavLink>
+    <NavLink href="#contact">Let's Talk</NavLink>
   </InlineList>
 )
 
-export const Landing = () => (
-  <Box>
-    <Container
-      as={Flex}
-      flexDirection="column"
-      alignItems="center"
-      css={{minHeight: '100vh'}}
-    >
-      <Flex
-        flex="1"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="flex-end"
-        py="7vh"
+export const Landing = () => {
+  const px = '30px'
+  const py = '30px'
+  const borderWidth = '30px'
+  return (
+    <Card px={px} py={py} minHeight="100vh" width="100vw">
+      <Card
+        minHeight={`calc(100vh - ${py} - ${py})`}
+        width="100%"
+        css={{border: `${borderWidth} solid #0060ad`}}
       >
-        <Header fontSize="sansLogo">Scampersand</Header>
-      </Flex>
-      <Mission />
-      <Flex
-        flex="1"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="flex-end"
-        py="7vh"
-      >
-        <Nav />
-      </Flex>
-    </Container>
-  </Box>
-)
+        <Container>
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            minHeight={`calc(100vh - ${py} - ${py} - ${borderWidth} - ${borderWidth})`}
+          >
+            <Flex
+              flex="1"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="flex-end"
+              py="7vh"
+            >
+              <Header>Scampersand</Header>
+            </Flex>
+            <Mission />
+            <Flex
+              flex="1"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="flex-end"
+              py="7vh"
+            >
+              <Nav />
+            </Flex>
+          </Flex>
+        </Container>
+      </Card>
+    </Card>
+  )
+}

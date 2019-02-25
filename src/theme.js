@@ -129,6 +129,7 @@ const borders = {
   accent: `4px solid ${colors.accent}`,
   nav: `3px solid ${colors.text}`,
   input: `1px solid ${colors.thread}`,
+  pictureFrame: `30px solid #0060ad`,
 }
 const radii = {
   rounded: '6px',
