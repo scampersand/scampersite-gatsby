@@ -93,24 +93,31 @@ const fontWeights = {
   normal: 400,
   bold: 700,
 }
+const baseColors = {
+  greyDk: 'hsla(0, 0%, 0%, 0.8)',
+  greyLt: '#e6e6e6',
+  blue: '#0060ad',
+  blueLt: '#bfd7eb', // #0060ad tint 75%
+  blueMd: '#80b0d6', // #0060ad tint 50%
+  blueMdTint: '#8db8da', // #80b0d6 tint 10%
+  gold: '#b87812',
+  magentaDk: '#a9047a',
+}
 const colors = {
   background: 'white',
-  text: 'hsla(0, 0%, 0%, 0.8)',
-  blue1: '#0060ad',  // clients 50%, footer 25%
-  blue2: '#80b0d6',  // #0060ad tint 50%
-  blue3: '#bfd7eb',  // #0060ad tint 75%
-  blue4: '#8db8da',  // #80b0d6 tint 10%
+  text: baseColors.greyDk,
 
-  button: '#a9047a',    // brand dk-magenta
-  link: '#a9047a',      // brand dk-magenta
-  emphasis: '#b87812',  // brand gold
+  emphasis: baseColors.gold,
+  button: baseColors.magentaDk,
+  link: baseColors.magentaDk,
 
-  accent: '#80b0d6',    // brand blue
-  slab: '#80b0d6',      // brand blue
-  logoBg: '#8db8da',    // brand blue, lightened
-  footer: '#bfd7eb',    // brand lt-blue
+  accent: baseColors.blueMd,
+  slab: baseColors.blueMd,
+  logoBg: baseColors.blueMdTint,
+  footer: baseColors.blueLt,
 
-  thread: '#e6e6e6',
+  // not currently used
+  thread: baseColors.greyLt,
 }
 const borders = {
   accent: `4px solid ${colors.accent}`,
