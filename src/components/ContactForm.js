@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Button, FlexGrid, Input, Label} from '.'
+import {Box, Button, ButtonText, FlexGrid, Input, Label} from '.'
 
 const InputContact = ({label, ...props}) => {
   return (
@@ -19,7 +19,7 @@ export const ContactForm = () => (
         <InputContact label="Message" as="textarea" name="body" rows="5" required />
       </FlexGrid.Col>
       <FlexGrid.Col span={2}>
-        <Button type="submit">Send</Button>
+        <Button type="submit"><ButtonText>Send</ButtonText></Button>
       </FlexGrid.Col>
     </FlexGrid>
     <input type="hidden" name="_subject" value="Hello!" />
