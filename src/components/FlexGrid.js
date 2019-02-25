@@ -1,27 +1,23 @@
-import _ from 'lodash'
+import fp from 'lodash/fp'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Flex, Box} from '.'
 
-const asArray = x => (Array.isArray(x) ? x : [x])
+const broken = x => fp.isObject(x) ? x : {phone: x}
 
 const is = x => x !== undefined && x !== null
 
 const negate = x =>
   typeof x === 'string' ? (x.startsWith('-') ? x.substring(1) : '-' + x) : -x
 
-const colWidths = (span, columns) => {
-  span = asArray(span)
-  columns = asArray(columns)
-  const fractionalWidths = _.zipWith(
-    span,
-    columns,
-    (n, N) => (n || span[0]) / (N || columns[0]),
-  )
-  return _(fractionalWidths)
-    .map(x => Math.min(x, 1))
-    .map(x => `${100 * x}%`)
-    .value()
+const colWidths = (rawSpans, rawColumns) => {
+  const [spans, columns] = fp.map(broken, [rawSpans, rawColumns])
+  return fp.pipe(
+    fp.toPairs,
+    fp.map(([k, c]) => [k, (spans[k] || spans.phone) / columns[k]]),
+    fp.fromPairs,
+    fp.mapValues(v => `${100 * v}%`),
+  )(columns)
 }
 
 export const FlexGrid = ({
@@ -32,15 +28,15 @@ export const FlexGrid = ({
   children,
   ...props
 }) => {
-  columns = asArray(columns)
-  colGutter = asArray(is(colGutter) ? colGutter : is(gutter) ? gutter : 0)
-  rowGutter = asArray(is(rowGutter) ? rowGutter : is(gutter) ? gutter : 0)
+  columns = broken(columns)
+  colGutter = broken(is(colGutter) ? colGutter : is(gutter) ? gutter : 0)
+  rowGutter = broken(is(rowGutter) ? rowGutter : is(gutter) ? gutter : 0)
   return (
     <Flex
       justifyContent="start"
       flexWrap="wrap"
-      ml={colGutter.map(negate)}
-      mt={rowGutter.map(negate)}
+      ml={fp.mapValues(negate, colGutter)}
+      mt={fp.mapValues(negate, rowGutter)}
       {...props}
     >
       {React.Children.map(children, child => {
@@ -65,16 +61,19 @@ export const FlexGrid = ({
   )
 }
 
-FlexGrid.displayName = 'FlexGrid'
+FlexGrid.propTypes = {
+  columns: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.objectOf(PropTypes.number),
+  ]).isRequired,
+}
 
 FlexGrid.Col = ({span, ...props}) => <Box {...props} />
-
-FlexGrid.Col.displayName = 'FlexGrid.Col'
 
 FlexGrid.Col.propTypes = {
   span: PropTypes.oneOfType([
     PropTypes.number,
-    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.objectOf(PropTypes.number),
   ]),
 }
 

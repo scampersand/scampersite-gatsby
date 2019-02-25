@@ -16,13 +16,19 @@ export const Project = ({
     title = <NamedLink name={link}>{title}</NamedLink>
   }
   return (
-    <FlexGrid columns={5} gutter={2} {...props}>
-      <FlexGrid.Col span={{phone: 5, ipadl: 2}} order={[0, flip ? 1 : 0]}>
+    <FlexGrid columns={{phone: 1, ipadl: 5}} gutter={2} {...props}>
+      <FlexGrid.Col
+        span={{phone: 1, ipadl: 2}}
+        order={{phone: 0, ipadl: flip ? 1 : 0}}
+      >
         <H3>{category}</H3>
         <H2>{title}</H2>
         <Box children={children} />
       </FlexGrid.Col>
-      <FlexGrid.Col span={{phone: 5, ipadl: 3}} order={[0, flip ? 0 : 1]}>
+      <FlexGrid.Col
+        span={{phone: 1, ipadl: 3}}
+        order={{phone: 0, ipadl: flip ? 0 : 0}}
+      >
         <Image image={image} />
       </FlexGrid.Col>
     </FlexGrid>

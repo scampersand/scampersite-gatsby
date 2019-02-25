@@ -14,11 +14,11 @@ export const LogoGrid = props => (
           images={_.sortBy(imageNodes(images), 'name')}
           linked
           order={LOGO_ORDER}
-          columns={[2, 4]}
-          gutter={1}
-          rowGutter={1}
+          columns={{phone: 2, ipadp: 4}}
           aspect={2}
-          colProps={{px: 2, py: 2, css: {backgroundColor: theme.colors.logoBg}}}
+          gutter={'0.5rem'}
+          rowGutter={'0.5rem'}
+          colProps={{px: '0.5rem', py: '1rem', css: {backgroundColor: theme.colors.logoBg}}}
           {...props}
         />
       )
