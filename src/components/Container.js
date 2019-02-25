@@ -4,8 +4,15 @@ import {Box} from '.'
 export const Container = props => (
   <Box
     mx="auto"
-    px="2rem"
-    maxWidth={['auto', 'calc(1152px + 2rem)', 'calc(1664px + 2rem)']}
+    px={{
+      phone: '0.75rem',
+      ipadp: '1rem',
+      ipadl: '2rem',
+    }}
+    maxWidth={{
+      ipadl: 'calc(1152px + 2rem)',
+      fhd: 'calc(1664px + 2rem)',
+    }}
     {...props}
   />
 )

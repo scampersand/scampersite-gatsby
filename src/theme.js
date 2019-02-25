@@ -70,7 +70,12 @@ const {rhythm} = typography
 //
 // https://github.com/jxnblk/styled-system/blob/master/docs/table.md
 //
-const breakpoints = ['1024px', '1920px'] // ipad landscape, max desktop
+const breakpoints = {
+  phone: 0,
+  ipadp: '768px',
+  ipadl: '1024px',
+  fhd: '1920px',
+}
 const space = [0, 1 / 2, 1, 2, 4, 8, 16].map(i => rhythm(i))
 const fonts = {
   sans: 'brother-1816, sans-serif',
