@@ -62,7 +62,7 @@ const IndexPage = ({
                 foundation for Appsembler's customer-facing reporting tool,{' '}
                 <NamedLink name="figures">Figures</NamedLink>.
               </Project.Description>
-              <Project.Testimonial from="Aaron Beals, VP Eng at Appsembler">
+              <Project.Testimonial from="Aaron Beals, VP Engineering at Appsembler">
                 &ldquo;I have to say, the amount you were able to get done with
                 two people in this timeframe is amazing.&rdquo;
               </Project.Testimonial>
@@ -70,7 +70,7 @@ const IndexPage = ({
 
             <Project
               title="Tizra"
-              category="Scholarly Publishing"
+              category="Digital Publishing"
               image={projectImages['tizra-quickstart']}
               link="tizra"
               as={Section.Subsection}
@@ -111,9 +111,8 @@ const IndexPage = ({
         <Section id="clients">
           <Container>
             <SectionHeader title="Our Clients">
-              We work with clients who are making a difference in
-              education, research &amp; scholarly publishing, healthcare,
-              and social impact ventures.
+              We work with clients who are helping other people learn, grow
+              and contribute to their communities.
             </SectionHeader>
             <LogoGrid />
           </Container>
