@@ -40,8 +40,7 @@ const IndexPage = ({
       <Section id="work">
         <Container>
           <SectionHeader title="Recent Work">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Vestibulum et consequat nunc.
+            Some of our favorite projects and the amazing clients behind them.
           </SectionHeader>
           <Project.Group alternating>
             <Project
@@ -111,7 +110,7 @@ const IndexPage = ({
         <Section id="clients">
           <Container>
             <SectionHeader title="Our Clients">
-              We work with clients who are helping other people learn, grow
+              We work with clients who are helping people to learn, grow
               and contribute to their communities.
             </SectionHeader>
             <LogoGrid />
@@ -122,8 +121,8 @@ const IndexPage = ({
       <Section id="contact">
         <Container>
           <SectionHeader title="Contact Us">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Vestibulum et consequat nunc.
+            Do you have a project where we could help?
+            Say hello and let's put our heads together.
           </SectionHeader>
           <ContactForm />
         </Container>
