@@ -25,7 +25,7 @@ class ImageGridImage extends React.Component {
 
   render() {
     const {
-      props: {aspect, link, ...props},
+      props: {aspect, imgStyle, link, ...props},
       state: {measuredWidth},
     } = this
     const aspectHeight = measuredWidth / aspect
@@ -37,6 +37,7 @@ class ImageGridImage extends React.Component {
           width: '100%',
           objectFit: 'contain',
           objectPosition: 'center center',
+          ...imgStyle,
         }}
         {...props}
       />
@@ -62,6 +63,7 @@ export const ImageGrid = ({
   aspect,
   colProps,
   images,
+  imageProps,
   linked,
   order,
   ...props
@@ -74,6 +76,7 @@ export const ImageGrid = ({
         order={order.map(o => o[image.name] || 0)}
       >
         <ImageGridImage
+          {...imageProps}
           aspect={aspect}
           image={image}
           link={linked && image.name}
@@ -85,8 +88,9 @@ export const ImageGrid = ({
 
 ImageGrid.propTypes = {
   aspect: PropTypes.number.isRequired,
-  images: PropTypes.arrayOf(PropTypes.object).isRequired,
   colProps: PropTypes.object,
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  imageProps: PropTypes.object,
   order: PropTypes.arrayOf(PropTypes.object),
 }
 

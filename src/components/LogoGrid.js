@@ -19,6 +19,7 @@ export const LogoGrid = props => (
           gutter={'0.5rem'}
           rowGutter={'0.5rem'}
           colProps={{px: '0.5rem', py: '1rem', css: {backgroundColor: theme.colors.logoBg}}}
+          imageProps={{imgStyle: {opacity: '0.8'}}}
           {...props}
         />
       )
