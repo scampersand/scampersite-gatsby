@@ -15,23 +15,23 @@ const flexOrder = fp.pipe(
 const LOGO_ORDER = fp.mapValues(flexOrder, {
   phone: [
     '18f',
-    'abc-clio',
+    'tizra',
     'appsembler',
-    'princeton-university-press',
     'ada',
     'ripul',
-    'tizra',
+    'abc-clio',
+    'princeton-university-press',
     'gw',
   ],
   ipadp: [
-    'tizra',
-    'gw',
-    'ada',
-    'abc-clio',
-    'ripul',
-    'princeton-university-press',
     '18f',
     'appsembler',
+    'ada',
+    'abc-clio',
+    'tizra',
+    'ripul',
+    'princeton-university-press',
+    'gw',
   ],
 })
 
