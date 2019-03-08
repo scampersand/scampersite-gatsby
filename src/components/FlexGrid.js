@@ -43,6 +43,7 @@ export const FlexGrid = ({
         const isCol = !!(child.props && child.props.span)
         const span = isCol ? child.props.span : 1
         const colProps = {
+          span,
           width: colWidths(span, columns),
           pl: colGutter,
           pt: rowGutter,
