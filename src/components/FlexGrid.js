@@ -43,7 +43,6 @@ export const FlexGrid = ({
         const isCol = !!(child.props && child.props.span)
         const span = isCol ? child.props.span : 1
         const colProps = {
-          span,
           width: colWidths(span, columns),
           pl: colGutter,
           pt: rowGutter,
@@ -61,6 +60,8 @@ export const FlexGrid = ({
   )
 }
 
+FlexGrid.displayName = 'FlexGrid'
+
 FlexGrid.propTypes = {
   columns: PropTypes.oneOfType([
     PropTypes.number,
@@ -70,13 +71,13 @@ FlexGrid.propTypes = {
 
 FlexGrid.Col = ({span, ...props}) => <Box {...props} />
 
+FlexGrid.Col.displayName = 'FlexGrid-Col'
+
+// NB: FlexGrid.Col.defaultProps = {span: 1} doesn't work for detecting
+// isCol. Instead force callers to pass span explicitly for now.
 FlexGrid.Col.propTypes = {
   span: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.objectOf(PropTypes.number),
-  ]),
-}
-
-FlexGrid.Col.defaultProps = {
-  span: 1,
+  ]).isRequired,
 }

@@ -1,3 +1,4 @@
+import fp from 'lodash/fp'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {FlexGrid, Image, NamedLink} from '.'
@@ -67,31 +68,37 @@ export const ImageGrid = ({
   linked,
   order,
   ...props
-}) => (
-  <FlexGrid alignItems="center" justifyContent="start" {...props}>
-    {images.map(image => (
-      <FlexGrid.Col
-        {...colProps}
-        key={image.name}
-        order={order.map(o => o[image.name] || 0)}
-      >
-        <ImageGridImage
-          {...imageProps}
-          aspect={aspect}
-          image={image}
-          link={linked && image.name}
-        />
-      </FlexGrid.Col>
-    ))}
-  </FlexGrid>
-)
+}) => {
+  return (
+    <FlexGrid alignItems="center" justifyContent="start" {...props}>
+      {images.map(image => {
+        const flexOrder = fp.mapValues(o => o[image.name] || 0, order)
+        return (
+          <FlexGrid.Col
+            span={1}
+            {...colProps}
+            key={image.name}
+            order={flexOrder}
+          >
+            <ImageGridImage
+              {...imageProps}
+              aspect={aspect}
+              image={image}
+              link={linked && image.name}
+            />
+          </FlexGrid.Col>
+        )
+      })}
+    </FlexGrid>
+  )
+}
 
 ImageGrid.propTypes = {
   aspect: PropTypes.number.isRequired,
   colProps: PropTypes.object,
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
   imageProps: PropTypes.object,
-  order: PropTypes.arrayOf(PropTypes.object),
+  order: PropTypes.objectOf(PropTypes.objectOf(PropTypes.number)),
 }
 
 ImageGrid.defaultProps = {

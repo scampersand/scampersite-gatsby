@@ -1,9 +1,39 @@
-import _ from 'lodash'
+import fp from 'lodash/fp'
 import {StaticQuery, graphql} from 'gatsby'
 import React from 'react'
 import {imageNodes} from '~/utils/queries'
 import {ImageGrid} from '.'
 import theme from '~/theme'
+
+const mapWithIndex = fp.map.convert({cap: false})
+
+const flexOrder = fp.pipe(
+  mapWithIndex((v, i, arr) => [v, -(arr.length - i)]),
+  fp.fromPairs,
+)
+
+const LOGO_ORDER = fp.mapValues(flexOrder, {
+  phone: [
+    '18f',
+    'abc-clio',
+    'appsembler',
+    'princeton-university-press',
+    'ada',
+    'ripul',
+    'tizra',
+    'gw',
+  ],
+  ipadp: [
+    'tizra',
+    'gw',
+    'ada',
+    'abc-clio',
+    'ripul',
+    'princeton-university-press',
+    '18f',
+    'appsembler',
+  ],
+})
 
 export const LogoGrid = props => (
   <StaticQuery
@@ -11,14 +41,18 @@ export const LogoGrid = props => (
     render={({images}) => {
       return (
         <ImageGrid
-          images={_.sortBy(imageNodes(images), 'name')}
+          images={fp.sortBy('name', imageNodes(images))}
           linked
           order={LOGO_ORDER}
           columns={{phone: 2, ipadp: 4}}
           aspect={2}
           gutter={'0.5rem'}
           rowGutter={'0.5rem'}
-          colProps={{px: '0.5rem', py: '1rem', css: {backgroundColor: theme.colors.logoBg}}}
+          colProps={{
+            px: '0.5rem',
+            py: '1rem',
+            css: {backgroundColor: theme.colors.logoBg},
+          }}
           imageProps={{imgStyle: {opacity: '0.8'}}}
           {...props}
         />
@@ -26,31 +60,6 @@ export const LogoGrid = props => (
     }}
   />
 )
-
-const LOGO_ORDER = [
-  // mobile
-  [
-    '18f',
-    'abc-clio',
-    'appsembler',
-    'princeton-university-press',
-    'ada',
-    'ripul',
-    'tizra',
-    'gw',
-  ].reduce((o, s, i) => Object.assign(o, {[s]: i - 42}), {}),
-  // desktop
-  [
-    'tizra',
-    'gw',
-    'ada',
-    'abc-clio',
-    'ripul',
-    'princeton-university-press',
-    '18f',
-    'appsembler',
-  ].reduce((o, s, i) => Object.assign(o, {[s]: i - 42}), {}),
-]
 
 const LOGO_QUERY = graphql`
   fragment logoImage on File {
