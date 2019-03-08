@@ -102,26 +102,26 @@ const fontWeights = {
 }
 const baseColors = {
   greyDk: 'hsla(0, 0%, 0%, 0.8)',
-  greyLt: '#e6e6e6',
+  greyLt: 'hsla(0, 0%, 0%, 0.2)',
   blue: '#0060ad',
-  blueLt: '#bfd7eb', // #0060ad tint 75%
-  blueMd: '#80b0d6', // #0060ad tint 50%
-  blueMdTint: '#8db8da', // #80b0d6 tint 10%
+  blueTint: '#a8c9e3', // blue tint 66%
+  green: '#86a5a6', // from #4a797a
+  greenShade: '#7f9d9e', // green shade 5%
   gold: '#b87812',
-  magentaDk: '#a9047a',
+  magenta: '#a9047a',
 }
 const colors = {
   background: 'white',
   text: baseColors.greyDk,
 
   emphasis: baseColors.gold,
-  button: baseColors.magentaDk,
-  link: baseColors.magentaDk,
+  button: baseColors.magenta,
+  link: baseColors.magenta,
 
-  accent: baseColors.blueMd,
-  slab: baseColors.blueMd,
-  logoBg: baseColors.blueMdTint,
-  footer: baseColors.blueLt,
+  accent: baseColors.blueTint,
+  slab: baseColors.green,
+  logoBg: baseColors.greenShade,
+  footer: baseColors.blueTint,
 
   // not currently used
   thread: baseColors.greyLt,
