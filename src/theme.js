@@ -134,8 +134,8 @@ const borders = {
   input: `1px solid ${colors.thread}`,
 }
 export const bb = threeBreakPoints({
-  quote: [2, 3, 4].map(x => `${x}px solid ${colors.accent}`),
-  frame: [10, 20, 30].map(x => `${x}px solid ${colors.frame}`),
+  quote: [3, 4, 4].map(x => `${x}px solid ${colors.accent}`),
+  frame: [8, 15, 30].map(x => `${x}px solid ${colors.frame}`),
   nav: [2, 3, 3].map(x => `${x}px solid ${colors.text}`),
 })
 const radii = {
