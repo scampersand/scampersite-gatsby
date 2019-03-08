@@ -1,6 +1,7 @@
+import fp from 'lodash/fp'
 import React from 'react'
 import {Card, Container, Flex, InlineList, Link, Text} from '.'
-import {fs} from '../theme'
+import {bb, fs} from '../theme'
 
 const Header = props => (
   <Text as="header" variant="titleSans" fontSize={fs.landingLogo} {...props} />
@@ -31,7 +32,7 @@ const Mission = props => (
 )
 
 const NavLink = props => (
-  <Card borderBottom="nav">
+  <Card borderBottom={bb.nav}>
     <Link color="text" variant="titleSans" fontSize={fs.landingNav} {...props} />
   </Card>
 )
@@ -45,21 +46,25 @@ const Nav = props => (
 )
 
 export const Landing = () => {
-  const px = '30px'
-  const py = '30px'
-  const borderWidth = '30px'
+  const frameWidths = fp.mapValues(v => v.replace(/ .*/, ''), bb.frame)
   return (
-    <Card px={px} py={py} minHeight="100vh" width="100vw">
+    <Card px={frameWidths} py={frameWidths} minHeight="100vh" width="100vw">
       <Card
-        minHeight={`calc(100vh - ${py} - ${py})`}
+        minHeight={
+          // top padding, bottom padding
+          fp.mapValues(v => `calc(100vh - (${v} * 2))`, frameWidths)
+        }
         width="100%"
-        css={{border: `${borderWidth} solid #0060ad`}}
+        border={bb.frame}
       >
         <Container>
           <Flex
             flexDirection="column"
             alignItems="center"
-            minHeight={`calc(100vh - ${py} - ${py} - ${borderWidth} - ${borderWidth})`}
+            minHeight={
+              // top padding, top frame, bottom frame, bottom padding
+              fp.mapValues(v => `calc(100vh - (${v} * 4))`, frameWidths)
+            }
           >
             <Flex
               flex="1"

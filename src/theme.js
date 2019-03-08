@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import fp from 'lodash/fp'
 import {css} from '@emotion/core'
 
 // Reset based on http://meyerweb.com/eric/tools/css/reset/ v2.0
@@ -67,8 +67,7 @@ const breakpoints = {
   laptop: '1200px',
   fhd: '1920px',
 }
-const mq = _.mapValues(breakpoints, v => `@media(min-width: ${v})`)
-const space = {}
+const mq = fp.mapValues(v => `@media(min-width: ${v})`, breakpoints)
 const fonts = {
   sans: 'brother-1816, sans-serif',
   serif: 'mrs-eaves, serif',
@@ -81,7 +80,14 @@ const baseFontSizes = {
 const baseLineHeights = {
   phone: 1.25,
 }
-export const fs = _.mapValues({
+const px = n => isNaN(n) ? n : `${n}px`
+const threeBreakPoints = fp.mapValues(
+  vs => ({
+    phone: px(vs[0]),
+    ipadp: px(vs[1]),
+    ipadl: px(vs[2]),
+  }))
+export const fs = threeBreakPoints({
   landingLogo: [14, 16, 18],
   landingNav: [12, 14, 16],
   sansTitle: [14, 16, 16],
@@ -91,11 +97,7 @@ export const fs = _.mapValues({
   quote: [24, 26, 28],
   serifTitle: [26, 32, 32],
   lede: [26, 40, 48],
-}, vs => ({
-  phone: vs[0] + 'px',
-  ipadp: vs[1] + 'px',
-  ipadl: vs[2] + 'px',
-}))
+})
 const fontWeights = {
   normal: 400,
   bold: 700,
@@ -119,6 +121,7 @@ const colors = {
   link: baseColors.magenta,
 
   accent: baseColors.blueTint,
+  frame: baseColors.blue,
   slab: baseColors.green,
   logoBg: baseColors.greenShade,
   footer: baseColors.blueTint,
@@ -127,11 +130,14 @@ const colors = {
   thread: baseColors.greyLt,
 }
 const borders = {
-  accent: `4px solid ${colors.accent}`,
-  nav: `3px solid ${colors.text}`,
+  accent: `4px solid ${colors.accent}`, // not used?
   input: `1px solid ${colors.thread}`,
-  pictureFrame: `30px solid #0060ad`,
 }
+export const bb = threeBreakPoints({
+  quote: [2, 3, 4].map(x => `${x}px solid ${colors.accent}`),
+  frame: [10, 20, 30].map(x => `${x}px solid ${colors.frame}`),
+  nav: [2, 3, 3].map(x => `${x}px solid ${colors.text}`),
+})
 const radii = {
   rounded: '6px',
 }
@@ -143,7 +149,7 @@ const theme = {
   fonts,
   fontWeights,
   radii,
-  space,
+  space: {},
 
   global: css`
     ${reset}
