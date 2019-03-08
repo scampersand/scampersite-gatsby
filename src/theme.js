@@ -85,6 +85,7 @@ export const fs = _.mapValues({
   landingLogo: [14, 16, 18],
   landingNav: [12, 14, 16],
   sansTitle: [14, 16, 16],
+  footerIcon: [24, 26, 28],
   footerLogo: [12, 14, 14],
   footerText: [16, 18, 18],
   quote: [24, 26, 28],
