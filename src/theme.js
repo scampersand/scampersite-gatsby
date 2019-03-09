@@ -17,13 +17,15 @@ const reset = css`
   figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
-    margin: 0;
-    padding: 0;
     border: 0;
-    font: inherit;
+    color: inherit;
     font-size: 100%;
     font-style: inherit;
     font-weight: inherit;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */

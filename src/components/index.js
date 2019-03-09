@@ -110,13 +110,6 @@ Text.propTypes = {
   ...textStyles.propTypes,
 }
 
-export const Link = styled(Text)({textDecoration: 'none'})
-Link.defaultProps = {
-  as: 'a',
-  color: 'link',
-  fontWeight: 'bold',
-}
-
 export const Button = styled(Box)(
   {
     appearance: 'none',
@@ -236,6 +229,8 @@ export {Image} from './Image'
 export {ImageGrid} from './ImageGrid'
 export {InlineList} from './InlineList'
 export {Landing} from './Landing'
+export {Link} from './Link'
+export {LinkTo} from './LinkTo'
 export {LogoGrid} from './LogoGrid'
 export {NamedLink} from './NamedLink'
 export {Page} from './Page'
