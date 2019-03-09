@@ -33,7 +33,12 @@ const Mission = props => (
 
 const NavLink = props => (
   <Card borderBottom={bb.nav}>
-    <Link color="text" variant="titleSans" fontSize={fs.landingNav} {...props} />
+    <Link
+      color="text"
+      variant="titleSans"
+      fontSize={fs.landingNav}
+      {...props}
+    />
   </Card>
 )
 
@@ -48,7 +53,12 @@ const Nav = props => (
 export const Landing = () => {
   const frameWidths = fp.mapValues(v => v.replace(/ .*/, ''), bb.frame)
   return (
-    <Card px={frameWidths} py={frameWidths} minHeight="100vh" width="100vw">
+    <Card
+      minHeight="100vh"
+      mx="auto"
+      py={frameWidths}
+      width={fp.mapValues(v => `calc(100vw - (${v} * 2))`, frameWidths)}
+    >
       <Card
         minHeight={
           // top padding, bottom padding
