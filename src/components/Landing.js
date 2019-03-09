@@ -57,6 +57,7 @@ const Nav = props => (
 
 export const Landing = () => {
   const frameWidths = fp.mapValues(v => v.replace(/ .*/, ''), bb.frame)
+  const minHeights = fp.mapValues(v => `calc(100vh - (${v} * 4))`, frameWidths)
   return (
     <Card
       minHeight="100vh"
@@ -65,10 +66,6 @@ export const Landing = () => {
       width={fp.mapValues(v => `calc(100vw - (${v} * 2))`, frameWidths)}
     >
       <Card
-        minHeight={
-          // top padding, bottom padding
-          fp.mapValues(v => `calc(100vh - (${v} * 2))`, frameWidths)
-        }
         width="100%"
         border={bb.frame}
       >
@@ -76,10 +73,18 @@ export const Landing = () => {
           <Flex
             flexDirection="column"
             alignItems="center"
-            minHeight={
-              // top padding, top frame, bottom frame, bottom padding
-              fp.mapValues(v => `calc(100vh - (${v} * 4))`, frameWidths)
-            }
+            minHeight={{
+              ...minHeights,
+              // These overrides compensate for the top and bottom bars on
+              // mobile devices that intrude on 100vh. These are
+              // hand-picked values from testing on Android/iPhone/iPad.
+              phone: '80vh',
+              ipadp: '88vh',
+              ipadl: '75vh',
+              // Restore the largest entry from minHeights at laptop size,
+              // since we can trust 100vh there.
+              laptop: minHeights.ipadl,
+            }}
           >
             <Flex
               flex="1"
