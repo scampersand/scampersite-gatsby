@@ -185,6 +185,10 @@ export const P = styled(Text)()
 P.defaultProps = {as: 'p'}
 P.displayName = 'P'
 
+export const Header = props => (
+  <Text as="header" variant="titleSans" fontSize={fs.landingLogo} {...props} />
+)
+
 export const Lede = props => (
   <Text as="p" fontSize={fs.lede} lineHeight="1.125" mb="1em" {...props} />
 )

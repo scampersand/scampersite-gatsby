@@ -1,11 +1,7 @@
 import fp from 'lodash/fp'
 import React from 'react'
-import {Card, Container, Flex, InlineList, Link, Text} from '.'
+import {Card, Container, Flex, Header, InlineList, Link, Text} from '.'
 import {bb, fs} from '../theme'
-
-const Header = props => (
-  <Text as="header" variant="titleSans" fontSize={fs.landingLogo} {...props} />
-)
 
 const Highlight = props => <Text css={{fontStyle: 'italic'}} {...props} />
 Highlight.defaultProps = {as: 'span', color: 'emphasis'}
