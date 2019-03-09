@@ -1,26 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import {StaticQuery, graphql} from 'gatsby'
 
-export function SEO({ description, lang, meta, keywords, title }) {
+export function SEO({description, lang, meta, keywords, title}) {
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
+      render={({site: {siteMetadata}}) => {
+        title = siteMetadata.titlePrefix + (title || siteMetadata.defaultTitle)
+        description = description || siteMetadata.description
         return (
           <Helmet
             htmlAttributes={{
               lang,
             }}
             title={title}
-            titleTemplate={`%s | ${data.site.siteMetadata.title}`}
             meta={[
               {
                 name: 'description',
-                content: metaDescription,
+                content: description,
               },
               {
                 property: 'og:title',
@@ -28,7 +27,7 @@ export function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 property: 'og:description',
-                content: metaDescription,
+                content: description,
               },
               {
                 property: 'og:type',
@@ -40,7 +39,7 @@ export function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: 'twitter:creator',
-                content: data.site.siteMetadata.twitter,
+                content: siteMetadata.twitter,
               },
               {
                 name: 'twitter:title',
@@ -48,7 +47,7 @@ export function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: 'twitter:description',
-                content: metaDescription,
+                content: description,
               },
             ]
               .concat(
@@ -57,7 +56,7 @@ export function SEO({ description, lang, meta, keywords, title }) {
                       name: 'keywords',
                       content: keywords.join(', '),
                     }
-                  : []
+                  : [],
               )
               .concat(meta)}
           />
@@ -85,7 +84,8 @@ const detailsQuery = graphql`
   query DefaultSEOQuery {
     site {
       siteMetadata {
-        title
+        titlePrefix
+        defaultTitle
         description
       }
     }

@@ -5,7 +5,8 @@ const MDASH = '\u2014'
 
 module.exports = {
   siteMetadata: {
-    title: `Scampersand${THINSP}${MDASH}${THINSP}Web & Mobile Applications, Providence`,
+    titlePrefix: `Scampersand${THINSP}${MDASH}${THINSP}`,
+    defaultTitle: `Web & Mobile Applications, Providence`,
     description: `We work with startups and organizations to build software that makes a difference.`,
     twitter: `scampersandco`,
     // prettier-ignore

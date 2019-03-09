@@ -2,7 +2,7 @@ import React from 'react'
 import {Container, Header, Lede, LinkTo, Page, Section} from '~/components'
 
 const ThanksPage = () => (
-  <Page title="Thanks">
+  <Page title="Thanks!">
     <Section>
       <Container>
         <LinkTo href="/">

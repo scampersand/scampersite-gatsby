@@ -25,16 +25,13 @@ const SectionHeader = ({title, children, ...props}) => (
 
 const IndexPage = ({
   data: {
-    site: {
-      siteMetadata: {title, description},
-    },
     projectImages,
     clientLogos,
   },
 }) => {
   projectImages = namedImages(projectImages)
   return (
-    <Page title={title}>
+    <Page>
       <Landing />
 
       <Section id="work">
@@ -153,12 +150,6 @@ export const query = graphql`
   }
 
   query {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
     projectImages: allFile(filter: {relativeDirectory: {eq: "projects"}}) {
       ...fluidImages
     }

@@ -20,5 +20,5 @@ Page.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   keywords: PropTypes.array,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 }
