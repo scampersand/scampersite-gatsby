@@ -11,25 +11,30 @@ const Highlight = props => <Text css={{fontStyle: 'italic'}} {...props} />
 Highlight.defaultProps = {as: 'span', color: 'emphasis'}
 Highlight.displayName = 'Highlight'
 
-const Mission = props => (
-  <Text
-    textAlign="center"
-    fontSize={{
-      phone: '7.5vw',
-      ipadl: '76.8333px', // 7.5 * 1024
-    }}
-    lineHeight={1}
-    {...props}
-  >
-    We work with
-    <br />
-    <Highlight>startups &amp; organizations</Highlight>
-    <br />
-    to build software
-    <br />
-    that makes a <Highlight>difference.</Highlight>
-  </Text>
-)
+const Mission = props => {
+  const phone = 8.8
+  const ipadl = 7.5
+  return (
+    <Text
+      textAlign="center"
+      fontSize={{
+        phone: `${phone}vw`,
+        ipadp: `${(768 * phone) / 100}px`,
+        ipadl: `${(1024 * ipadl) / 100}px`,
+      }}
+      lineHeight={1}
+      {...props}
+    >
+      We work with
+      <br />
+      <Highlight>startups &amp; organizations</Highlight>
+      <br />
+      to build software
+      <br />
+      that makes a <Highlight>difference.</Highlight>
+    </Text>
+  )
+}
 
 const NavLink = props => (
   <Card borderBottom={bb.nav}>
