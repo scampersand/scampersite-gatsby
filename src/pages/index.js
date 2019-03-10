@@ -15,6 +15,7 @@ import {
   Section,
   Slab,
 } from '~/components'
+import {spy} from '../theme'
 
 const SectionHeader = ({title, children, ...props}) => (
   <Box {...props}>
@@ -34,7 +35,7 @@ const IndexPage = ({
     <Page>
       <Landing />
 
-      <Section id="work">
+      <Section id="work" first>
         <Container>
           <SectionHeader title="Recent Work">
             Some of our favorite projects and the amazing clients behind&nbsp;them.
