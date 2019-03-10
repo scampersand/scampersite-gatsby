@@ -1,17 +1,27 @@
+import fp from 'lodash/fp'
 import React from 'react'
-import {Container, Header, Lede, LinkTo, Page, Section} from '~/components'
+import {
+  Box,
+  Container,
+  Header,
+  Lede,
+  LinkTo,
+  Page,
+} from '~/components'
+import {frameWidths} from '~/components/Landing'
 
 const ThanksPage = () => (
   <Page title="Thanks!">
-    <Section>
-      <Container>
+    <Container>
+      <Box pt="17.5vh">
         <LinkTo href="/">
-          <Header>Scampersand</Header>
+          <Header textAlign="center">Scampersand</Header>
         </LinkTo>
-        <Lede my="30px">Thanks!</Lede>
-        <Lede my="30px">We'll be in touch soon.</Lede>
-      </Container>
-    </Section>
+      </Box>
+      <Box py="17.5vh">
+        <Lede textAlign="center">Thanks! We'll be in touch.</Lede>
+      </Box>
+    </Container>
   </Page>
 )
 

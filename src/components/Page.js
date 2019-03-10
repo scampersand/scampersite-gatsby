@@ -3,15 +3,34 @@ import PropTypes from 'prop-types'
 import {Global} from '@emotion/core'
 import {ThemeProvider} from 'emotion-theming'
 import theme from '~/theme'
-import {Footer, SEO} from '.'
+import {Box, Card, Flex, Footer, SEO} from '.'
+
+export const AbsoluteReserved = props => (
+  <>
+    <Box
+      ariaHidden="true"
+      {...props}
+      css={{visibility: 'hidden', ...props.css}}
+    />
+    <Box position="absolute" {...props} />
+  </>
+)
+
+export const Bottom = props => (
+  <AbsoluteReserved bottom="0" left="0" width="100%" {...props} />
+)
 
 export const Page = ({keywords, title, ...props}) => (
   <>
     <SEO title={title} keywords={keywords} />
     <ThemeProvider theme={theme}>
       <Global styles={theme['global']} />
-      <main role="main" {...props} />
-      <Footer />
+      <Flex flexDirection="column" minHeight="100vh" position="relative">
+        <Card as="main" role="main" flex="1" {...props} />
+        <Bottom>
+          <Footer />
+        </Bottom>
+      </Flex>
     </ThemeProvider>
   </>
 )
