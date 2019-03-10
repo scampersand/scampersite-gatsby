@@ -55,14 +55,14 @@ const IndexPage = ({
             >
               <Project.Description>
                 Appsembler wanted their customers to know how learners were
-                using their <Link name="open-edx">Open edX</Link> LMS. To
+                using their <Link href="open-edx">Open edX</Link> LMS. To
                 give them insight into engagement and ROI, we built
                 a secure usage tracker and backfilled it with historical
                 data. Previously inaccessible info became charts revealing
                 trends and entirely new conversations for the customer
                 success team to pursue. Appsembler used this foundation to
                 build their customer-facing reporting tool,{' '}
-                <Link name="figures">Figures</Link>.
+                <Link href="figures">Figures</Link>.
               </Project.Description>
               <Project.Testimonial from="Aaron Beals, VP Engineering at Appsembler">
                 &ldquo;I have to say, the amount you were able to get done with
