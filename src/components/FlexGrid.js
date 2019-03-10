@@ -3,20 +3,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Flex, Box} from '.'
 
-const broken = x => fp.isObject(x) ? x : {phone: x}
+const broken = x => (fp.isObject(x) ? x : {phone: x})
 
 const is = x => x !== undefined && x !== null
 
 const negate = x =>
   typeof x === 'string' ? (x.startsWith('-') ? x.substring(1) : '-' + x) : -x
 
-const colWidths = (rawSpans, rawColumns) => {
-  const [spans, columns] = fp.map(broken, [rawSpans, rawColumns])
+const colWidths = (rawSpans, rawColumns, rawGutters) => {
+  const [spans, columns, gutters] = fp.map(broken, [
+    rawSpans,
+    rawColumns,
+    rawGutters,
+  ])
   return fp.pipe(
     fp.toPairs,
-    fp.map(([k, c]) => [k, (spans[k] || spans.phone) / columns[k]]),
+    fp.map(([k, c]) => [k, {
+      fractionalWidth: (spans[k] || spans.phone) / columns[k],
+      gutter: gutters[k] || gutters.phone,
+    }]),
     fp.fromPairs,
-    fp.mapValues(v => `${100 * v}%`),
+    fp.mapValues(v => `calc(${100 * v.fractionalWidth}% - ${v.gutter})`),
   )(columns)
 }
 
@@ -44,9 +51,9 @@ export const FlexGrid = ({
         const span = isCol ? child.props.span : 1
         const colProps = {
           span,
-          width: colWidths(span, columns),
-          pl: colGutter,
-          pt: rowGutter,
+          width: colWidths(span, columns, colGutter),
+          ml: colGutter,
+          mt: rowGutter,
         }
         return isCol ? (
           React.cloneElement(child, {

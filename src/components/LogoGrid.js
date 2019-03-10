@@ -46,8 +46,8 @@ export const LogoGrid = props => (
           order={LOGO_ORDER}
           columns={{phone: 2, ipadp: 4}}
           aspect={2}
-          gutter={'0.5rem'}
-          rowGutter={'0.5rem'}
+          gutter="0.5rem"
+          rowGutter="0.5rem"
           colProps={{
             px: '0.5rem',
             py: '1rem',
