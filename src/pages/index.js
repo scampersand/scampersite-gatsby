@@ -44,6 +44,12 @@ const IndexPage = ({
               title="Appsembler"
               category="Education"
               image={projectImages['appsembler-reports']}
+              imageColProps={{
+                pt: {
+                  phone: 16,
+                  ipadl: 0,
+                },
+              }}
               link="appsembler"
               as={Section.Subsection}
             >
@@ -68,6 +74,16 @@ const IndexPage = ({
               title="Tizra"
               category="Digital Publishing"
               image={projectImages['tizra-quickstart']}
+              imageColProps={{
+                pl: {
+                  phone: 16,
+                  ipadl: 0,
+                },
+                pr: {
+                  phone: 16,
+                  ipadl: 72,
+                },
+              }}
               link="tizra"
               as={Section.Subsection}
             >
@@ -86,6 +102,12 @@ const IndexPage = ({
               title="Digital Einstein Papers"
               category="Research"
               image={projectImages['einstein-search']}
+              imageColProps={{
+                pt: {
+                  phone: 16,
+                  ipadl: 0,
+                },
+              }}
               link="einstein"
               as={Section.Subsection}
             >

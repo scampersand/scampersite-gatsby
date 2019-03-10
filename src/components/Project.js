@@ -9,6 +9,7 @@ export const Project = ({
   category,
   link,
   image,
+  imageColProps,
   flip,
   children,
   ...props
@@ -29,6 +30,7 @@ export const Project = ({
       <FlexGrid.Col
         span={{phone: 1, ipadl: 3}}
         order={{phone: 0, ipadl: flip ? 0 : 0}}
+        {...imageColProps}
       >
         <Image image={image} />
       </FlexGrid.Col>
