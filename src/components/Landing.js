@@ -32,12 +32,36 @@ const Mission = props => {
   )
 }
 
-const NavLink = props => (
+const nav = x => {
+  const [el, id] =
+    typeof x === 'string'
+      ? [document.querySelector(x), x.startsWith('#') ? x.substring(1) : null]
+      : [x, x.id]
+  if (el) {
+    try {
+      el.scrollIntoView({behavior: 'smooth', block: 'start'})
+      if (id) {
+        window.history.pushState(null, null, `#${id}`)
+      }
+      return el // indicate success
+    } catch (e) {
+      console.error(e)
+    }
+  }
+}
+
+const NavLink = ({href, ...props}) => (
   <Card borderBottom={bb.nav}>
     <Link
       color="text"
       variant="titleSans"
       fontSize={fs.landingNav}
+      href={href}
+      onClick={event => {
+        if (nav(href)) {
+          event.preventDefault()
+        }
+      }}
       {...props}
     />
   </Card>
@@ -61,10 +85,7 @@ export const Landing = () => {
       py={frameWidths}
       width={fp.mapValues(v => `calc(100vw - (${v} * 2))`, frameWidths)}
     >
-      <Card
-        width="100%"
-        border={bb.frame}
-      >
+      <Card width="100%" border={bb.frame}>
         <Container>
           <Flex
             flexDirection="column"
