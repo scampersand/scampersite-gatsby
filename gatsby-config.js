@@ -68,5 +68,6 @@ module.exports = {
         trackingId: 'UA-77612407-1',
       },
     },
+    `gatsby-plugin-lodash`,
   ],
 }
