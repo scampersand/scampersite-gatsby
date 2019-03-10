@@ -6,7 +6,7 @@ export const Container = props => (
     mx="auto"
     px={{
       phone: '0.75rem',
-      ipadp: '1rem',
+      ipadp: '1.5rem',
       ipadl: '2rem',
     }}
     maxWidth={{
