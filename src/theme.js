@@ -80,7 +80,7 @@ const baseFontSizes = {
   ipadl: 24,
 }
 const baseLineHeights = {
-  phone: 1.25,
+  phone: 1.3,
 }
 const px = n => isNaN(n) ? n : `${n}px`
 const threeBreakPoints = fp.mapValues(
@@ -98,7 +98,7 @@ export const fs = threeBreakPoints({
   footerText: [16, 18, 18],
   quote: [24, 26, 28],
   serifTitle: [26, 32, 32],
-  lede: [26, 40, 48],
+  lede: [24, 33, 36],
 })
 const fontWeights = {
   normal: 400,

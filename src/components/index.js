@@ -200,7 +200,7 @@ export const Header = props => (
 )
 
 export const Lede = props => (
-  <Text as="p" fontSize={fs.lede} lineHeight="1.125" mb="1em" {...props} />
+  <Text as="p" fontSize={fs.lede} lineHeight="1.15" mb="1.5em" {...props} />
 )
 
 export const H1 = props => (
@@ -208,7 +208,7 @@ export const H1 = props => (
     as="h1"
     variant="titleSans"
     fontSize={fs.sansTitle}
-    mb="0.5em"
+    mb="0.75em"
     {...props}
   />
 )
@@ -218,7 +218,7 @@ export const H2 = props => (
     as="h2"
     variant="titleSerif"
     fontSize={fs.serifTitle}
-    mb="0.5em"
+    mb="0.75em"
     {...props}
   />
 )
@@ -228,7 +228,7 @@ export const H3 = props => (
     as="h3"
     variant="titleSans"
     fontSize={fs.sansTitle}
-    mb="0.5em"
+    mb="0.75em"
     {...props}
   />
 )
