@@ -49,7 +49,10 @@ export const LogoGrid = props => (
           gutter="0.5rem"
           rowGutter="0.5rem"
           colProps={{
-            px: '0.5rem',
+            px: {
+              phone: '0.5rem',
+              ipadl: '0.75rem',
+            },
             py: '1rem',
             css: {backgroundColor: theme.colors.logoBg},
           }}
