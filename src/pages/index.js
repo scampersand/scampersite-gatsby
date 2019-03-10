@@ -48,15 +48,15 @@ const IndexPage = ({
               as={Section.Subsection}
             >
               <Project.Description>
-                Appsembler wanted to know how many learners were actively using
-                their <Link href="open-edx">Open edX</Link> LMS. To
-                give them insight into engagement and customer ROI, we built a
-                secure usage tracker and then backfilled it with historical
-                data. Previously inaccessible information became charts
-                revealing trends and entirely new conversations for the customer
-                success team to pursue. Our work ultimately became the
-                foundation for Appsembler's customer-facing reporting tool,{' '}
-                <Link href="figures">Figures</Link>.
+                Appsembler wanted their customers to know how learners were
+                using their <Link name="open-edx">Open edX</Link> LMS. To
+                give them insight into engagement and ROI, we built
+                a secure usage tracker and backfilled it with historical
+                data. Previously inaccessible info became charts revealing
+                trends and entirely new conversations for the customer
+                success team to pursue. Appsembler used this foundation to
+                build their customer-facing reporting tool,{' '}
+                <Link name="figures">Figures</Link>.
               </Project.Description>
               <Project.Testimonial from="Aaron Beals, VP Engineering at Appsembler">
                 &ldquo;I have to say, the amount you were able to get done with
@@ -73,12 +73,12 @@ const IndexPage = ({
             >
               <Project.Description>
                 Tizra brought in Scampersand to improve the configurability and
-                mobile experience of their Quickstart theme. Our job was to make
-                these improvements on a small budget within an existing
-                codebase. We applied some creative thinking and technical
-                expertise to provide Tizra with a solution that speeds up their
-                onboarding and allows them to pursue scaling their customer
-                base.
+                mobile experience of their Quickstart theme. Our job was to
+                make these improvements on a limited budget within an
+                existing codebase. We applied some creative thinking and
+                technical expertise to provide Tizra with a solution that
+                speeds up their onboarding and helps their customers start
+                publishing more quickly.
               </Project.Description>
             </Project>
 
