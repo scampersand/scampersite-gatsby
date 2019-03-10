@@ -167,6 +167,11 @@ const theme = {
           fontSize: baseFontSizes.ipadp,
         },
       },
+      [mq.ipadl]: {
+        html: {
+          fontSize: baseFontSizes.ipadl,
+        },
+      },
       [mq.laptop]: {
         html: {
           fontSize: baseFontSizes.laptop,
