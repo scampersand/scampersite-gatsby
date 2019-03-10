@@ -9,14 +9,17 @@ Highlight.displayName = 'Highlight'
 
 const Mission = props => {
   const phone = 8.8
-  const ipadl = 7.5
+  const ipadl = 5.0 // random fricking constant
+  const laptop = 7.5
   return (
     <Text
       textAlign="center"
       fontSize={{
         phone: `${phone}vw`,
-        ipadp: `${(768 * phone) / 100}px`,
+        ipadp: `${(768 * phone) / 100}px`, // <-- makes sense!
+        // random garbage calculations
         ipadl: `${(1024 * ipadl) / 100}px`,
+        laptop: `${(1024 * laptop) / 100}px`,
       }}
       lineHeight={1}
       {...props}

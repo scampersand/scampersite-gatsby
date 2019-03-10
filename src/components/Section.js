@@ -8,11 +8,9 @@ export const Section = ({first, ...props}) => {
   const pt = Object.assign(
     {},
     spy.section,
-    first && {phone: 0, ipadp: 0, ipadl: 0, laptop: spy.section.ipadl},
-    props.py,
-    props.pt,
+    first && {phone: 0, ipadp: 0, ipadl: 16, laptop: spy.section.ipadl},
   )
-  return <Box as="section" {...props} pt={pt} />
+  return <Box as="section" pt={pt} pb={spy.section} {...props} />
 }
 
 Section.displayName = 'Section'
