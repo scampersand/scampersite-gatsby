@@ -1,7 +1,7 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
-import {Box, Card, FlexGrid, H2, H3, Image, NamedLink, Text} from '.'
+import {Box, Card, FlexGrid, H2, H3, Image, Link, Text} from '.'
 import {bb, fs} from '../theme'
 
 export const Project = ({
@@ -14,7 +14,7 @@ export const Project = ({
   ...props
 }) => {
   if (link) {
-    title = <NamedLink name={link}>{title}</NamedLink>
+    title = <Link href={link}>{title}</Link>
   }
   return (
     <FlexGrid columns={{phone: 1, ipadl: 5}} gutter="1rem" {...props}>
@@ -87,7 +87,7 @@ Project.Award = ({name, link, ...props}) => {
     </>
   )
   if (link) {
-    content = <NamedLink name={link}>{content}</NamedLink>
+    content = <Link href={link}>{content}</Link>
   }
   return <Box {...props}>{content}</Box>
 }

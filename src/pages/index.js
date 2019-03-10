@@ -8,8 +8,8 @@ import {
   H1,
   Landing,
   Lede,
+  Link,
   LogoGrid,
-  NamedLink,
   Page,
   Project,
   Section,
@@ -49,14 +49,14 @@ const IndexPage = ({
             >
               <Project.Description>
                 Appsembler wanted to know how many learners were actively using
-                their <NamedLink name="open-edx">Open edX</NamedLink> LMS. To
+                their <Link href="open-edx">Open edX</Link> LMS. To
                 give them insight into engagement and customer ROI, we built a
                 secure usage tracker and then backfilled it with historical
                 data. Previously inaccessible information became charts
                 revealing trends and entirely new conversations for the customer
                 success team to pursue. Our work ultimately became the
                 foundation for Appsembler's customer-facing reporting tool,{' '}
-                <NamedLink name="figures">Figures</NamedLink>.
+                <Link href="figures">Figures</Link>.
               </Project.Description>
               <Project.Testimonial from="Aaron Beals, VP Engineering at Appsembler">
                 &ldquo;I have to say, the amount you were able to get done with

@@ -5,24 +5,24 @@ import {
   faLinkedin,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
-import {Container, Flex, InlineList, NamedLink, Slab, Text} from '.'
+import {Container, Flex, InlineList, LinkTo, Slab, Text} from '.'
 import {fs} from '../theme'
 
 const SocialLink = ({icon, ...props}) => (
-  <NamedLink css={{color: 'inherit', textDecoration: 'none'}} {...props}>
+  <LinkTo {...props}>
     <Text fontSize={fs.footerIcon}>
       <FontAwesomeIcon icon={icon} />
     </Text>
-  </NamedLink>
+  </LinkTo>
 )
 
 export const Footer = props => (
   <Slab as="footer" pt="1rem" pb="0.5rem" bg="footer" {...props}>
     <Container as={Flex} flexDirection="column" alignItems="center">
       <InlineList gutter="1.25rem">
-        <SocialLink name="twitter" icon={faTwitter} />
-        <SocialLink name="github" icon={faGithub} />
-        <SocialLink name="linkedin" icon={faLinkedin} />
+        <SocialLink href="twitter" icon={faTwitter} />
+        <SocialLink href="github" icon={faGithub} />
+        <SocialLink href="linkedin" icon={faLinkedin} />
       </InlineList>
       <InlineList gutter="0.25rem" mt="0.5rem">
         <Text variant="titleSans" fontSize={fs.footerLogo} fontWeight="bold" {...props}>

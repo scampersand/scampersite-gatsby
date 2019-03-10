@@ -1,7 +1,7 @@
 import fp from 'lodash/fp'
 import React from 'react'
 import PropTypes from 'prop-types'
-import {FlexGrid, Image, NamedLink} from '.'
+import {FlexGrid, Image, LinkTo} from '.'
 
 class ImageGridImage extends React.Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class ImageGridImage extends React.Component {
       />
     )
     if (link) {
-      image = <NamedLink name={link}>{image}</NamedLink>
+      image = <LinkTo href={link}>{image}</LinkTo>
     }
     return (
       <div css={{height: `${aspectHeight}px`}} ref={this.ref}>
