@@ -13,12 +13,12 @@ import {frameWidths} from '~/components/Landing'
 const ThanksPage = () => (
   <Page title="Thanks!">
     <Container>
-      <Box pt="17.5vh">
+      <Box pt="20.5vh">
         <LinkTo href="/">
           <Header textAlign="center">Scampersand</Header>
         </LinkTo>
       </Box>
-      <Box py="17.5vh">
+      <Box py="6vh">
         <Lede textAlign="center">Thanks! We'll be in touch.</Lede>
       </Box>
     </Container>
