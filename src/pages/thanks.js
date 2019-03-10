@@ -1,4 +1,3 @@
-import fp from 'lodash/fp'
 import React from 'react'
 import {
   Box,
@@ -8,7 +7,6 @@ import {
   LinkTo,
   Page,
 } from '~/components'
-import {frameWidths} from '~/components/Landing'
 
 const ThanksPage = () => (
   <Page title="Thanks!">
