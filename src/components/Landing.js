@@ -88,7 +88,7 @@ export const Landing = () => {
               alignItems="center"
               justifyContent="flex-end"
               pt="12vh"
-              pb="12vh"
+              pb="6vh"
             >
               <Header>Scampersand</Header>
             </Flex>
@@ -98,8 +98,8 @@ export const Landing = () => {
               flexDirection="column"
               alignItems="center"
               justifyContent="flex-start"
-              pt="6vh"
-              pb="18vh"
+              pt="12vh"
+              pb="12vh"
             >
               <Nav />
             </Flex>
