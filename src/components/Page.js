@@ -25,7 +25,12 @@ export const Page = ({keywords, title, ...props}) => (
     <SEO title={title} keywords={keywords} />
     <ThemeProvider theme={theme}>
       <Global styles={theme['global']} />
-      <Flex flexDirection="column" minHeight="100vh" position="relative">
+      <Flex
+        flexDirection="column"
+        minHeight="100vh"
+        position="relative"
+        overflow={'hidden auto' /* for appsembler image */}
+      >
         <Card as="main" role="main" flex="1" {...props} />
         <Bottom>
           <Footer />

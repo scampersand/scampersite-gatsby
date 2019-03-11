@@ -69,7 +69,7 @@ const breakpoints = {
   laptop: '1200px',
   fhd: '1920px',
 }
-const mq = fp.mapValues(v => `@media(min-width: ${v})`, breakpoints)
+export const mq = fp.mapValues(v => `@media(min-width: ${v})`, breakpoints)
 const fonts = {
   sans: 'brother-1816, sans-serif',
   serif: 'mrs-eaves, serif',

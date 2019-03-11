@@ -15,7 +15,7 @@ import {
   Section,
   Slab,
 } from '~/components'
-import {spy} from '../theme'
+import {mq} from '~/theme'
 
 const SectionHeader = ({title, children, ...props}) => (
   <Box {...props}>
@@ -45,6 +45,18 @@ const IndexPage = ({data: {projectImages, clientLogos}}) => {
                 pt: {
                   phone: 16,
                   ipadl: 0,
+                },
+              }}
+              imageProps={{
+                css: {
+                  [mq.ipadl]: {
+                    height: '100%',
+                    overflow: 'visible !important',
+                    img: {
+                      objectPosition: '0 0 !important',
+                      width: 'auto !important',
+                    },
+                  },
                 },
               }}
               link="appsembler"
