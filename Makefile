@@ -1,8 +1,30 @@
+SHELL = /bin/bash
+GHP_REMOTE = git@github.com:scampersand/scampersand.github.io
+NEXT_DEPLOY_DEST = scampersand@carlton.dreamhost.com:next.scampersand.com/
+DREAM_DEPLOY_DEST = scampersand@carlton.dreamhost.com:scampersand.com/
+
 dev:
 	yarn
 	gatsby develop -H $(HOSTNAME)
 
-deploy: images
+build: images
+	npm run build
+
+next: build
+	$(MAKE) _deploy_next
+
+deploy: build
+	$(MAKE) _deploy_dream
+	$(MAKE) _deploy_ghp
+
+_deploy_next:
+	echo 'Disallow: /' >> public/robots.txt
+	rsync -az --exclude=.git --delete-before public/. $(NEXT_DEPLOY_DEST)
+
+_deploy_dream:
+	rsync -az --exclude=.git --delete-before public/. $(DREAM_DEPLOY_DEST)
+
+now: images
 	now --team=scampersand
 	now --team=scampersand alias
 
@@ -53,4 +75,4 @@ src/images/clients/%.png: src/assets/clients/%.svg
 	  convert "$$t" -colorspace Gray -background white -level $(LEVEL)% -trim -negate -alpha Shape $(BLACK_ON_WHITE) $(BORDER) +repage $@ && \
 	  rm -f "$$t"
 
-.PHONY: dev deploy images reimages
+.PHONY: build dev deploy images reimages
