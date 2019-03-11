@@ -24,7 +24,25 @@ _deploy_next:
 _deploy_dream:
 	rsync -az --exclude=.git --delete-before public/. $(DREAM_DEPLOY_DEST)
 
+_deploy_ghp:
+	cd public && \
+	    if [[ ! -d .git ]]; then \
+		git init && \
+		git remote add origin $(GHP_REMOTE); \
+	    fi && \
+	    git fetch --depth=1 origin master && \
+	    git reset origin/master && \
+	    git add -A && \
+	    if git status --porcelain | grep -q .; then \
+		git commit -m deploy; \
+	    fi && \
+	    git branch -u origin/master && \
+	    git push
+
 now: images
+	$(MAKE) _deploy_now
+
+_deploy_now:
 	now --team=scampersand
 	now --team=scampersand alias
 
@@ -75,4 +93,5 @@ src/images/clients/%.png: src/assets/clients/%.svg
 	  convert "$$t" -colorspace Gray -background white -level $(LEVEL)% -trim -negate -alpha Shape $(BLACK_ON_WHITE) $(BORDER) +repage $@ && \
 	  rm -f "$$t"
 
-.PHONY: build dev deploy images reimages
+.PHONY: build dev images reimages
+.PHONY: deploy _deploy_dream _deploy_ghp _deploy_next _deploy_now next now
