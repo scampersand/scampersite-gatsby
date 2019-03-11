@@ -107,6 +107,7 @@ const fontWeights = {
 // These should be calculated from baseFontSize (actually base line-heights)
 export const spy = threeBreakPoints({
   section: [55, 66, 96], // [2.75x, 3x, 4x]
+  subsection: [20, 33, 48], // [1x, 1.5x, 2x]
 })
 const baseColors = {
   greyDk: 'hsla(0, 0%, 0%, 0.8)',

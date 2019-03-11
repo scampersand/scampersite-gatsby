@@ -15,6 +15,6 @@ export const Section = ({first, ...props}) => {
 
 Section.displayName = 'Section'
 
-Section.SubSection = props => <Box py="1rem" {...props} />
+Section.SubSection = props => <Box {...props} />
 
 Section.SubSection.displayName = 'Section.SubSection'

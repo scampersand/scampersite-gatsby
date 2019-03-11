@@ -2,7 +2,7 @@ import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAward} from '@fortawesome/free-solid-svg-icons'
 import {Box, Card, FlexGrid, H2, H3, Image, Link, Text} from '.'
-import {bb, fs} from '../theme'
+import {bb, fs, spy} from '../theme'
 
 export const Project = ({
   title,
@@ -19,7 +19,7 @@ export const Project = ({
     title = <Link href={link}>{title}</Link>
   }
   return (
-    <FlexGrid columns={{phone: 1, ipadl: 5}} gutter="1rem" {...props}>
+    <FlexGrid columns={{phone: 1, ipadl: 5}} gutter="1rem" pt={spy.subsection} {...props}>
       <FlexGrid.Col
         span={{phone: 1, ipadl: 2}}
         order={{phone: 0, ipadl: flip ? 1 : 0}}
