@@ -44,11 +44,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-web-font-loader`,
+      resolve: `gatsby-plugin-adobe-fonts`,
       options: {
-        typekit: {
-          id: `don3dwd`,
-        },
+        id: `don3dwd`,
       },
     },
     `gatsby-plugin-emotion`,

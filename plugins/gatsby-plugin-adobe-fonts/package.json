@@ -1,0 +1,36 @@
+{
+  "name": "gatsby-plugin-adobe-fonts",
+  "description": "Gatsby plugin for Adobe Fonts",
+  "version": "1.0.0",
+  "author": "Aron Griffis <aron@scampersand.com>",
+  "bugs": {
+    "url": "https://github.com/scampersand/gatsby-plugin-adobe-fonts/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "babel-preset-gatsby-package": "^0.1.4",
+    "cross-env": "^5.1.4"
+  },
+  "homepage": "https://github.com/scampersand/gatsby-plugin-adobe-fonts",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "adobe",
+    "fonts"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "peerDependencies": {
+    "gatsby": "^2.0.0"
+  },
+  "repository": "https://github.com/scampersand/gatsby-plugin-adobe-fonts",
+  "scripts": {
+    "build": "babel src --out-dir . --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore **/__tests__"
+  }
+}
