@@ -17,7 +17,7 @@ module.exports = {
       {name: 'appsembler', href: 'https://appsembler.com'},
       {name: 'codie', href: 'https://www.siia.net/codie/'},
       {name: 'einstein', href: 'https://einsteinpapers.press.princeton.edu'},
-      {name: 'figures', href: 'https://www.appsembler.com/blog/an-inside-look-at-figures-a-better-way-to-measure-course-performance-in-open-edx/'},
+      {name: 'figures', href: 'https://appsembler.com/blog/figures/'},
       {name: 'gw', href: 'https://www.g-w.com'},
       {name: 'open-edx', href: 'https://open.edx.org'},
       {name: 'princeton-university-press', href: 'https://press.princeton.edu'},
