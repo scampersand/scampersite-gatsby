@@ -78,58 +78,76 @@ const Nav = props => (
   </InlineList>
 )
 
-export const Landing = () => {
-  const frameWidths = fp.mapValues(v => v.replace(/ .*/, ''), bb.frame)
-  const minHeights = fp.mapValues(v => `calc(100vh - (${v} * 4))`, frameWidths)
-  return (
-    <Card
-      minHeight="100vh"
-      mx="auto"
-      py={frameWidths}
-      width={fp.mapValues(v => `calc(100vw - (${v} * 2))`, frameWidths)}
-    >
-      <Card width="100%" border={bb.frame}>
-        <Container>
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            minHeight={{
-              ...minHeights,
-              // These overrides compensate for the top and bottom bars on
-              // mobile devices that intrude on 100vh. These are
-              // hand-picked values from testing on Android/iPhone/iPad.
-              phone: '80vh',
-              ipadp: '88vh',
-              ipadl: '75vh',
-              // Restore the largest entry from minHeights at laptop size,
-              // since we can trust 100vh there.
-              laptop: minHeights.ipadl,
-            }}
-          >
+export class Landing extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {mobile: null}
+  }
+
+  componentDidMount() {
+    const m = window.navigator.userAgent.match(
+      /Android(?=.*Mobile)|iPhone|iPad/,
+    )
+    this.setState({
+      mobile: m && m[0],
+    })
+  }
+
+  render() {
+    const frameWidths = fp.mapValues(v => v.replace(/ .*/, ''), bb.frame)
+    let minHeights = fp.mapValues(v => `calc(100vh - (${v} * 4))`, frameWidths)
+
+    // These overrides compensate for the top and bottom bars on mobile
+    // devices that intrude on 100vh. These are hand-picked values from
+    // testing on Android/iPhone/iPad.
+    switch (this.state.mobile) {
+      case 'Android':
+        minHeights = {
+          ...minHeights,
+          phone: '85vh',
+        }
+        break
+      case 'iPhone':
+        minHeights = {
+          ...minHeights,
+          phone: '80vh',
+        }
+        break
+      case 'iPad':
+        minHeights = {
+          ...minHeights,
+          ipadp: '88vh',
+          ipadl: '75vh',
+        }
+        break
+      default:
+        // laptop etc.
+    }
+
+    return (
+      <Card
+        minHeight="100vh"
+        mx="auto"
+        py={frameWidths}
+        width={fp.mapValues(v => `calc(100vw - (${v} * 2))`, frameWidths)}
+      >
+        <Card width="100%" border={bb.frame}>
+          <Container>
             <Flex
-              flex="1"
               flexDirection="column"
               alignItems="center"
-              justifyContent="flex-end"
-              pt="12vh"
-              pb="6vh"
+              justifyContent="center"
+              minHeight={minHeights}
             >
-              <Header>Scampersand</Header>
+              <Header pt="1.7em" pb="6vh">
+                Scampersand
+              </Header>
+              <Mission />
+              <Nav pt="12vh" pb="1.7em" />
             </Flex>
-            <Mission />
-            <Flex
-              flex="1"
-              flexDirection="column"
-              alignItems="center"
-              justifyContent="flex-start"
-              pt="12vh"
-              pb="12vh"
-            >
-              <Nav />
-            </Flex>
-          </Flex>
-        </Container>
+          </Container>
+        </Card>
       </Card>
-    </Card>
-  )
+    )
+  }
 }
