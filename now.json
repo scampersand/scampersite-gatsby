@@ -1,7 +1,8 @@
 {
   "version": 2,
+  "scope": "scampersand",
   "name": "scampersite",
-  "alias": ["scampersite", "scampersand.com"],
+  "alias": ["scampersand.com"],
   "builds": [
     {
       "src": "package.json",

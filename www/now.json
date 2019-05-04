@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "scope": "scampersand",
+  "name": "scampersite-www",
+  "alias": ["www.scampersand.com"],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "status": 301,
+      "headers": {"Location": "https://scampersand.com/$1"}
+    }
+  ]
+}
