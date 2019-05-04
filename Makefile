@@ -43,8 +43,7 @@ now: images
 	$(MAKE) _deploy_now
 
 _deploy_now:
-	now --team=scampersand
-	now --team=scampersand alias
+	now --scope=scampersand --target=production
 
 # pngs are converted directly
 IMAGES = $(patsubst src/assets/%,src/images/%,$(shell find src/assets -name '*.png'))
