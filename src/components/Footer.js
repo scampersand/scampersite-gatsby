@@ -32,7 +32,7 @@ export const Footer = props => (
           {'//'}
         </Text>
         <Text fontSize={fs.footerText} {...props}>
-          Providence, Rhode Island
+          Ann Arbor, Michigan
         </Text>
       </InlineList>
     </Container>
