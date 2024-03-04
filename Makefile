@@ -1,28 +1,15 @@
 SHELL = /bin/bash
 GHP_REMOTE = git@github.com:scampersand/scampersand.github.io
-NEXT_DEPLOY_DEST = scampersand@carlton.dreamhost.com:next.scampersand.com/
-DREAM_DEPLOY_DEST = scampersand@carlton.dreamhost.com:scampersand.com/
 
 dev:
 	yarn
 	gatsby develop -H $(HOSTNAME)
 
 build: images
-	npm run build
-
-next: build
-	$(MAKE) _deploy_next
+	yarn build
 
 deploy: build
-	$(MAKE) _deploy_dream
 	$(MAKE) _deploy_ghp
-
-_deploy_next:
-	echo 'Disallow: /' >> public/robots.txt
-	rsync -az --exclude=.git --delete-before public/. $(NEXT_DEPLOY_DEST)
-
-_deploy_dream:
-	rsync -az --exclude=.git --delete-before public/. $(DREAM_DEPLOY_DEST)
 
 _deploy_ghp:
 	cd public && \
@@ -38,12 +25,6 @@ _deploy_ghp:
 	    fi && \
 	    git branch -u origin/master && \
 	    git push
-
-now: images
-	$(MAKE) _deploy_now
-
-_deploy_now:
-	now --target=production
 
 # pngs are converted directly
 IMAGES = $(patsubst src/assets/%,src/images/%,$(shell find src/assets -name '*.png'))
@@ -93,4 +74,4 @@ src/images/clients/%.png: src/assets/clients/%.svg
 	  rm -f "$$t"
 
 .PHONY: build dev images reimages
-.PHONY: deploy _deploy_dream _deploy_ghp _deploy_next _deploy_now next now
+.PHONY: deploy _deploy_ghp
